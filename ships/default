@@ -1,0 +1,24 @@
+# default ship, kinda demo thing
+
+# 33x10
+
+NAME=Wolfheze
+
+TEX=ships/default.png
+
+HP=100
+CANNON
+# top cannons
+-12,4,0,60
+0,4,0,60
+# left cannon
+-16,-2,-90,60
+# bottom cannon
+11,-5,-180,60
+# right cannon
+16,-2,90,60
+
+THRUSTER
+-13, 5, DOWN, 1
+-9, 5, DOWN, 1
+-5, 5, DOWN, 1

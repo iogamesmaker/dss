@@ -12,7 +12,7 @@ SoundManager::~SoundManager()
 void SoundManager::init()
 {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {std::cout << "SDL_mixer initialization blew its speakers up: " << Mix_GetError() << std::endl;}
-    if (!(Mix_Init(MIX_INIT_FLAC) & MIX_INIT_FLAC)) {std::cout << "SDL_mixer FLAC initialization failed (no support?? noob): " << Mix_GetError() << std::endl;}
+    // if (!(Mix_Init(MIX_INIT_FLAC) & MIX_INIT_FLAC)) {std::cout << "SDL_mixer FLAC initialization failed (no support?? noob): " << Mix_GetError() << std::endl;}
 }
 
 void SoundManager::loadSound(const char* path, int index)

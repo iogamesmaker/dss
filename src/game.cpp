@@ -62,7 +62,7 @@ void Game::init(const char* title, int width, int height)
 
     SM->loadSound("assets/sound/button.wav", 0);
     SM->loadSound("assets/sound/start.wav", 1);
-    SM->loadMusic("assets/sound/music/menu.flac", 0);
+    SM->loadMusic("assets/sound/music/menu.mp3", 0);
 
     SM->playMusic(0, true);
     SM->playSound(1);

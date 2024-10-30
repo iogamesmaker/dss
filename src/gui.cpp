@@ -25,19 +25,19 @@ void GUIManager::renderInventory(int invSlots) {
 
     renderCustomPopup(rect, 0);
 
-    TE->renderText( // text
-        "Inventory",
-        -146, -89,
-        SDL_Color{99, 155, 255},
-        1
-    );
+    // TE->renderText( // text
+    //     "Inventory",
+    //     -146, -89,
+    //     SDL_Color{99, 155, 255},
+    //     1
+    // );
 
-    TE->renderText( // money display, named dogshit
-        "dogshit: " + std::to_string(IM->getMoney(0)),
-        -146, -80,
-        SDL_Color{99, 155, 255},
-        0
-    );
+    // TE->renderText( // money display, named dogshit
+    //     "dogshit: " + std::to_string(IM->getMoney(0)),
+    //     -146, -80,
+    //     SDL_Color{99, 155, 255},
+    //     0
+    // );
 
     rect.x = -147; // first slot
     rect.y = -72;

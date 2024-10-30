@@ -54,8 +54,8 @@ void Game::init(const char* title, int width, int height)
 
     state = 0;
 
-    TE->loadFont("assets/fonts/small.png", 0, 3, 5, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
-    TE->loadFont("assets/fonts/default.png", 1, 6, 8, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
+    // TE->loadFont("assets/fonts/small.png", 0, 3, 5, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
+    // TE->loadFont("assets/fonts/default.png", 1, 6, 8, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
     cursor = TM->returnTexture("assets/sprite/cursor.png");
 
     TM->unloadAllTextures();
@@ -198,14 +198,14 @@ void Game::switchToMainMenu()
         TM->returnTexture("assets/sprite/menu/button/quit-selected.png"),
         0, 32, std::bind(&Game::stop, game), 2
     );
-    GUI->addText(
-        "holy shit you can't do anyitnhg 10/10!!",
-        -160,
-        92,
-        0,
-        SDL_Color{128, 128, 128},
-        3
-    );
+    // GUI->addText(
+    //     "holy shit you can't do anyitnhg 10/10!!",
+    //     -160,
+    //     92,
+    //     0,
+    //     SDL_Color{128, 128, 128},
+    //     3
+    // );
 }
 
 void Game::switchToNewMenu()
@@ -220,14 +220,14 @@ void Game::switchToNewMenu()
         TM->returnTexture("assets/sprite/menu/button/x-selected.png"),
         140, -83, std::bind(&Game::switchToMainMenu, game), 2
     );
-    GUI->addText(
-        "Create a ship",
-        -143,
-        -86,
-        1,
-        SDL_Color{99, 155, 255},
-        3
-    );
+    // GUI->addText(
+    //     "Create a ship",
+    //     -143,
+    //     -86,
+    //     1,
+    //     SDL_Color{99, 155, 255},
+    //     3
+    // );
     GUI->addButton(
         TM->returnTexture("assets/sprite/menu/button/launch.png"),
         TM->returnTexture("assets/sprite/menu/button/launch-selected.png"),

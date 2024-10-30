@@ -78,7 +78,6 @@ void TextEngine::renderText(const std::string& text, int x, int y, SDL_Color col
 
 }
 
-
 void TextEngine::unloadFont(int index)
 {
     SDL_DestroyTexture(loadedFonts[index]);

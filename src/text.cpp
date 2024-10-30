@@ -18,7 +18,7 @@ void TextEngine::loadFont(const char* path, int index, int fontW, int fontH, std
 
     SDL_Rect temprect;
 
-    SDL_QueryTexture(loadedFonts[index], NULL, NULL, &temprect.x, &temprect.y);
+    SDL_QueryTexture(loadedFonts[index], nullptr, nullptr, &temprect.x, &temprect.y);
 
     temprect.w = fontW;
     temprect.h = fontH;
@@ -82,7 +82,7 @@ void TextEngine::renderText(const std::string& text, int x, int y, SDL_Color col
 void TextEngine::unloadFont(int index)
 {
     SDL_DestroyTexture(loadedFonts[index]);
-    loadedFonts[index] = NULL;
+    loadedFonts[index] = nullptr;
     fontRects[index] = SDL_Rect{0, 0, 0, 0};
 }
 

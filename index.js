@@ -35,7 +35,7 @@ if (ENVIRONMENT_IS_NODE) {}
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpu5ikb3uz.js
+// include: /tmp/tmpo7favhew.js
 if (!Module["expectedDataFileDownloads"]) {
   Module["expectedDataFileDownloads"] = 0;
 }
@@ -396,23 +396,23 @@ Module["expectedDataFileDownloads"]++;
   });
 })();
 
-// end include: /tmp/tmpu5ikb3uz.js
-// include: /tmp/tmppuufw80k.js
+// end include: /tmp/tmpo7favhew.js
+// include: /tmp/tmpfl2gz1ta.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if (Module["$ww"] || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: /tmp/tmppuufw80k.js
-// include: /tmp/tmp4pgnifh_.js
+// end include: /tmp/tmpfl2gz1ta.js
+// include: /tmp/tmpc7h9l5qq.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: /tmp/tmp4pgnifh_.js
+// end include: /tmp/tmpc7h9l5qq.js
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
 // we collect those properties and reapply _after_ we configure
@@ -483,7 +483,6 @@ if (ENVIRONMENT_IS_NODE) {
   }
   quit_ = (status, toThrow) => {
     process.exitCode = status;
-    console.log(toThrow);
     throw toThrow;
   };
 } else if (ENVIRONMENT_IS_SHELL) {
@@ -9710,11 +9709,6 @@ var _emscripten_set_keypress_callback_on_thread = (target, userData, useCapture,
 
 var _emscripten_set_keyup_callback_on_thread = (target, userData, useCapture, callbackfunc, targetThread) => registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
 
-var _emscripten_set_main_loop = (func, fps, simulateInfiniteLoop) => {
-  var browserIterationFunc = (() => dynCall_v(func));
-  setMainLoop(browserIterationFunc, fps, simulateInfiniteLoop);
-};
-
 var fillMouseEventData = (eventStruct, e, target) => {
   assert(eventStruct % 4 == 0);
   _asan_js_store_d(((eventStruct) >> 3), e.timeStamp);
@@ -10841,7 +10835,6 @@ var wasmImports = {
   /** @export */ emscripten_set_keydown_callback_on_thread: _emscripten_set_keydown_callback_on_thread,
   /** @export */ emscripten_set_keypress_callback_on_thread: _emscripten_set_keypress_callback_on_thread,
   /** @export */ emscripten_set_keyup_callback_on_thread: _emscripten_set_keyup_callback_on_thread,
-  /** @export */ emscripten_set_main_loop: _emscripten_set_main_loop,
   /** @export */ emscripten_set_mousedown_callback_on_thread: _emscripten_set_mousedown_callback_on_thread,
   /** @export */ emscripten_set_mouseenter_callback_on_thread: _emscripten_set_mouseenter_callback_on_thread,
   /** @export */ emscripten_set_mouseleave_callback_on_thread: _emscripten_set_mouseleave_callback_on_thread,

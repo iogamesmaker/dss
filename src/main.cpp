@@ -1,4 +1,4 @@
-// #define WEB // uncomment for wasm building
+#define WEB // uncomment for wasm building
 
 // Program 100% written in the default KDE Plasma editor, using the "Comic Mono" font, with light mode.
 // about 3% of code is commented, nice
@@ -26,14 +26,17 @@ ItemManager* IM = nullptr;
 // i don't think this error is true, because what the fuck
 
 // ok got it to not have those errors yippie
-// but of course, tons of js errors
+// but of course, tons of js errorsU
 
 #ifdef WEB
 void gameLoop() {
+
     game->render();
+
     if(!game->running()) {
         emscripten_cancel_main_loop();
     }
+
 }
 #endif
 

@@ -235,7 +235,7 @@ void GUIManager::addButton(SDL_Texture* button, SDL_Texture* selected, int x, in
     tempButton.a = button;
     tempButton.b = selected;
     int tw, th;
-    SDL_QueryTexture(button, NULL, NULL, &tw, &th);
+    SDL_QueryTexture(button, nullptr, nullptr, &tw, &th);
     tempButton.rect = SDL_Rect{x, y, tw, th};
     tempButton.func = function;
 

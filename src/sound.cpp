@@ -24,7 +24,9 @@ void SoundManager::loadSound(const char* path, int index)
     if (loadedSounds.at(index) != nullptr) {
         unloadSound(index);
     }
+
     Mix_Chunk* sound = Mix_LoadWAV(path);
+
     if (!sound) {std::cout << "sound file said nuh uh: " << Mix_GetError() << std::endl;return;}
 
     loadedSounds[index] = sound;
@@ -41,6 +43,7 @@ void SoundManager::loadMusic(const char* path, int index)
     }
 
     Mix_Music* music = Mix_LoadMUS(path);
+
     if (!music) {std::cout << "flac file exploded: " << Mix_GetError() << std::endl;return;}
 
     loadedMusic[index] = music;

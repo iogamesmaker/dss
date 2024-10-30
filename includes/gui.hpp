@@ -23,7 +23,7 @@ public:
     void unloadAllElements();
 private:
     SDL_Renderer* renderer;
-    SDL_Texture* popuptexture = TM->returnTexture("sprite/menu/popup.png");
+    SDL_Texture* popuptexture;
 
     std::vector<SDL_Rect> popups;
 

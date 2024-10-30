@@ -4,7 +4,7 @@ TextureManager::TextureManager(SDL_Renderer* mainRenderer)
 {
     renderer = mainRenderer;
 
-    rustTexture = returnTexture("sprite/rust.png");
+    rustTexture = returnTexture("assets/sprite/rust.png");
 }
 TextureManager::~TextureManager(){unloadAllTextures();}
 
@@ -59,11 +59,7 @@ SDL_Rect TextureManager::rectOffset(int index, float offsetX, float offsetY) {
 
 void TextureManager::loadTexture(const char* path, int index)
 {
-#ifdef WEB
-    SDL_Surface* tempSurface = IMG_Load("iogamesplayer.com/deepspacestarships/" + path);
-#else
     SDL_Surface* tempSurface = IMG_Load(path);
-#endif
 
     if(tempSurface == NULL) {std::cout << "texture didn't load ): (try running the executable from the install folder): " << SDL_GetError() << std::endl;}
     SDL_Texture* temptexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
@@ -88,13 +84,9 @@ void TextureManager::loadTexture(const char* path, int index)
 
 SDL_Texture* TextureManager::returnTexture(const char* path)
 {
-#ifdef WEB
-    SDL_Surface* tempSurface = IMG_Load("iogamesplayer.com/deepspacestarships/" + path);
-#else
     SDL_Surface* tempSurface = IMG_Load(path);
-#endif
 
-    if(tempSurface == NULL) {std::cout << "texture didn't load ): (try running the executable from the install folder): " << SDL_GetError() << std::endl;}
+    if(tempSurface == NULL) {std::cout << "texture didn't load/return ): (try running the executable from the install folder): " << SDL_GetError() << std::endl;}
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
     if(!texture) {std::cout << "texture loading said kaboom: " << SDL_GetError() << std::endl;}
 

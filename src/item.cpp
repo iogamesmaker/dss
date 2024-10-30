@@ -1,7 +1,7 @@
 #include "game.hpp"
 
 ItemManager::ItemManager() {
-    loadItems("sprite/items/items");
+    loadItems("assets/items/items");
     money.push_back(0);
 }
 

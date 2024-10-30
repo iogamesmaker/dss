@@ -1,0 +1,7 @@
+# items
+Fuel, 1, sprite/items/fuel.png, 4
+# name: Fuel
+# ID: 1
+# path: sprite/items/fuel.png
+# Stack Multiplier: 4
+# ---

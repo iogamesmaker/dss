@@ -8,7 +8,7 @@ public:
     void loadItems(const std::string& path);
 
     int getMoney(int index) {return money[index];}
-    bool increaseMoney(int index, int amount) {if(money[index] - amount >= 0) {money[index] -= amount; return true;}}
+    bool increaseMoney(int index, int amount) {if(money[index] - amount >= 0) {money[index] -= amount; return true;} else {return false;}}
 private:
     struct Item {
         int id = -1;

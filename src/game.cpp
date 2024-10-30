@@ -8,7 +8,7 @@ Game::~Game()
 
 void Game::init(const char* title, int width, int height)
 {
-    if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {std::cout << "sdl init exploded: " << SDL_GetError() << std::endl;}
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {std::cout << "sdl init exploded: " << SDL_GetError() << std::endl;}
 
 #ifdef WEB
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
@@ -46,23 +46,23 @@ void Game::init(const char* title, int width, int height)
 
     state = 0;
 
-    TE->loadFont("sprite/fonts/small.png", 0, 3, 5, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
-    TE->loadFont("sprite/fonts/default.png", 1, 6, 8, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
-    cursor = TM->returnTexture("sprite/cursor.png");
+    TE->loadFont("assets/fonts/small.png", 0, 3, 5, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
+    TE->loadFont("assets/fonts/default.png", 1, 6, 8, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$()[]<>={}+*%/\\&-_'\":;,.`~^ ");
+    cursor = TM->returnTexture("assets/sprite/cursor.png");
 
     TM->unloadAllTextures();
 
 
-    TM->loadTexture("sprite/menu/splash.png", 0);
+    TM->loadTexture("assets/sprite/menu/splash.png", 0);
 
-    TM->loadTexture("sprite/menu/starship.png", 1);
-    TM->loadTexture("sprite/menu/starships.png", 2);
+    TM->loadTexture("assets/sprite/menu/starship.png", 1);
+    TM->loadTexture("assets/sprite/menu/starships.png", 2);
 
     TM->updateRects();
 
-    SM->loadSound("sound/button.wav", 0);
-    SM->loadSound("sound/start.wav", 1);
-    SM->loadMusic("sound/music/menu.flac", 0);
+    SM->loadSound("assets/sound/button.wav", 0);
+    SM->loadSound("assets/sound/start.wav", 1);
+    SM->loadMusic("assets/sound/music/menu.flac", 0);
 
     SM->playMusic(0, true);
     SM->playSound(1);
@@ -176,18 +176,18 @@ void Game::switchToMainMenu()
     GUI->unloadAllElements();
 
     GUI->addButton(
-        TM->returnTexture("sprite/menu/button/new.png"),
-        TM->returnTexture("sprite/menu/button/new-selected.png"),
+        TM->returnTexture("assets/sprite/menu/button/new.png"),
+        TM->returnTexture("assets/sprite/menu/button/new-selected.png"),
         0, -20, std::bind(&Game::switchToNewMenu, game), 0
     );
     GUI->addButton(
-        TM->returnTexture("sprite/menu/button/load.png"),
-        TM->returnTexture("sprite/menu/button/load-selected.png"),
+        TM->returnTexture("assets/sprite/menu/button/load.png"),
+        TM->returnTexture("assets/sprite/menu/button/load-selected.png"),
         0, 6, nullptr, 1
     );
     GUI->addButton(
-        TM->returnTexture("sprite/menu/button/quit.png"),
-        TM->returnTexture("sprite/menu/button/quit-selected.png"),
+        TM->returnTexture("assets/sprite/menu/button/quit.png"),
+        TM->returnTexture("assets/sprite/menu/button/quit-selected.png"),
         0, 32, std::bind(&Game::stop, game), 2
     );
     GUI->addText(
@@ -208,8 +208,8 @@ void Game::switchToNewMenu()
 
     GUI->addPopup({-150, -92, 300, 184}, 0);
     GUI->addButton(
-        TM->returnTexture("sprite/menu/button/x.png"),
-        TM->returnTexture("sprite/menu/button/x-selected.png"),
+        TM->returnTexture("assets/sprite/menu/button/x.png"),
+        TM->returnTexture("assets/sprite/menu/button/x-selected.png"),
         140, -83, std::bind(&Game::switchToMainMenu, game), 2
     );
     GUI->addText(
@@ -221,8 +221,8 @@ void Game::switchToNewMenu()
         3
     );
     GUI->addButton(
-        TM->returnTexture("sprite/menu/button/launch.png"),
-        TM->returnTexture("sprite/menu/button/launch-selected.png"),
+        TM->returnTexture("assets/sprite/menu/button/launch.png"),
+        TM->returnTexture("assets/sprite/menu/button/launch-selected.png"),
         103, 76, std::bind(&Game::switchToGame, game), 4
     );
 }

@@ -3,17 +3,17 @@
 Stars::Stars()
 {
     // load all star textures into my cool vector array
-    starTexture.push_back(TM->returnTexture("sprite/stars/star1.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star2.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star3.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star4.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star5.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star6.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star7.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star8.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star9.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star10.png"));
-    starTexture.push_back(TM->returnTexture("sprite/stars/star11.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star1.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star2.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star3.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star4.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star5.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star6.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star7.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star8.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star9.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star10.png"));
+    starTexture.push_back(TM->returnTexture("assets/sprite/stars/star11.png"));
 
     regenerateStars(); // generate all stars
 }

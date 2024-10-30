@@ -3,7 +3,9 @@
  // all is instanced except for the inventory
 
 
-GUIManager::GUIManager() {}
+GUIManager::GUIManager() {
+    popuptexture = TM->returnTexture("assets/sprite/menu/popup.png");
+}
 
 GUIManager::~GUIManager() {
     SDL_DestroyTexture(popuptexture);
@@ -201,7 +203,7 @@ void GUIManager::renderCustomPopup(SDL_Rect popup, int type) // Next step: fix p
 
     popup = TM->customRectOffset(popup, popup.x, popup.y);
 
-    std::cout << popup.x << ", " << popup.y << ", " << oldPopup.w << ", " << oldPopup.h << std::endl;
+    // std::cout << popup.x << ", " << popup.y << ", " << oldPopup.w << ", " << oldPopup.h << std::endl;
 
     TM->renderCustom(TM->returnRustTexture(), oldPopup, popup);
 

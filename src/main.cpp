@@ -1,4 +1,4 @@
- #define WEB // uncomment for wasm building
+#define WEB // uncomment for wasm building
 
 // Program 100% written in the default KDE Plasma editor, using the "Comic Mono" font, with light mode.
 // about 3% of code is commented, nice
@@ -19,13 +19,11 @@ ItemManager* IM = nullptr;
 // half-broken emscripten shit, game doesn't work because browsers don't support all the shit I'm using:
 // No flac audio support
 // No PNG support?!?!??!! what the fuck
-// SDL not built with haptic force?????????????????????? okay
 
 // probably will try and fix this
 // potential fixes:
 // use mp3
 // i don't think this error is true, because what the fuck
-// disable haptic force shit, why does SDL2 have that anyway i'm not gonna make a mobile app wtf
 
 #ifdef WEB
 void gameLoop() {

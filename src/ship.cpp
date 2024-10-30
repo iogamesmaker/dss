@@ -2,9 +2,9 @@
 
 Ships::Ships()
 {
-    loadShip("ships/default");
-    cannonTexture = TM->returnTexture("ships/cannon.png");
-    thrusterTexture = TM->returnTexture("ships/thruster.png");
+    loadShip("assets/ships/default");
+    cannonTexture = TM->returnTexture("assets/sprite/cannon.png");
+    thrusterTexture = TM->returnTexture("assets/sprite/thruster.png");
 }
 Ships::~Ships(){}
 
@@ -14,11 +14,12 @@ void Ships::loadShip(const std::string path)
     tempShip.tex = nullptr;
 
     std::string file;
+
     std::ifstream inputFile(path);
 
     if (!inputFile.is_open())
     {
-        std::cout << "file " << path << " didn't wanna be opened";
+        std::cout << "file " << path << " didn't wanna be opened" << std::endl;
         return;
     }
 

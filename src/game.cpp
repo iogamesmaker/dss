@@ -28,8 +28,13 @@ void Game::init(const char* title, int width, int height)
     isRunning = true;
 
     SDL_SetWindowMinimumSize(window, 320, 200);
+    int width, height;
+#ifdef WEB
+    emscripten_get_screen_size(&width, &height);
+#else
     SDL_SetWindowMaximumSize(window, displayMode.w, displayMode.h);
     SDL_SetWindowSize(window, displayMode.w, displayMode.h);
+#endif
 
     SDL_ShowCursor(SDL_DISABLE);
 

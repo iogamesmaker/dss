@@ -6,9 +6,9 @@ em++ ./src/*.cpp \
     -s USE_SDL_MIXER=2 \
     -s SDL2_MIXER_FORMATS='["wav", "mp3"]' \
     -s NO_EMSCRIPTEN_TRACING=1 \
-    -s SAFE_HEAP=1 \
     -s INITIAL_MEMORY=512MB \
     -s ASYNCIFY  \
+    -fsanitize=address \
     -g \
     --preload-file assets \
     -o index.html

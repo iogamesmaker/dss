@@ -1,4 +1,4 @@
-// #define WEB // uncomment for wasm building
+#define WEB // uncomment for wasm building
 
 // Program 100% written in the default KDE Plasma editor, using the "Comic Mono" font, with light mode.
 // about 3% of code is commented, nice

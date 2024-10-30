@@ -35,7 +35,7 @@ if (ENVIRONMENT_IS_NODE) {}
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp47t9b8m0.js
+// include: /tmp/tmp6go7sjms.js
 if (!Module["expectedDataFileDownloads"]) {
   Module["expectedDataFileDownloads"] = 0;
 }
@@ -256,215 +256,163 @@ Module["expectedDataFileDownloads"]++;
       "end": 5129654,
       "audio": 1
     }, {
-      "filename": "/assets/sprite/cannon.aseprite",
-      "start": 5129654,
-      "end": 5130023
-    }, {
       "filename": "/assets/sprite/cannon.png",
-      "start": 5130023,
-      "end": 5130291
+      "start": 5129654,
+      "end": 5129922
     }, {
       "filename": "/assets/sprite/cursor.png",
-      "start": 5130291,
-      "end": 5130586
+      "start": 5129922,
+      "end": 5130217
     }, {
       "filename": "/assets/sprite/items/fuel.aseprite",
-      "start": 5130586,
-      "end": 5130974
+      "start": 5130217,
+      "end": 5130605
     }, {
       "filename": "/assets/sprite/items/fuel.png",
-      "start": 5130974,
-      "end": 5131264
+      "start": 5130605,
+      "end": 5130895
     }, {
       "filename": "/assets/sprite/items/items",
-      "start": 5131264,
-      "end": 5131385
-    }, {
-      "filename": "/assets/sprite/menu/button/launch-selected.aseprite",
-      "start": 5131385,
-      "end": 5132092
+      "start": 5130895,
+      "end": 5131016
     }, {
       "filename": "/assets/sprite/menu/button/launch-selected.png",
-      "start": 5132092,
-      "end": 5132707
-    }, {
-      "filename": "/assets/sprite/menu/button/launch.aseprite",
-      "start": 5132707,
-      "end": 5133414
+      "start": 5131016,
+      "end": 5131631
     }, {
       "filename": "/assets/sprite/menu/button/launch.png",
-      "start": 5133414,
-      "end": 5134029
-    }, {
-      "filename": "/assets/sprite/menu/button/load-selected.aseprite",
-      "start": 5134029,
-      "end": 5134610
+      "start": 5131631,
+      "end": 5132246
     }, {
       "filename": "/assets/sprite/menu/button/load-selected.png",
-      "start": 5134610,
-      "end": 5135093
-    }, {
-      "filename": "/assets/sprite/menu/button/load.aseprite",
-      "start": 5135093,
-      "end": 5135666
+      "start": 5132246,
+      "end": 5132729
     }, {
       "filename": "/assets/sprite/menu/button/load.png",
-      "start": 5135666,
-      "end": 5136140
-    }, {
-      "filename": "/assets/sprite/menu/button/new-selected.aseprite",
-      "start": 5136140,
-      "end": 5136772
+      "start": 5132729,
+      "end": 5133203
     }, {
       "filename": "/assets/sprite/menu/button/new-selected.png",
-      "start": 5136772,
-      "end": 5137308
-    }, {
-      "filename": "/assets/sprite/menu/button/new.aseprite",
-      "start": 5137308,
-      "end": 5137942
+      "start": 5133203,
+      "end": 5133739
     }, {
       "filename": "/assets/sprite/menu/button/new.png",
-      "start": 5137942,
-      "end": 5138478
-    }, {
-      "filename": "/assets/sprite/menu/button/quit-selected.aseprite",
-      "start": 5138478,
-      "end": 5139100
+      "start": 5133739,
+      "end": 5134275
     }, {
       "filename": "/assets/sprite/menu/button/quit-selected.png",
-      "start": 5139100,
-      "end": 5139628
-    }, {
-      "filename": "/assets/sprite/menu/button/quit.aseprite",
-      "start": 5139628,
-      "end": 5140251
+      "start": 5134275,
+      "end": 5134803
     }, {
       "filename": "/assets/sprite/menu/button/quit.png",
-      "start": 5140251,
-      "end": 5140781
+      "start": 5134803,
+      "end": 5135333
     }, {
       "filename": "/assets/sprite/menu/button/x-selected.png",
-      "start": 5140781,
-      "end": 5141083
-    }, {
-      "filename": "/assets/sprite/menu/button/x.aseprite",
-      "start": 5141083,
-      "end": 5141487
+      "start": 5135333,
+      "end": 5135635
     }, {
       "filename": "/assets/sprite/menu/button/x.png",
-      "start": 5141487,
-      "end": 5141789
+      "start": 5135635,
+      "end": 5135937
     }, {
       "filename": "/assets/sprite/menu/popup.png",
-      "start": 5141789,
-      "end": 5142055
+      "start": 5135937,
+      "end": 5136203
     }, {
       "filename": "/assets/sprite/menu/splash.png",
-      "start": 5142055,
-      "end": 5142860
+      "start": 5136203,
+      "end": 5137008
     }, {
       "filename": "/assets/sprite/menu/starship.png",
-      "start": 5142860,
-      "end": 5143310
-    }, {
-      "filename": "/assets/sprite/menu/starships.aseprite",
-      "start": 5143310,
-      "end": 5143908
+      "start": 5137008,
+      "end": 5137458
     }, {
       "filename": "/assets/sprite/menu/starships.png",
-      "start": 5143908,
-      "end": 5144345
+      "start": 5137458,
+      "end": 5137895
     }, {
       "filename": "/assets/sprite/rust.aseprite",
-      "start": 5144345,
-      "end": 5148316
+      "start": 5137895,
+      "end": 5141866
     }, {
       "filename": "/assets/sprite/rust.png",
-      "start": 5148316,
-      "end": 5152382
+      "start": 5141866,
+      "end": 5145932
     }, {
       "filename": "/assets/sprite/stars/star1.png",
-      "start": 5152382,
-      "end": 5152657
+      "start": 5145932,
+      "end": 5146207
     }, {
       "filename": "/assets/sprite/stars/star10.png",
-      "start": 5152657,
-      "end": 5152941
+      "start": 5146207,
+      "end": 5146491
     }, {
       "filename": "/assets/sprite/stars/star11.png",
-      "start": 5152941,
-      "end": 5153252
+      "start": 5146491,
+      "end": 5146802
     }, {
       "filename": "/assets/sprite/stars/star2.png",
-      "start": 5153252,
-      "end": 5153550
+      "start": 5146802,
+      "end": 5147100
     }, {
       "filename": "/assets/sprite/stars/star3.png",
-      "start": 5153550,
-      "end": 5153821
+      "start": 5147100,
+      "end": 5147371
     }, {
       "filename": "/assets/sprite/stars/star4.png",
-      "start": 5153821,
-      "end": 5154101
+      "start": 5147371,
+      "end": 5147651
     }, {
       "filename": "/assets/sprite/stars/star5.png",
-      "start": 5154101,
-      "end": 5154373
+      "start": 5147651,
+      "end": 5147923
     }, {
       "filename": "/assets/sprite/stars/star6.png",
-      "start": 5154373,
-      "end": 5154661
+      "start": 5147923,
+      "end": 5148211
     }, {
       "filename": "/assets/sprite/stars/star7.png",
-      "start": 5154661,
-      "end": 5154940
+      "start": 5148211,
+      "end": 5148490
     }, {
       "filename": "/assets/sprite/stars/star8.png",
-      "start": 5154940,
-      "end": 5155225
+      "start": 5148490,
+      "end": 5148775
     }, {
       "filename": "/assets/sprite/stars/star9.png",
-      "start": 5155225,
-      "end": 5155521
-    }, {
-      "filename": "/assets/sprite/thruster.aseprite",
-      "start": 5155521,
-      "end": 5155818
+      "start": 5148775,
+      "end": 5149071
     }, {
       "filename": "/assets/sprite/thruster.png",
-      "start": 5155818,
-      "end": 5156088
-    }, {
-      "filename": "/assets/sprite/turret.aseprite",
-      "start": 5156088,
-      "end": 5156434
+      "start": 5149071,
+      "end": 5149341
     }, {
       "filename": "/assets/sprite/turret.png",
-      "start": 5156434,
-      "end": 5156676
+      "start": 5149341,
+      "end": 5149583
     } ],
-    "remote_package_size": 5156676
+    "remote_package_size": 5149583
   });
 })();
 
-// end include: /tmp/tmp47t9b8m0.js
-// include: /tmp/tmpgofnculr.js
+// end include: /tmp/tmp6go7sjms.js
+// include: /tmp/tmp_kc8svr7.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if (Module["$ww"] || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: /tmp/tmpgofnculr.js
-// include: /tmp/tmpj6nxnoxz.js
+// end include: /tmp/tmp_kc8svr7.js
+// include: /tmp/tmp93asevwg.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: /tmp/tmpj6nxnoxz.js
+// end include: /tmp/tmp93asevwg.js
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
 // we collect those properties and reapply _after_ we configure
@@ -699,81 +647,91 @@ if (typeof WebAssembly != "object") {
   err("no native wasm support detected");
 }
 
-// include: runtime_safe_heap.js
-/** @param {number|boolean=} isFloat */ function getSafeHeapType(bytes, isFloat) {
-  switch (bytes) {
-   case 1:
-    return "i8";
-
-   case 2:
-    return "i16";
-
-   case 4:
-    return isFloat ? "float" : "i32";
-
-   case 8:
-    return isFloat ? "double" : "i64";
-
-   default:
-    abort(`getSafeHeapType() invalid bytes=${bytes}`);
-  }
+// include: runtime_asan.js
+// C versions of asan_js_{load|store}_* will be used from compiled code, which have
+// ASan instrumentation on them. However, until the wasm module is ready, we
+// must access things directly.
+/** @suppress{duplicate} */ function _asan_js_load_1(ptr) {
+  if (runtimeInitialized) return __asan_c_load_1(ptr);
+  return HEAP8[ptr];
 }
 
-/** @param {number|boolean=} isFloat */ function SAFE_HEAP_STORE(dest, value, bytes, isFloat) {
-  if (dest <= 0) abort(`segmentation fault storing ${bytes} bytes to address ${dest}`);
-  if (dest % bytes !== 0) abort(`alignment error storing to address ${dest}, which was expected to be aligned to a multiple of ${bytes}`);
-  if (runtimeInitialized) {
-    var brk = _sbrk(0);
-    if (dest + bytes > brk) abort(`segmentation fault, exceeded the top of the available dynamic heap when storing ${bytes} bytes to address ${dest}. DYNAMICTOP=${brk}`);
-    if (brk < _emscripten_stack_get_base()) abort(`brk >= _emscripten_stack_get_base() (brk=${brk}, _emscripten_stack_get_base()=${_emscripten_stack_get_base()})`);
-    // sbrk-managed memory must be above the stack
-    if (brk > wasmMemory.buffer.byteLength) abort(`brk <= wasmMemory.buffer.byteLength (brk=${brk}, wasmMemory.buffer.byteLength=${wasmMemory.buffer.byteLength})`);
-  }
-  setValue_safe(dest, value, getSafeHeapType(bytes, isFloat));
-  return value;
+/** @suppress{duplicate} */ function _asan_js_load_1u(ptr) {
+  if (runtimeInitialized) return __asan_c_load_1u(ptr);
+  return HEAPU8[ptr];
 }
 
-function SAFE_HEAP_STORE_D(dest, value, bytes) {
-  return SAFE_HEAP_STORE(dest, value, bytes, true);
+/** @suppress{duplicate} */ function _asan_js_load_2(ptr) {
+  if (runtimeInitialized) return __asan_c_load_2(ptr);
+  return HEAP16[ptr];
 }
 
-/** @param {number|boolean=} isFloat */ function SAFE_HEAP_LOAD(dest, bytes, unsigned, isFloat) {
-  if (dest <= 0) abort(`segmentation fault loading ${bytes} bytes from address ${dest}`);
-  if (dest % bytes !== 0) abort(`alignment error loading from address ${dest}, which was expected to be aligned to a multiple of ${bytes}`);
-  if (runtimeInitialized) {
-    var brk = _sbrk(0);
-    if (dest + bytes > brk) abort(`segmentation fault, exceeded the top of the available dynamic heap when loading ${bytes} bytes from address ${dest}. DYNAMICTOP=${brk}`);
-    if (brk < _emscripten_stack_get_base()) abort(`brk >= _emscripten_stack_get_base() (brk=${brk}, _emscripten_stack_get_base()=${_emscripten_stack_get_base()})`);
-    // sbrk-managed memory must be above the stack
-    if (brk > wasmMemory.buffer.byteLength) abort(`brk <= wasmMemory.buffer.byteLength (brk=${brk}, wasmMemory.buffer.byteLength=${wasmMemory.buffer.byteLength})`);
-  }
-  var type = getSafeHeapType(bytes, isFloat);
-  var ret = getValue_safe(dest, type);
-  if (unsigned) ret = unSign(ret, parseInt(type.substr(1), 10));
-  return ret;
+/** @suppress{duplicate} */ function _asan_js_load_2u(ptr) {
+  if (runtimeInitialized) return __asan_c_load_2u(ptr);
+  return HEAPU16[ptr];
 }
 
-function SAFE_HEAP_LOAD_D(dest, bytes, unsigned) {
-  return SAFE_HEAP_LOAD(dest, bytes, unsigned, true);
+/** @suppress{duplicate} */ function _asan_js_load_4(ptr) {
+  if (runtimeInitialized) return __asan_c_load_4(ptr);
+  return HEAP32[ptr];
 }
 
-function SAFE_FT_MASK(value, mask) {
-  var ret = value & mask;
-  if (ret !== value) {
-    abort(`Function table mask error: function pointer is ${value} which is masked by ${mask}, the likely cause of this is that the function pointer is being called by the wrong type.`);
-  }
-  return ret;
+/** @suppress{duplicate} */ function _asan_js_load_4u(ptr) {
+  if (runtimeInitialized) return __asan_c_load_4u(ptr) >>> 0;
+  return HEAPU32[ptr];
 }
 
-function segfault() {
-  abort("segmentation fault");
+/** @suppress{duplicate} */ function _asan_js_load_f(ptr) {
+  if (runtimeInitialized) return __asan_c_load_f(ptr);
+  return HEAPF32[ptr];
 }
 
-function alignfault() {
-  abort("alignment fault");
+/** @suppress{duplicate} */ function _asan_js_load_d(ptr) {
+  if (runtimeInitialized) return __asan_c_load_d(ptr);
+  return HEAPF64[ptr];
 }
 
-// end include: runtime_safe_heap.js
+/** @suppress{duplicate} */ function _asan_js_store_1(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_1(ptr, val);
+  return HEAP8[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_1u(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_1u(ptr, val);
+  return HEAPU8[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_2(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_2(ptr, val);
+  return HEAP16[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_2u(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_2u(ptr, val);
+  return HEAPU16[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_4(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_4(ptr, val);
+  return HEAP32[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_4u(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_4u(ptr, val) >>> 0;
+  return HEAPU32[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_f(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_f(ptr, val);
+  return HEAPF32[ptr] = val;
+}
+
+/** @suppress{duplicate} */ function _asan_js_store_d(ptr, val) {
+  if (runtimeInitialized) return __asan_c_store_d(ptr, val);
+  return HEAPF64[ptr] = val;
+}
+
+// end include: runtime_asan.js
 // include: base64Utils.js
 // Converts a string of base64 into a byte array (Uint8Array).
 function intArrayFromBase64(s) {
@@ -866,8 +824,8 @@ function writeStackCookie() {
   // The stack grow downwards towards _emscripten_stack_get_end.
   // We write cookies to the final two words in the stack and detect if they are
   // ever overwritten.
-  SAFE_HEAP_STORE(((max) >> 2) * 4, 34821223, 4);
-  SAFE_HEAP_STORE((((max) + (4)) >> 2) * 4, 2310721022, 4);
+  _asan_js_store_4u(((max) >> 2), 34821223);
+  _asan_js_store_4u((((max) + (4)) >> 2), 2310721022);
 }
 
 function checkStackCookie() {
@@ -877,8 +835,8 @@ function checkStackCookie() {
   if (max == 0) {
     max += 4;
   }
-  var cookie1 = SAFE_HEAP_LOAD(((max) >> 2) * 4, 4, 1);
-  var cookie2 = SAFE_HEAP_LOAD((((max) + (4)) >> 2) * 4, 4, 1);
+  var cookie1 = _asan_js_load_4u(((max) >> 2));
+  var cookie2 = _asan_js_load_4u((((max) + (4)) >> 2));
   if (cookie1 != 34821223 || cookie2 != 2310721022) {
     abort(`Stack overflow! Stack cookie has been overwritten at ${ptrToString(max)}, expected hex dwords 0x89BACDFE and 0x2135467, but received ${ptrToString(cookie2)} ${ptrToString(cookie1)}`);
   }
@@ -901,6 +859,8 @@ var __ATPOSTRUN__ = [];
 
 // functions called after the main() is called
 var runtimeInitialized = false;
+
+var runtimeExited = false;
 
 function preRun() {
   if (Module["preRun"]) {
@@ -927,6 +887,19 @@ function preMain() {
   callRuntimeCallbacks(__ATMAIN__);
 }
 
+function exitRuntime() {
+  assert(!runtimeExited);
+  // ASYNCIFY cannot be used once the runtime starts shutting down.
+  Asyncify.state = Asyncify.State.Disabled;
+  checkStackCookie();
+  ___funcs_on_exit();
+  // Native atexit() functions
+  callRuntimeCallbacks(__ATEXIT__);
+  FS.quit();
+  TTY.shutdown();
+  runtimeExited = true;
+}
+
 function postRun() {
   checkStackCookie();
   if (Module["postRun"]) {
@@ -950,7 +923,9 @@ function addOnPreMain(cb) {
   __ATMAIN__.unshift(cb);
 }
 
-function addOnExit(cb) {}
+function addOnExit(cb) {
+  __ATEXIT__.unshift(cb);
+}
 
 function addOnPostRun(cb) {
   __ATPOSTRUN__.unshift(cb);
@@ -1098,6 +1073,7 @@ var dataURIPrefix = "data:application/octet-stream;base64,";
 function createExportWrapper(name, nargs) {
   return (...args) => {
     assert(runtimeInitialized, `native function \`${name}\` called before runtime initialization`);
+    assert(!runtimeExited, `native function \`${name}\` called after runtime exit (use NO_EXIT_RUNTIME to keep it alive after main() exits)`);
     var f = wasmExports[name];
     assert(f, `exported native function \`${name}\` not found`);
     // Only assert for too many arguments. Too few can be valid since the missing arguments will be zero filled.
@@ -1139,8 +1115,192 @@ function getBinaryPromise(binaryFile) {
   return Promise.resolve().then(() => getBinarySync(binaryFile));
 }
 
+var wasmOffsetConverter;
+
+// include: wasm_offset_converter.js
+/** @constructor */ function WasmOffsetConverter(wasmBytes, wasmModule) {
+  // This class parses a WASM binary file, and constructs a mapping from
+  // function indices to the start of their code in the binary file, as well
+  // as parsing the name section to allow conversion of offsets to function names.
+  // The main purpose of this module is to enable the conversion of function
+  // index and offset from start of function to an offset into the WASM binary.
+  // This is needed to look up the WASM source map as well as generate
+  // consistent program counter representations given v8's non-standard
+  // WASM stack trace format.
+  // v8 bug: https://crbug.com/v8/9172
+  // This code is also used to check if the candidate source map offset is
+  // actually part of the same function as the offset we are looking for,
+  // as well as providing the function names for a given offset.
+  // current byte offset into the WASM binary, as we parse it
+  // the first section starts at offset 8.
+  var offset = 8;
+  // the index of the next function we see in the binary
+  var funcidx = 0;
+  // map from function index to byte offset in WASM binary
+  this.offset_map = {};
+  this.func_starts = [];
+  // map from function index to names in WASM binary
+  this.name_map = {};
+  // number of imported functions this module has
+  this.import_functions = 0;
+  // the buffer unsignedLEB128 will read from.
+  var buffer = wasmBytes;
+  function unsignedLEB128() {
+    // consumes an unsigned LEB128 integer starting at `offset`.
+    // changes `offset` to immediately after the integer
+    var result = 0;
+    var shift = 0;
+    do {
+      var byte = buffer[offset++];
+      result += (byte & 127) << shift;
+      shift += 7;
+    } while (byte & 128);
+    return result;
+  }
+  function skipLimits() {
+    var flags = unsignedLEB128();
+    unsignedLEB128();
+    // initial size
+    var hasMax = (flags & 1) != 0;
+    if (hasMax) {
+      unsignedLEB128();
+    }
+  }
+  binary_parse: while (offset < buffer.length) {
+    var start = offset;
+    var type = buffer[offset++];
+    var end = unsignedLEB128() + offset;
+    switch (type) {
+     case 2:
+      // import section
+      // we need to find all function imports and increment funcidx for each one
+      // since functions defined in the module are numbered after all imports
+      var count = unsignedLEB128();
+      while (count-- > 0) {
+        // skip module
+        offset = unsignedLEB128() + offset;
+        // skip name
+        offset = unsignedLEB128() + offset;
+        var kind = buffer[offset++];
+        switch (kind) {
+         case 0:
+          // function import
+          ++funcidx;
+          unsignedLEB128();
+          // skip function type
+          break;
+
+         case 1:
+          // table import
+          unsignedLEB128();
+          // skip elem type
+          skipLimits();
+          break;
+
+         case 2:
+          // memory import
+          skipLimits();
+          break;
+
+         case 3:
+          // global import
+          offset += 2;
+          // skip type id byte and mutability byte
+          break;
+
+         case 4:
+          // tag import
+          ++offset;
+          // skip attribute
+          unsignedLEB128();
+          // skip tag type
+          break;
+
+         default:
+          throw "bad import kind: " + kind;
+        }
+      }
+      this.import_functions = funcidx;
+      break;
+
+     case 10:
+      // code section
+      var count = unsignedLEB128();
+      while (count-- > 0) {
+        var size = unsignedLEB128();
+        this.offset_map[funcidx++] = offset;
+        this.func_starts.push(offset);
+        offset += size;
+      }
+      break binary_parse;
+    }
+    offset = end;
+  }
+  var sections = WebAssembly.Module.customSections(wasmModule, "name");
+  var nameSection = sections.length ? sections[0] : undefined;
+  if (nameSection) {
+    buffer = new Uint8Array(nameSection);
+    offset = 0;
+    while (offset < buffer.length) {
+      var subsection_type = buffer[offset++];
+      var len = unsignedLEB128();
+      // byte count
+      if (subsection_type != 1) {
+        // Skip the whole sub-section if it's not a function name sub-section.
+        offset += len;
+        continue;
+      }
+      var count = unsignedLEB128();
+      while (count-- > 0) {
+        var index = unsignedLEB128();
+        var length = unsignedLEB128();
+        this.name_map[index] = UTF8ArrayToString(buffer, offset, length);
+        offset += length;
+      }
+    }
+  }
+}
+
+WasmOffsetConverter.prototype.convert = function(funcidx, offset) {
+  return this.offset_map[funcidx] + offset;
+};
+
+WasmOffsetConverter.prototype.getIndex = function(offset) {
+  var lo = 0;
+  var hi = this.func_starts.length;
+  var mid;
+  while (lo < hi) {
+    mid = Math.floor((lo + hi) / 2);
+    if (this.func_starts[mid] > offset) {
+      hi = mid;
+    } else {
+      lo = mid + 1;
+    }
+  }
+  return lo + this.import_functions - 1;
+};
+
+WasmOffsetConverter.prototype.isSameFunc = function(offset1, offset2) {
+  return this.getIndex(offset1) == this.getIndex(offset2);
+};
+
+WasmOffsetConverter.prototype.getName = function(offset) {
+  var index = this.getIndex(offset);
+  return this.name_map[index] || ("wasm-function[" + index + "]");
+};
+
+// end include: wasm_offset_converter.js
 function instantiateArrayBuffer(binaryFile, imports, receiver) {
-  return getBinaryPromise(binaryFile).then(binary => WebAssembly.instantiate(binary, imports)).then(receiver, reason => {
+  var savedBinary;
+  return getBinaryPromise(binaryFile).then(binary => {
+    savedBinary = binary;
+    return WebAssembly.instantiate(binary, imports);
+  }).then(instance => {
+    // wasmOffsetConverter needs to be assigned before calling the receiver
+    // (receiveInstantiationResult).  See comments below in instantiateAsync.
+    wasmOffsetConverter = new WasmOffsetConverter(savedBinary, instance.module);
+    return instance;
+  }).then(receiver, reason => {
     err(`failed to asynchronously prepare wasm: ${reason}`);
     // Warn on some common problems.
     if (isFileURI(wasmBinaryFile)) {
@@ -1166,7 +1326,26 @@ function instantiateAsync(binary, binaryFile, imports, callback) {
       // an actual Response.
       // TODO(https://github.com/google/closure-compiler/pull/3913): Remove if/when upstream closure is fixed.
       /** @suppress {checkTypes} */ var result = WebAssembly.instantiateStreaming(response, imports);
-      return result.then(callback, function(reason) {
+      // We need the wasm binary for the offset converter. Clone the response
+      // in order to get its arrayBuffer (cloning should be more efficient
+      // than doing another entire request).
+      // (We must clone the response now in order to use it later, as if we
+      // try to clone it asynchronously lower down then we will get a
+      // "response was already consumed" error.)
+      var clonedResponsePromise = response.clone().arrayBuffer();
+      return result.then(function(instantiationResult) {
+        // When using the offset converter, we must interpose here. First,
+        // the instantiation result must arrive (if it fails, the error
+        // handling later down will handle it). Once it arrives, we can
+        // initialize the offset converter. And only then is it valid to
+        // call receiveInstantiationResult, as that function will use the
+        // offset converter (in the case of pthreads, it will create the
+        // pthreads and send them the offsets along with the wasm instance).
+        clonedResponsePromise.then(arrayBufferResult => {
+          wasmOffsetConverter = new WasmOffsetConverter(new Uint8Array(arrayBufferResult), instantiationResult.module);
+          callback(instantiationResult);
+        }, reason => err(`failed to initialize offset-converter: ${reason}`));
+      }, function(reason) {
         // We expect the most common failure cause to be a bad MIME type for the binary,
         // in which case falling back to ArrayBuffer instantiation should work.
         err(`wasm streaming compile failed: ${reason}`);
@@ -1352,7 +1531,7 @@ function dbg(...args) {
 // end include: runtime_debug.js
 // === Body ===
 var ASM_CONSTS = {
-  385432: $0 => {
+  84627709: $0 => {
     var str = UTF8ToString($0) + "\n\n" + "Abort/Retry/Ignore/AlwaysIgnore? [ariA] :";
     var reply = window.prompt(str, "i");
     if (reply === null) {
@@ -1360,7 +1539,7 @@ var ASM_CONSTS = {
     }
     return allocate(intArrayFromString(reply), "i8", ALLOC_NORMAL);
   },
-  385657: () => {
+  84627934: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -1368,7 +1547,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  385804: () => {
+  84628081: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -1376,7 +1555,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  386038: $0 => {
+  84628315: $0 => {
     if (typeof (Module["SDL2"]) === "undefined") {
       Module["SDL2"] = {};
     }
@@ -1398,11 +1577,11 @@ var ASM_CONSTS = {
     }
     return SDL2.audioContext === undefined ? -1 : 0;
   },
-  386531: () => {
+  84628808: () => {
     var SDL2 = Module["SDL2"];
     return SDL2.audioContext.sampleRate;
   },
-  386599: ($0, $1, $2, $3) => {
+  84628876: ($0, $1, $2, $3) => {
     var SDL2 = Module["SDL2"];
     var have_microphone = function(stream) {
       if (SDL2.capture.silenceTimer !== undefined) {
@@ -1443,7 +1622,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  388251: ($0, $1, $2, $3) => {
+  84630528: ($0, $1, $2, $3) => {
     var SDL2 = Module["SDL2"];
     SDL2.audio.scriptProcessorNode = SDL2.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL2.audio.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -1455,7 +1634,7 @@ var ASM_CONSTS = {
     };
     SDL2.audio.scriptProcessorNode["connect"](SDL2.audioContext["destination"]);
   },
-  388661: ($0, $1) => {
+  84630938: ($0, $1) => {
     var SDL2 = Module["SDL2"];
     var numChannels = SDL2.capture.currentCaptureBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -1474,7 +1653,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  389266: ($0, $1) => {
+  84631543: ($0, $1) => {
     var SDL2 = Module["SDL2"];
     var numChannels = SDL2.audio.currentOutputBuffer["numberOfChannels"];
     for (var c = 0; c < numChannels; ++c) {
@@ -1483,11 +1662,11 @@ var ASM_CONSTS = {
         throw "Web Audio output buffer length mismatch! Destination size: " + channelData.length + " samples vs expected " + $1 + " samples!";
       }
       for (var j = 0; j < $1; ++j) {
-        channelData[j] = SAFE_HEAP_LOAD_D(($0 + ((j * numChannels + c) << 2) >> 2) * 4, 4, 0);
+        channelData[j] = _asan_js_load_f($0 + ((j * numChannels + c) << 2) >> 2);
       }
     }
   },
-  389746: $0 => {
+  84632023: $0 => {
     var SDL2 = Module["SDL2"];
     if ($0) {
       if (SDL2.capture.silenceTimer !== undefined) {
@@ -1525,7 +1704,7 @@ var ASM_CONSTS = {
       SDL2.audioContext = undefined;
     }
   },
-  390918: ($0, $1, $2) => {
+  84633195: ($0, $1, $2) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -1548,7 +1727,7 @@ var ASM_CONSTS = {
     if (typeof CanvasPixelArray !== "undefined" && data instanceof CanvasPixelArray) {
       num = data.length;
       while (dst < num) {
-        var val = SAFE_HEAP_LOAD(src * 4, 4, 0);
+        var val = _asan_js_load_4(src);
         data[dst] = val & 255;
         data[dst + 1] = (val >> 8) & 255;
         data[dst + 2] = (val >> 16) & 255;
@@ -1596,7 +1775,7 @@ var ASM_CONSTS = {
     }
     SDL2.ctx.putImageData(SDL2.image, 0, 0);
   },
-  392387: ($0, $1, $2, $3, $4) => {
+  84634664: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -1614,7 +1793,7 @@ var ASM_CONSTS = {
     if (typeof CanvasPixelArray !== "undefined" && data instanceof CanvasPixelArray) {
       num = data.length;
       while (dst < num) {
-        var val = SAFE_HEAP_LOAD(src * 4, 4, 0);
+        var val = _asan_js_load_4(src);
         data[dst] = val & 255;
         data[dst + 1] = (val >> 8) & 255;
         data[dst + 2] = (val >> 16) & 255;
@@ -1633,18 +1812,18 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  393376: $0 => {
+  84635653: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  393459: () => {
+  84635736: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  393528: () => window.innerWidth,
-  393558: () => window.innerHeight
+  84635805: () => window.innerWidth,
+  84635835: () => window.innerHeight
 };
 
 // end include: preamble.js
@@ -1653,193 +1832,6 @@ var ASM_CONSTS = {
   this.message = `Program terminated with exit(${status})`;
   this.status = status;
 }
-
-var callRuntimeCallbacks = callbacks => {
-  while (callbacks.length > 0) {
-    // Pass the module as the first argument.
-    callbacks.shift()(Module);
-  }
-};
-
-/**
-     * @param {number} ptr
-     * @param {string} type
-     */ function getValue(ptr, type = "i8") {
-  if (type.endsWith("*")) type = "*";
-  switch (type) {
-   case "i1":
-    return SAFE_HEAP_LOAD(ptr, 1, 0);
-
-   case "i8":
-    return SAFE_HEAP_LOAD(ptr, 1, 0);
-
-   case "i16":
-    return SAFE_HEAP_LOAD(((ptr) >> 1) * 2, 2, 0);
-
-   case "i32":
-    return SAFE_HEAP_LOAD(((ptr) >> 2) * 4, 4, 0);
-
-   case "i64":
-    abort("to do getValue(i64) use WASM_BIGINT");
-
-   case "float":
-    return SAFE_HEAP_LOAD_D(((ptr) >> 2) * 4, 4, 0);
-
-   case "double":
-    return SAFE_HEAP_LOAD_D(((ptr) >> 3) * 8, 8, 0);
-
-   case "*":
-    return SAFE_HEAP_LOAD(((ptr) >> 2) * 4, 4, 1);
-
-   default:
-    abort(`invalid type for getValue: ${type}`);
-  }
-}
-
-function getValue_safe(ptr, type = "i8") {
-  if (type.endsWith("*")) type = "*";
-  switch (type) {
-   case "i1":
-    return HEAP8[ptr];
-
-   case "i8":
-    return HEAP8[ptr];
-
-   case "i16":
-    return HEAP16[((ptr) >> 1)];
-
-   case "i32":
-    return HEAP32[((ptr) >> 2)];
-
-   case "i64":
-    abort("to do getValue(i64) use WASM_BIGINT");
-
-   case "float":
-    return HEAPF32[((ptr) >> 2)];
-
-   case "double":
-    return HEAPF64[((ptr) >> 3)];
-
-   case "*":
-    return HEAPU32[((ptr) >> 2)];
-
-   default:
-    abort(`invalid type for getValue: ${type}`);
-  }
-}
-
-var noExitRuntime = Module["noExitRuntime"] || true;
-
-var ptrToString = ptr => {
-  assert(typeof ptr === "number");
-  // With CAN_ADDRESS_2GB or MEMORY64, pointers are already unsigned.
-  ptr >>>= 0;
-  return "0x" + ptr.toString(16).padStart(8, "0");
-};
-
-/**
-     * @param {number} ptr
-     * @param {number} value
-     * @param {string} type
-     */ function setValue(ptr, value, type = "i8") {
-  if (type.endsWith("*")) type = "*";
-  switch (type) {
-   case "i1":
-    SAFE_HEAP_STORE(ptr, value, 1);
-    break;
-
-   case "i8":
-    SAFE_HEAP_STORE(ptr, value, 1);
-    break;
-
-   case "i16":
-    SAFE_HEAP_STORE(((ptr) >> 1) * 2, value, 2);
-    break;
-
-   case "i32":
-    SAFE_HEAP_STORE(((ptr) >> 2) * 4, value, 4);
-    break;
-
-   case "i64":
-    abort("to do setValue(i64) use WASM_BIGINT");
-
-   case "float":
-    SAFE_HEAP_STORE_D(((ptr) >> 2) * 4, value, 4);
-    break;
-
-   case "double":
-    SAFE_HEAP_STORE_D(((ptr) >> 3) * 8, value, 8);
-    break;
-
-   case "*":
-    SAFE_HEAP_STORE(((ptr) >> 2) * 4, value, 4);
-    break;
-
-   default:
-    abort(`invalid type for setValue: ${type}`);
-  }
-}
-
-function setValue_safe(ptr, value, type = "i8") {
-  if (type.endsWith("*")) type = "*";
-  switch (type) {
-   case "i1":
-    HEAP8[ptr] = value;
-    break;
-
-   case "i8":
-    HEAP8[ptr] = value;
-    break;
-
-   case "i16":
-    HEAP16[((ptr) >> 1)] = value;
-    break;
-
-   case "i32":
-    HEAP32[((ptr) >> 2)] = value;
-    break;
-
-   case "i64":
-    abort("to do setValue(i64) use WASM_BIGINT");
-
-   case "float":
-    HEAPF32[((ptr) >> 2)] = value;
-    break;
-
-   case "double":
-    HEAPF64[((ptr) >> 3)] = value;
-    break;
-
-   case "*":
-    HEAPU32[((ptr) >> 2)] = value;
-    break;
-
-   default:
-    abort(`invalid type for setValue: ${type}`);
-  }
-}
-
-var stackRestore = val => __emscripten_stack_restore(val);
-
-var stackSave = () => _emscripten_stack_get_current();
-
-var unSign = (value, bits) => {
-  if (value >= 0) {
-    return value;
-  }
-  // Need some trickery, since if bits == 32, we are right at the limit of the
-  // bits JS uses in bitshifts
-  return bits <= 32 ? 2 * Math.abs(1 << (bits - 1)) + value : Math.pow(2, bits) + value;
-};
-
-var warnOnce = text => {
-  warnOnce.shown ||= {};
-  if (!warnOnce.shown[text]) {
-    warnOnce.shown[text] = 1;
-    if (ENVIRONMENT_IS_NODE) text = "warning: " + text;
-    err(text);
-  }
-};
 
 var UTF8Decoder = typeof TextDecoder != "undefined" ? new TextDecoder : undefined;
 
@@ -1898,6 +1890,113 @@ var UTF8Decoder = typeof TextDecoder != "undefined" ? new TextDecoder : undefine
   return str;
 };
 
+var callRuntimeCallbacks = callbacks => {
+  while (callbacks.length > 0) {
+    // Pass the module as the first argument.
+    callbacks.shift()(Module);
+  }
+};
+
+/**
+     * @param {number} ptr
+     * @param {string} type
+     */ function getValue(ptr, type = "i8") {
+  if (type.endsWith("*")) type = "*";
+  switch (type) {
+   case "i1":
+    return _asan_js_load_1(ptr);
+
+   case "i8":
+    return _asan_js_load_1(ptr);
+
+   case "i16":
+    return _asan_js_load_2(((ptr) >> 1));
+
+   case "i32":
+    return _asan_js_load_4(((ptr) >> 2));
+
+   case "i64":
+    abort("to do getValue(i64) use WASM_BIGINT");
+
+   case "float":
+    return _asan_js_load_f(((ptr) >> 2));
+
+   case "double":
+    return _asan_js_load_d(((ptr) >> 3));
+
+   case "*":
+    return _asan_js_load_4u(((ptr) >> 2));
+
+   default:
+    abort(`invalid type for getValue: ${type}`);
+  }
+}
+
+var noExitRuntime = Module["noExitRuntime"] || false;
+
+var ptrToString = ptr => {
+  assert(typeof ptr === "number");
+  // With CAN_ADDRESS_2GB or MEMORY64, pointers are already unsigned.
+  ptr >>>= 0;
+  return "0x" + ptr.toString(16).padStart(8, "0");
+};
+
+/**
+     * @param {number} ptr
+     * @param {number} value
+     * @param {string} type
+     */ function setValue(ptr, value, type = "i8") {
+  if (type.endsWith("*")) type = "*";
+  switch (type) {
+   case "i1":
+    _asan_js_store_1(ptr, value);
+    break;
+
+   case "i8":
+    _asan_js_store_1(ptr, value);
+    break;
+
+   case "i16":
+    _asan_js_store_2(((ptr) >> 1), value);
+    break;
+
+   case "i32":
+    _asan_js_store_4(((ptr) >> 2), value);
+    break;
+
+   case "i64":
+    abort("to do setValue(i64) use WASM_BIGINT");
+
+   case "float":
+    _asan_js_store_f(((ptr) >> 2), value);
+    break;
+
+   case "double":
+    _asan_js_store_d(((ptr) >> 3), value);
+    break;
+
+   case "*":
+    _asan_js_store_4u(((ptr) >> 2), value);
+    break;
+
+   default:
+    abort(`invalid type for setValue: ${type}`);
+  }
+}
+
+var stackRestore = val => __emscripten_stack_restore(val);
+
+var stackSave = () => _emscripten_stack_get_current();
+
+var warnOnce = text => {
+  warnOnce.shown ||= {};
+  if (!warnOnce.shown[text]) {
+    warnOnce.shown[text] = 1;
+    if (ENVIRONMENT_IS_NODE) text = "warning: " + text;
+    err(text);
+  }
+};
+
 /**
      * Given a pointer 'ptr' to a null-terminated UTF8-encoded string in the
      * emscripten HEAP, returns a copy of that string as a Javascript String object.
@@ -1928,30 +2027,30 @@ class ExceptionInfo {
     this.ptr = excPtr - 24;
   }
   set_type(type) {
-    SAFE_HEAP_STORE((((this.ptr) + (4)) >> 2) * 4, type, 4);
+    _asan_js_store_4u((((this.ptr) + (4)) >> 2), type);
   }
   get_type() {
-    return SAFE_HEAP_LOAD((((this.ptr) + (4)) >> 2) * 4, 4, 1);
+    return _asan_js_load_4u((((this.ptr) + (4)) >> 2));
   }
   set_destructor(destructor) {
-    SAFE_HEAP_STORE((((this.ptr) + (8)) >> 2) * 4, destructor, 4);
+    _asan_js_store_4u((((this.ptr) + (8)) >> 2), destructor);
   }
   get_destructor() {
-    return SAFE_HEAP_LOAD((((this.ptr) + (8)) >> 2) * 4, 4, 1);
+    return _asan_js_load_4u((((this.ptr) + (8)) >> 2));
   }
   set_caught(caught) {
     caught = caught ? 1 : 0;
-    SAFE_HEAP_STORE((this.ptr) + (12), caught, 1);
+    _asan_js_store_1((this.ptr) + (12), caught);
   }
   get_caught() {
-    return SAFE_HEAP_LOAD((this.ptr) + (12), 1, 0) != 0;
+    return _asan_js_load_1((this.ptr) + (12)) != 0;
   }
   set_rethrown(rethrown) {
     rethrown = rethrown ? 1 : 0;
-    SAFE_HEAP_STORE((this.ptr) + (13), rethrown, 1);
+    _asan_js_store_1((this.ptr) + (13), rethrown);
   }
   get_rethrown() {
-    return SAFE_HEAP_LOAD((this.ptr) + (13), 1, 0) != 0;
+    return _asan_js_load_1((this.ptr) + (13)) != 0;
   }
   // Initialize native structure fields. Should be called once after allocated.
   init(type, destructor) {
@@ -1960,10 +2059,10 @@ class ExceptionInfo {
     this.set_destructor(destructor);
   }
   set_adjusted_ptr(adjustedPtr) {
-    SAFE_HEAP_STORE((((this.ptr) + (16)) >> 2) * 4, adjustedPtr, 4);
+    _asan_js_store_4u((((this.ptr) + (16)) >> 2), adjustedPtr);
   }
   get_adjusted_ptr() {
-    return SAFE_HEAP_LOAD((((this.ptr) + (16)) >> 2) * 4, 4, 1);
+    return _asan_js_load_4u((((this.ptr) + (16)) >> 2));
   }
 }
 
@@ -2400,7 +2499,10 @@ var alignMemory = (size, alignment) => {
 };
 
 var mmapAlloc = size => {
-  abort("internal error: mmapAlloc called but `emscripten_builtin_memalign` native symbol not exported");
+  size = alignMemory(size, 65536);
+  var ptr = _emscripten_builtin_memalign(65536, size);
+  if (!ptr) return 0;
+  return zeroMemory(ptr, size);
 };
 
 var MEMFS = {
@@ -4589,33 +4691,33 @@ var SYSCALLS = {
   },
   doStat(func, path, buf) {
     var stat = func(path);
-    SAFE_HEAP_STORE(((buf) >> 2) * 4, stat.dev, 4);
-    SAFE_HEAP_STORE((((buf) + (4)) >> 2) * 4, stat.mode, 4);
-    SAFE_HEAP_STORE((((buf) + (8)) >> 2) * 4, stat.nlink, 4);
-    SAFE_HEAP_STORE((((buf) + (12)) >> 2) * 4, stat.uid, 4);
-    SAFE_HEAP_STORE((((buf) + (16)) >> 2) * 4, stat.gid, 4);
-    SAFE_HEAP_STORE((((buf) + (20)) >> 2) * 4, stat.rdev, 4);
+    _asan_js_store_4(((buf) >> 2), stat.dev);
+    _asan_js_store_4((((buf) + (4)) >> 2), stat.mode);
+    _asan_js_store_4u((((buf) + (8)) >> 2), stat.nlink);
+    _asan_js_store_4((((buf) + (12)) >> 2), stat.uid);
+    _asan_js_store_4((((buf) + (16)) >> 2), stat.gid);
+    _asan_js_store_4((((buf) + (20)) >> 2), stat.rdev);
     (tempI64 = [ stat.size >>> 0, (tempDouble = stat.size, (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
-    SAFE_HEAP_STORE((((buf) + (24)) >> 2) * 4, tempI64[0], 4), SAFE_HEAP_STORE((((buf) + (28)) >> 2) * 4, tempI64[1], 4));
-    SAFE_HEAP_STORE((((buf) + (32)) >> 2) * 4, 4096, 4);
-    SAFE_HEAP_STORE((((buf) + (36)) >> 2) * 4, stat.blocks, 4);
+    _asan_js_store_4((((buf) + (24)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (28)) >> 2), tempI64[1]));
+    _asan_js_store_4((((buf) + (32)) >> 2), 4096);
+    _asan_js_store_4((((buf) + (36)) >> 2), stat.blocks);
     var atime = stat.atime.getTime();
     var mtime = stat.mtime.getTime();
     var ctime = stat.ctime.getTime();
     (tempI64 = [ Math.floor(atime / 1e3) >>> 0, (tempDouble = Math.floor(atime / 1e3), 
     (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
-    SAFE_HEAP_STORE((((buf) + (40)) >> 2) * 4, tempI64[0], 4), SAFE_HEAP_STORE((((buf) + (44)) >> 2) * 4, tempI64[1], 4));
-    SAFE_HEAP_STORE((((buf) + (48)) >> 2) * 4, (atime % 1e3) * 1e3, 4);
+    _asan_js_store_4((((buf) + (40)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (44)) >> 2), tempI64[1]));
+    _asan_js_store_4u((((buf) + (48)) >> 2), (atime % 1e3) * 1e3);
     (tempI64 = [ Math.floor(mtime / 1e3) >>> 0, (tempDouble = Math.floor(mtime / 1e3), 
     (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
-    SAFE_HEAP_STORE((((buf) + (56)) >> 2) * 4, tempI64[0], 4), SAFE_HEAP_STORE((((buf) + (60)) >> 2) * 4, tempI64[1], 4));
-    SAFE_HEAP_STORE((((buf) + (64)) >> 2) * 4, (mtime % 1e3) * 1e3, 4);
+    _asan_js_store_4((((buf) + (56)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (60)) >> 2), tempI64[1]));
+    _asan_js_store_4u((((buf) + (64)) >> 2), (mtime % 1e3) * 1e3);
     (tempI64 = [ Math.floor(ctime / 1e3) >>> 0, (tempDouble = Math.floor(ctime / 1e3), 
     (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
-    SAFE_HEAP_STORE((((buf) + (72)) >> 2) * 4, tempI64[0], 4), SAFE_HEAP_STORE((((buf) + (76)) >> 2) * 4, tempI64[1], 4));
-    SAFE_HEAP_STORE((((buf) + (80)) >> 2) * 4, (ctime % 1e3) * 1e3, 4);
+    _asan_js_store_4((((buf) + (72)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (76)) >> 2), tempI64[1]));
+    _asan_js_store_4u((((buf) + (80)) >> 2), (ctime % 1e3) * 1e3);
     (tempI64 = [ stat.ino >>> 0, (tempDouble = stat.ino, (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
-    SAFE_HEAP_STORE((((buf) + (88)) >> 2) * 4, tempI64[0], 4), SAFE_HEAP_STORE((((buf) + (92)) >> 2) * 4, tempI64[1], 4));
+    _asan_js_store_4((((buf) + (88)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (92)) >> 2), tempI64[1]));
     return 0;
   },
   doMsync(addr, stream, len, flags, offset) {
@@ -4650,14 +4752,14 @@ function ___syscall__newselect(nfds, readfds, writefds, exceptfds, timeout) {
     assert(nfds <= 64, "nfds must be less than or equal to 64");
     // fd sets have 64 bits // TODO: this could be 1024 based on current musl headers
     var total = 0;
-    var srcReadLow = (readfds ? SAFE_HEAP_LOAD(((readfds) >> 2) * 4, 4, 0) : 0), srcReadHigh = (readfds ? SAFE_HEAP_LOAD((((readfds) + (4)) >> 2) * 4, 4, 0) : 0);
-    var srcWriteLow = (writefds ? SAFE_HEAP_LOAD(((writefds) >> 2) * 4, 4, 0) : 0), srcWriteHigh = (writefds ? SAFE_HEAP_LOAD((((writefds) + (4)) >> 2) * 4, 4, 0) : 0);
-    var srcExceptLow = (exceptfds ? SAFE_HEAP_LOAD(((exceptfds) >> 2) * 4, 4, 0) : 0), srcExceptHigh = (exceptfds ? SAFE_HEAP_LOAD((((exceptfds) + (4)) >> 2) * 4, 4, 0) : 0);
+    var srcReadLow = (readfds ? _asan_js_load_4(((readfds) >> 2)) : 0), srcReadHigh = (readfds ? _asan_js_load_4((((readfds) + (4)) >> 2)) : 0);
+    var srcWriteLow = (writefds ? _asan_js_load_4(((writefds) >> 2)) : 0), srcWriteHigh = (writefds ? _asan_js_load_4((((writefds) + (4)) >> 2)) : 0);
+    var srcExceptLow = (exceptfds ? _asan_js_load_4(((exceptfds) >> 2)) : 0), srcExceptHigh = (exceptfds ? _asan_js_load_4((((exceptfds) + (4)) >> 2)) : 0);
     var dstReadLow = 0, dstReadHigh = 0;
     var dstWriteLow = 0, dstWriteHigh = 0;
     var dstExceptLow = 0, dstExceptHigh = 0;
-    var allLow = (readfds ? SAFE_HEAP_LOAD(((readfds) >> 2) * 4, 4, 0) : 0) | (writefds ? SAFE_HEAP_LOAD(((writefds) >> 2) * 4, 4, 0) : 0) | (exceptfds ? SAFE_HEAP_LOAD(((exceptfds) >> 2) * 4, 4, 0) : 0);
-    var allHigh = (readfds ? SAFE_HEAP_LOAD((((readfds) + (4)) >> 2) * 4, 4, 0) : 0) | (writefds ? SAFE_HEAP_LOAD((((writefds) + (4)) >> 2) * 4, 4, 0) : 0) | (exceptfds ? SAFE_HEAP_LOAD((((exceptfds) + (4)) >> 2) * 4, 4, 0) : 0);
+    var allLow = (readfds ? _asan_js_load_4(((readfds) >> 2)) : 0) | (writefds ? _asan_js_load_4(((writefds) >> 2)) : 0) | (exceptfds ? _asan_js_load_4(((exceptfds) >> 2)) : 0);
+    var allHigh = (readfds ? _asan_js_load_4((((readfds) + (4)) >> 2)) : 0) | (writefds ? _asan_js_load_4((((writefds) + (4)) >> 2)) : 0) | (exceptfds ? _asan_js_load_4((((exceptfds) + (4)) >> 2)) : 0);
     var check = function(fd, low, high, val) {
       return (fd < 32 ? (low & val) : (high & val));
     };
@@ -4677,7 +4779,7 @@ function ___syscall__newselect(nfds, readfds, writefds, exceptfds, timeout) {
           // Note that sizeof(time_t) != sizeof(long) in wasm32. The former is 8, while the latter is 4.
           // This means using "C_STRUCTS.timeval.tv_usec" leads to a wrong offset.
           // So, instead, we use POINTER_SIZE.
-          var tv_sec = (readfds ? SAFE_HEAP_LOAD(((timeout) >> 2) * 4, 4, 0) : 0), tv_usec = (readfds ? SAFE_HEAP_LOAD((((timeout) + (4)) >> 2) * 4, 4, 0) : 0);
+          var tv_sec = (readfds ? _asan_js_load_4(((timeout) >> 2)) : 0), tv_usec = (readfds ? _asan_js_load_4((((timeout) + (4)) >> 2)) : 0);
           timeoutInMillis = (tv_sec + tv_usec / 1e6) * 1e3;
         }
         flags = stream.stream_ops.poll(stream, timeoutInMillis);
@@ -4696,18 +4798,28 @@ function ___syscall__newselect(nfds, readfds, writefds, exceptfds, timeout) {
       }
     }
     if (readfds) {
-      SAFE_HEAP_STORE(((readfds) >> 2) * 4, dstReadLow, 4);
-      SAFE_HEAP_STORE((((readfds) + (4)) >> 2) * 4, dstReadHigh, 4);
+      _asan_js_store_4(((readfds) >> 2), dstReadLow);
+      _asan_js_store_4((((readfds) + (4)) >> 2), dstReadHigh);
     }
     if (writefds) {
-      SAFE_HEAP_STORE(((writefds) >> 2) * 4, dstWriteLow, 4);
-      SAFE_HEAP_STORE((((writefds) + (4)) >> 2) * 4, dstWriteHigh, 4);
+      _asan_js_store_4(((writefds) >> 2), dstWriteLow);
+      _asan_js_store_4((((writefds) + (4)) >> 2), dstWriteHigh);
     }
     if (exceptfds) {
-      SAFE_HEAP_STORE(((exceptfds) >> 2) * 4, dstExceptLow, 4);
-      SAFE_HEAP_STORE((((exceptfds) + (4)) >> 2) * 4, dstExceptHigh, 4);
+      _asan_js_store_4(((exceptfds) >> 2), dstExceptLow);
+      _asan_js_store_4((((exceptfds) + (4)) >> 2), dstExceptHigh);
     }
     return total;
+  } catch (e) {
+    if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
+    return -e.errno;
+  }
+}
+
+function ___syscall_dup(fd) {
+  try {
+    var old = SYSCALLS.getStreamFromFD(fd);
+    return FS.dupStream(old).fd;
   } catch (e) {
     if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
     return -e.errno;
@@ -4717,7 +4829,7 @@ function ___syscall__newselect(nfds, readfds, writefds, exceptfds, timeout) {
 /** @suppress {duplicate } */ function syscallGetVarargI() {
   assert(SYSCALLS.varargs != undefined);
   // the `+` prepended here is necessary to convince the JSCompiler that varargs is indeed a number.
-  var ret = SAFE_HEAP_LOAD(((+SYSCALLS.varargs) >> 2) * 4, 4, 0);
+  var ret = _asan_js_load_4(((+SYSCALLS.varargs) >> 2));
   SYSCALLS.varargs += 4;
   return ret;
 }
@@ -4763,7 +4875,7 @@ function ___syscall_fcntl64(fd, cmd, varargs) {
         var arg = syscallGetVarargP();
         var offset = 0;
         // We're always unlocked.
-        SAFE_HEAP_STORE((((arg) + (offset)) >> 1) * 2, 2, 2);
+        _asan_js_store_2((((arg) + (offset)) >> 1), 2);
         return 0;
       }
 
@@ -4796,12 +4908,12 @@ function ___syscall_ioctl(fd, op, varargs) {
         if (stream.tty.ops.ioctl_tcgets) {
           var termios = stream.tty.ops.ioctl_tcgets(stream);
           var argp = syscallGetVarargP();
-          SAFE_HEAP_STORE(((argp) >> 2) * 4, termios.c_iflag || 0, 4);
-          SAFE_HEAP_STORE((((argp) + (4)) >> 2) * 4, termios.c_oflag || 0, 4);
-          SAFE_HEAP_STORE((((argp) + (8)) >> 2) * 4, termios.c_cflag || 0, 4);
-          SAFE_HEAP_STORE((((argp) + (12)) >> 2) * 4, termios.c_lflag || 0, 4);
+          _asan_js_store_4(((argp) >> 2), termios.c_iflag || 0);
+          _asan_js_store_4((((argp) + (4)) >> 2), termios.c_oflag || 0);
+          _asan_js_store_4((((argp) + (8)) >> 2), termios.c_cflag || 0);
+          _asan_js_store_4((((argp) + (12)) >> 2), termios.c_lflag || 0);
           for (var i = 0; i < 32; i++) {
-            SAFE_HEAP_STORE((argp + i) + (17), termios.c_cc[i] || 0, 1);
+            _asan_js_store_1((argp + i) + (17), termios.c_cc[i] || 0);
           }
           return 0;
         }
@@ -4824,13 +4936,13 @@ function ___syscall_ioctl(fd, op, varargs) {
         if (!stream.tty) return -59;
         if (stream.tty.ops.ioctl_tcsets) {
           var argp = syscallGetVarargP();
-          var c_iflag = SAFE_HEAP_LOAD(((argp) >> 2) * 4, 4, 0);
-          var c_oflag = SAFE_HEAP_LOAD((((argp) + (4)) >> 2) * 4, 4, 0);
-          var c_cflag = SAFE_HEAP_LOAD((((argp) + (8)) >> 2) * 4, 4, 0);
-          var c_lflag = SAFE_HEAP_LOAD((((argp) + (12)) >> 2) * 4, 4, 0);
+          var c_iflag = _asan_js_load_4(((argp) >> 2));
+          var c_oflag = _asan_js_load_4((((argp) + (4)) >> 2));
+          var c_cflag = _asan_js_load_4((((argp) + (8)) >> 2));
+          var c_lflag = _asan_js_load_4((((argp) + (12)) >> 2));
           var c_cc = [];
           for (var i = 0; i < 32; i++) {
-            c_cc.push(SAFE_HEAP_LOAD((argp + i) + (17), 1, 0));
+            c_cc.push(_asan_js_load_1((argp + i) + (17)));
           }
           return stream.tty.ops.ioctl_tcsets(stream.tty, op, {
             c_iflag: c_iflag,
@@ -4848,7 +4960,7 @@ function ___syscall_ioctl(fd, op, varargs) {
       {
         if (!stream.tty) return -59;
         var argp = syscallGetVarargP();
-        SAFE_HEAP_STORE(((argp) >> 2) * 4, 0, 4);
+        _asan_js_store_4(((argp) >> 2), 0);
         return 0;
       }
 
@@ -4873,8 +4985,8 @@ function ___syscall_ioctl(fd, op, varargs) {
         if (stream.tty.ops.ioctl_tiocgwinsz) {
           var winsize = stream.tty.ops.ioctl_tiocgwinsz(stream.tty);
           var argp = syscallGetVarargP();
-          SAFE_HEAP_STORE(((argp) >> 1) * 2, winsize[0], 2);
-          SAFE_HEAP_STORE((((argp) + (2)) >> 1) * 2, winsize[1], 2);
+          _asan_js_store_2(((argp) >> 1), winsize[0]);
+          _asan_js_store_2((((argp) + (2)) >> 1), winsize[1]);
         }
         return 0;
       }
@@ -4904,6 +5016,22 @@ function ___syscall_ioctl(fd, op, varargs) {
   }
 }
 
+function ___syscall_mkdirat(dirfd, path, mode) {
+  try {
+    path = SYSCALLS.getStr(path);
+    path = SYSCALLS.calculateAt(dirfd, path);
+    // remove a trailing slash, if one - /a/b/ has basename of '', but
+    // we want to create b in the context of this function
+    path = PATH.normalize(path);
+    if (path[path.length - 1] === "/") path = path.substr(0, path.length - 1);
+    FS.mkdir(path, mode, 0);
+    return 0;
+  } catch (e) {
+    if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
+    return -e.errno;
+  }
+}
+
 function ___syscall_openat(dirfd, path, flags, varargs) {
   SYSCALLS.varargs = varargs;
   try {
@@ -4911,6 +5039,16 @@ function ___syscall_openat(dirfd, path, flags, varargs) {
     path = SYSCALLS.calculateAt(dirfd, path);
     var mode = varargs ? syscallGetVarargI() : 0;
     return FS.open(path, flags, mode).fd;
+  } catch (e) {
+    if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
+    return -e.errno;
+  }
+}
+
+function ___syscall_stat64(path, buf) {
+  try {
+    path = SYSCALLS.getStr(path);
+    return SYSCALLS.doStat(FS.stat, path, buf);
   } catch (e) {
     if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
     return -e.errno;
@@ -4925,16 +5063,90 @@ var nowIsMonotonic = 1;
 
 var __emscripten_get_now_is_monotonic = () => nowIsMonotonic;
 
-var __emscripten_memcpy_js = (dest, src, num) => HEAPU8.copyWithin(dest, src, src + num);
-
-var __emscripten_throw_longjmp = () => {
-  throw Infinity;
-};
+var getExecutableName = () => thisProgram || "./this.program";
 
 var stringToUTF8 = (str, outPtr, maxBytesToWrite) => {
   assert(typeof maxBytesToWrite == "number", "stringToUTF8(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!");
   return stringToUTF8Array(str, HEAPU8, outPtr, maxBytesToWrite);
 };
+
+var __emscripten_get_progname = (str, len) => {
+  stringToUTF8(getExecutableName(), str, len);
+};
+
+/** @suppress{checkTypes} */ var withBuiltinMalloc = func => {
+  var prev_malloc = typeof _malloc != "undefined" ? _malloc : undefined;
+  var prev_memalign = typeof _memalign != "undefined" ? _memalign : undefined;
+  var prev_free = typeof _free != "undefined" ? _free : undefined;
+  _malloc = _emscripten_builtin_malloc;
+  _memalign = _emscripten_builtin_memalign;
+  _free = _emscripten_builtin_free;
+  try {
+    return func();
+  } finally {
+    _malloc = prev_malloc;
+    _memalign = prev_memalign;
+    _free = prev_free;
+  }
+};
+
+var stringToNewUTF8 = str => {
+  var size = lengthBytesUTF8(str) + 1;
+  var ret = _malloc(size);
+  if (ret) stringToUTF8(str, ret, size);
+  return ret;
+};
+
+var __emscripten_sanitizer_get_option = name => withBuiltinMalloc(() => stringToNewUTF8(Module[UTF8ToString(name)] || ""));
+
+var __emscripten_sanitizer_use_colors = () => {
+  var setting = Module["printWithColors"];
+  if (setting !== undefined) {
+    return setting;
+  }
+  return ENVIRONMENT_IS_NODE && process.stderr.isTTY;
+};
+
+var __emscripten_throw_longjmp = () => {
+  throw Infinity;
+};
+
+var convertI32PairToI53Checked = (lo, hi) => {
+  assert(lo == (lo >>> 0) || lo == (lo | 0));
+  // lo should either be a i32 or a u32
+  assert(hi === (hi | 0));
+  // hi should be a i32
+  return ((hi + 2097152) >>> 0 < 4194305 - !!lo) ? (lo >>> 0) + hi * 4294967296 : NaN;
+};
+
+function __mmap_js(len, prot, flags, fd, offset_low, offset_high, allocated, addr) {
+  var offset = convertI32PairToI53Checked(offset_low, offset_high);
+  try {
+    if (isNaN(offset)) return 61;
+    var stream = SYSCALLS.getStreamFromFD(fd);
+    var res = FS.mmap(stream, len, offset, prot, flags);
+    var ptr = res.ptr;
+    _asan_js_store_4(((allocated) >> 2), res.allocated);
+    _asan_js_store_4u(((addr) >> 2), ptr);
+    return 0;
+  } catch (e) {
+    if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
+    return -e.errno;
+  }
+}
+
+function __munmap_js(addr, len, prot, flags, fd, offset_low, offset_high) {
+  var offset = convertI32PairToI53Checked(offset_low, offset_high);
+  try {
+    var stream = SYSCALLS.getStreamFromFD(fd);
+    if (prot & 2) {
+      SYSCALLS.doMsync(addr, stream, len, flags, offset);
+    }
+  } catch (e) {
+    if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
+    return -e.errno;
+  }
+}
 
 var __tzset_js = (timezone, daylight, std_name, dst_name) => {
   // TODO: Use (malleable) environment variables instead of system settings.
@@ -4955,8 +5167,8 @@ var __tzset_js = (timezone, daylight, std_name, dst_name) => {
   // Coordinated Universal Time (UTC) and local standard time."), the same
   // as returned by stdTimezoneOffset.
   // See http://pubs.opengroup.org/onlinepubs/009695399/functions/tzset.html
-  SAFE_HEAP_STORE(((timezone) >> 2) * 4, stdTimezoneOffset * 60, 4);
-  SAFE_HEAP_STORE(((daylight) >> 2) * 4, Number(winterOffset != summerOffset), 4);
+  _asan_js_store_4u(((timezone) >> 2), stdTimezoneOffset * 60);
+  _asan_js_store_4(((daylight) >> 2), Number(winterOffset != summerOffset));
   var extractZone = timezoneOffset => {
     // Why inverse sign?
     // Read here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
@@ -4982,6 +5194,12 @@ var __tzset_js = (timezone, daylight, std_name, dst_name) => {
   }
 };
 
+var runtimeKeepaliveCounter = 0;
+
+var runtimeKeepalivePush = () => {
+  runtimeKeepaliveCounter += 1;
+};
+
 var _emscripten_set_main_loop_timing = (mode, value) => {
   Browser.mainLoop.timingMode = mode;
   Browser.mainLoop.timingValue = value;
@@ -4991,6 +5209,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
   }
   // Return non-zero on failure, can't set timing mode when there is no main loop.
   if (!Browser.mainLoop.running) {
+    runtimeKeepalivePush();
     Browser.mainLoop.running = true;
   }
   if (mode == 0) {
@@ -5050,6 +5269,68 @@ var _emscripten_get_now;
 // unfortunately not allowed even in current browsers (e.g. FF Nightly 75).
 _emscripten_get_now = () => performance.now();
 
+var keepRuntimeAlive = () => noExitRuntime || runtimeKeepaliveCounter > 0;
+
+var _proc_exit = code => {
+  EXITSTATUS = code;
+  if (!keepRuntimeAlive()) {
+    Module["onExit"]?.(code);
+    ABORT = true;
+  }
+  quit_(code, new ExitStatus(code));
+};
+
+/** @suppress {duplicate } */ /** @param {boolean|number=} implicit */ var exitJS = (status, implicit) => {
+  EXITSTATUS = status;
+  if (!keepRuntimeAlive()) {
+    exitRuntime();
+  }
+  // if exit() was called explicitly, warn the user if the runtime isn't actually being shut down
+  if (keepRuntimeAlive() && !implicit) {
+    var msg = `program exited (with status: ${status}), but keepRuntimeAlive() is set (counter=${runtimeKeepaliveCounter}) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)`;
+    err(msg);
+  }
+  _proc_exit(status);
+};
+
+var _exit = exitJS;
+
+var handleException = e => {
+  // Certain exception types we do not treat as errors since they are used for
+  // internal control flow.
+  // 1. ExitStatus, which is thrown by exit()
+  // 2. "unwind", which is thrown by emscripten_unwind_to_js_event_loop() and others
+  //    that wish to return to JS event loop.
+  if (e instanceof ExitStatus || e == "unwind") {
+    return EXITSTATUS;
+  }
+  checkStackCookie();
+  if (e instanceof WebAssembly.RuntimeError) {
+    if (_emscripten_stack_get_current() <= 0) {
+      err("Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 65536)");
+    }
+  }
+  quit_(1, e);
+};
+
+var maybeExit = () => {
+  if (runtimeExited) {
+    return;
+  }
+  if (!keepRuntimeAlive()) {
+    try {
+      _exit(EXITSTATUS);
+    } catch (e) {
+      handleException(e);
+    }
+  }
+};
+
+var runtimeKeepalivePop = () => {
+  assert(runtimeKeepaliveCounter > 0);
+  runtimeKeepaliveCounter -= 1;
+};
+
 /**
      * @param {number=} arg
      * @param {boolean=} noSetTiming
@@ -5068,6 +5349,8 @@ _emscripten_get_now = () => performance.now();
   /** @type{number} */ var thisMainLoopId = (() => Browser.mainLoop.currentlyRunningMainloop)();
   function checkIsRunning() {
     if (thisMainLoopId < Browser.mainLoop.currentlyRunningMainloop) {
+      runtimeKeepalivePop();
+      maybeExit();
       return false;
     }
     return true;
@@ -5145,62 +5428,8 @@ _emscripten_get_now = () => performance.now();
   }
 };
 
-var handleException = e => {
-  // Certain exception types we do not treat as errors since they are used for
-  // internal control flow.
-  // 1. ExitStatus, which is thrown by exit()
-  // 2. "unwind", which is thrown by emscripten_unwind_to_js_event_loop() and others
-  //    that wish to return to JS event loop.
-  if (e instanceof ExitStatus || e == "unwind") {
-    return EXITSTATUS;
-  }
-  checkStackCookie();
-  if (e instanceof WebAssembly.RuntimeError) {
-    if (_emscripten_stack_get_current() <= 0) {
-      err("Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 65536)");
-    }
-  }
-  quit_(1, e);
-};
-
-var runtimeKeepaliveCounter = 0;
-
-var keepRuntimeAlive = () => noExitRuntime || runtimeKeepaliveCounter > 0;
-
-var _proc_exit = code => {
-  EXITSTATUS = code;
-  if (!keepRuntimeAlive()) {
-    Module["onExit"]?.(code);
-    ABORT = true;
-  }
-  quit_(code, new ExitStatus(code));
-};
-
-/** @suppress {duplicate } */ /** @param {boolean|number=} implicit */ var exitJS = (status, implicit) => {
-  EXITSTATUS = status;
-  checkUnflushedContent();
-  // if exit() was called explicitly, warn the user if the runtime isn't actually being shut down
-  if (keepRuntimeAlive() && !implicit) {
-    var msg = `program exited (with status: ${status}), but keepRuntimeAlive() is set (counter=${runtimeKeepaliveCounter}) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)`;
-    err(msg);
-  }
-  _proc_exit(status);
-};
-
-var _exit = exitJS;
-
-var maybeExit = () => {
-  if (!keepRuntimeAlive()) {
-    try {
-      _exit(EXITSTATUS);
-    } catch (e) {
-      handleException(e);
-    }
-  }
-};
-
 var callUserCallback = func => {
-  if (ABORT) {
+  if (runtimeExited || ABORT) {
     err("user callback triggered after runtime exited or application aborted.  Ignoring.");
     return;
   }
@@ -5212,9 +5441,13 @@ var callUserCallback = func => {
   }
 };
 
-/** @param {number=} timeout */ var safeSetTimeout = (func, timeout) => setTimeout(() => {
-  callUserCallback(func);
-}, timeout);
+/** @param {number=} timeout */ var safeSetTimeout = (func, timeout) => {
+  runtimeKeepalivePush();
+  return setTimeout(() => {
+    runtimeKeepalivePop();
+    callUserCallback(func);
+  }, timeout);
+};
 
 var Browser = {
   mainLoop: {
@@ -5552,7 +5785,9 @@ var Browser = {
     return safeSetTimeout(func, timeout);
   },
   safeRequestAnimationFrame(func) {
+    runtimeKeepalivePush();
     return Browser.requestAnimationFrame(() => {
+      runtimeKeepalivePop();
       callUserCallback(func);
     });
   },
@@ -5709,10 +5944,10 @@ var Browser = {
   setFullscreenCanvasSize() {
     // check if SDL is available
     if (typeof SDL != "undefined") {
-      var flags = SAFE_HEAP_LOAD(((SDL.screen) >> 2) * 4, 4, 1);
+      var flags = _asan_js_load_4u(((SDL.screen) >> 2));
       flags = flags | 8388608;
       // set SDL_FULLSCREEN flag
-      SAFE_HEAP_STORE(((SDL.screen) >> 2) * 4, flags, 4);
+      _asan_js_store_4(((SDL.screen) >> 2), flags);
     }
     Browser.updateCanvasDimensions(Module["canvas"]);
     Browser.updateResizeListeners();
@@ -5720,10 +5955,10 @@ var Browser = {
   setWindowedCanvasSize() {
     // check if SDL is available
     if (typeof SDL != "undefined") {
-      var flags = SAFE_HEAP_LOAD(((SDL.screen) >> 2) * 4, 4, 1);
+      var flags = _asan_js_load_4u(((SDL.screen) >> 2));
       flags = flags & ~8388608;
       // clear SDL_FULLSCREEN flag
-      SAFE_HEAP_STORE(((SDL.screen) >> 2) * 4, flags, 4);
+      _asan_js_store_4(((SDL.screen) >> 2), flags);
     }
     Browser.updateCanvasDimensions(Module["canvas"]);
     Browser.updateResizeListeners();
@@ -5797,24 +6032,24 @@ var EGL = {
     if (attribList) {
       // read attribList if it is non-null
       for (;;) {
-        var param = SAFE_HEAP_LOAD(((attribList) >> 2) * 4, 4, 0);
+        var param = _asan_js_load_4(((attribList) >> 2));
         if (param == 12321) /*EGL_ALPHA_SIZE*/ {
-          var alphaSize = SAFE_HEAP_LOAD((((attribList) + (4)) >> 2) * 4, 4, 0);
+          var alphaSize = _asan_js_load_4((((attribList) + (4)) >> 2));
           EGL.contextAttributes.alpha = (alphaSize > 0);
         } else if (param == 12325) /*EGL_DEPTH_SIZE*/ {
-          var depthSize = SAFE_HEAP_LOAD((((attribList) + (4)) >> 2) * 4, 4, 0);
+          var depthSize = _asan_js_load_4((((attribList) + (4)) >> 2));
           EGL.contextAttributes.depth = (depthSize > 0);
         } else if (param == 12326) /*EGL_STENCIL_SIZE*/ {
-          var stencilSize = SAFE_HEAP_LOAD((((attribList) + (4)) >> 2) * 4, 4, 0);
+          var stencilSize = _asan_js_load_4((((attribList) + (4)) >> 2));
           EGL.contextAttributes.stencil = (stencilSize > 0);
         } else if (param == 12337) /*EGL_SAMPLES*/ {
-          var samples = SAFE_HEAP_LOAD((((attribList) + (4)) >> 2) * 4, 4, 0);
+          var samples = _asan_js_load_4((((attribList) + (4)) >> 2));
           EGL.contextAttributes.antialias = (samples > 0);
         } else if (param == 12338) /*EGL_SAMPLE_BUFFERS*/ {
-          var samples = SAFE_HEAP_LOAD((((attribList) + (4)) >> 2) * 4, 4, 0);
+          var samples = _asan_js_load_4((((attribList) + (4)) >> 2));
           EGL.contextAttributes.antialias = (samples == 1);
         } else if (param == 12544) /*EGL_CONTEXT_PRIORITY_LEVEL_IMG*/ {
-          var requestedPriority = SAFE_HEAP_LOAD((((attribList) + (4)) >> 2) * 4, 4, 0);
+          var requestedPriority = _asan_js_load_4((((attribList) + (4)) >> 2));
           EGL.contextAttributes.lowLatency = (requestedPriority != 12547);
         } else if (param == 12344) /*EGL_NONE*/ {
           break;
@@ -5827,11 +6062,11 @@ var EGL = {
       /* EGL_BAD_PARAMETER */ return 0;
     }
     if (numConfigs) {
-      SAFE_HEAP_STORE(((numConfigs) >> 2) * 4, 1, 4);
+      _asan_js_store_4(((numConfigs) >> 2), 1);
     }
     // Total number of supported configs: 1.
     if (config && config_size > 0) {
-      SAFE_HEAP_STORE(((config) >> 2) * 4, 62002, 4);
+      _asan_js_store_4u(((config) >> 2), 62002);
     }
     EGL.setErrorCode(12288);
     /* EGL_SUCCESS */ return 1;
@@ -5933,14 +6168,14 @@ var GL = {
       } else {
         GL.recordError(1282);
       }
-      SAFE_HEAP_STORE((((buffers) + (i * 4)) >> 2) * 4, id, 4);
+      _asan_js_store_4((((buffers) + (i * 4)) >> 2), id);
     }
   },
   getSource: (shader, count, string, length) => {
     var source = "";
     for (var i = 0; i < count; ++i) {
-      var len = length ? SAFE_HEAP_LOAD((((length) + (i * 4)) >> 2) * 4, 4, 1) : undefined;
-      source += UTF8ToString(SAFE_HEAP_LOAD((((string) + (i * 4)) >> 2) * 4, 4, 1), len);
+      var len = length ? _asan_js_load_4u((((length) + (i * 4)) >> 2)) : undefined;
+      source += UTF8ToString(_asan_js_load_4u((((string) + (i * 4)) >> 2)), len);
     }
     return source;
   },
@@ -6048,9 +6283,9 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
   // So user must pass EGL_CONTEXT_CLIENT_VERSION == 2 to initialize EGL.
   var glesContextVersion = 1;
   for (;;) {
-    var param = SAFE_HEAP_LOAD(((contextAttribs) >> 2) * 4, 4, 0);
+    var param = _asan_js_load_4(((contextAttribs) >> 2));
     if (param == 12440) /*EGL_CONTEXT_CLIENT_VERSION*/ {
-      glesContextVersion = SAFE_HEAP_LOAD((((contextAttribs) + (4)) >> 2) * 4, 4, 0);
+      glesContextVersion = _asan_js_load_4((((contextAttribs) + (4)) >> 2));
     } else if (param == 12344) /*EGL_NONE*/ {
       break;
     } else {
@@ -6155,104 +6390,104 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
   /* EGL_SUCCESS */ switch (attribute) {
    case 12320:
     // EGL_BUFFER_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, EGL.contextAttributes.alpha ? 32 : 24, 4);
+    _asan_js_store_4(((value) >> 2), EGL.contextAttributes.alpha ? 32 : 24);
     return 1;
 
    case 12321:
     // EGL_ALPHA_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, EGL.contextAttributes.alpha ? 8 : 0, 4);
+    _asan_js_store_4(((value) >> 2), EGL.contextAttributes.alpha ? 8 : 0);
     return 1;
 
    case 12322:
     // EGL_BLUE_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 8, 4);
+    _asan_js_store_4(((value) >> 2), 8);
     return 1;
 
    case 12323:
     // EGL_GREEN_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 8, 4);
+    _asan_js_store_4(((value) >> 2), 8);
     return 1;
 
    case 12324:
     // EGL_RED_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 8, 4);
+    _asan_js_store_4(((value) >> 2), 8);
     return 1;
 
    case 12325:
     // EGL_DEPTH_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, EGL.contextAttributes.depth ? 24 : 0, 4);
+    _asan_js_store_4(((value) >> 2), EGL.contextAttributes.depth ? 24 : 0);
     return 1;
 
    case 12326:
     // EGL_STENCIL_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, EGL.contextAttributes.stencil ? 8 : 0, 4);
+    _asan_js_store_4(((value) >> 2), EGL.contextAttributes.stencil ? 8 : 0);
     return 1;
 
    case 12327:
     // EGL_CONFIG_CAVEAT
     // We can return here one of EGL_NONE (0x3038), EGL_SLOW_CONFIG (0x3050) or EGL_NON_CONFORMANT_CONFIG (0x3051).
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 12344, 4);
+    _asan_js_store_4(((value) >> 2), 12344);
     return 1;
 
    case 12328:
     // EGL_CONFIG_ID
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 62002, 4);
+    _asan_js_store_4(((value) >> 2), 62002);
     return 1;
 
    case 12329:
     // EGL_LEVEL
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    case 12330:
     // EGL_MAX_PBUFFER_HEIGHT
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 4096, 4);
+    _asan_js_store_4(((value) >> 2), 4096);
     return 1;
 
    case 12331:
     // EGL_MAX_PBUFFER_PIXELS
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 16777216, 4);
+    _asan_js_store_4(((value) >> 2), 16777216);
     return 1;
 
    case 12332:
     // EGL_MAX_PBUFFER_WIDTH
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 4096, 4);
+    _asan_js_store_4(((value) >> 2), 4096);
     return 1;
 
    case 12333:
     // EGL_NATIVE_RENDERABLE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    case 12334:
     // EGL_NATIVE_VISUAL_ID
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    case 12335:
     // EGL_NATIVE_VISUAL_TYPE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 12344, 4);
+    _asan_js_store_4(((value) >> 2), 12344);
     return 1;
 
    case 12337:
     // EGL_SAMPLES
-    SAFE_HEAP_STORE(((value) >> 2) * 4, EGL.contextAttributes.antialias ? 4 : 0, 4);
+    _asan_js_store_4(((value) >> 2), EGL.contextAttributes.antialias ? 4 : 0);
     return 1;
 
    case 12338:
     // EGL_SAMPLE_BUFFERS
-    SAFE_HEAP_STORE(((value) >> 2) * 4, EGL.contextAttributes.antialias ? 1 : 0, 4);
+    _asan_js_store_4(((value) >> 2), EGL.contextAttributes.antialias ? 1 : 0);
     return 1;
 
    case 12339:
     // EGL_SURFACE_TYPE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 4, 4);
+    _asan_js_store_4(((value) >> 2), 4);
     return 1;
 
    case 12340:
     // EGL_TRANSPARENT_TYPE
     // If this returns EGL_TRANSPARENT_RGB (0x3052), transparency is used through color-keying. No such thing applies to Emscripten canvas.
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 12344, 4);
+    _asan_js_store_4(((value) >> 2), 12344);
     return 1;
 
    case 12341:
@@ -6262,49 +6497,49 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
     case 12343:
     // EGL_TRANSPARENT_RED_VALUE
     // "If EGL_TRANSPARENT_TYPE is EGL_NONE, then the values for EGL_TRANSPARENT_RED_VALUE, EGL_TRANSPARENT_GREEN_VALUE, and EGL_TRANSPARENT_BLUE_VALUE are undefined."
-    SAFE_HEAP_STORE(((value) >> 2) * 4, -1, 4);
+    _asan_js_store_4(((value) >> 2), -1);
     return 1;
 
    case 12345:
    // EGL_BIND_TO_TEXTURE_RGB
     case 12346:
     // EGL_BIND_TO_TEXTURE_RGBA
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    case 12347:
     // EGL_MIN_SWAP_INTERVAL
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    case 12348:
     // EGL_MAX_SWAP_INTERVAL
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 1, 4);
+    _asan_js_store_4(((value) >> 2), 1);
     return 1;
 
    case 12349:
    // EGL_LUMINANCE_SIZE
     case 12350:
     // EGL_ALPHA_MASK_SIZE
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    case 12351:
     // EGL_COLOR_BUFFER_TYPE
     // EGL has two types of buffers: EGL_RGB_BUFFER and EGL_LUMINANCE_BUFFER.
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 12430, 4);
+    _asan_js_store_4(((value) >> 2), 12430);
     return 1;
 
    case 12352:
     // EGL_RENDERABLE_TYPE
     // A bit combination of EGL_OPENGL_ES_BIT,EGL_OPENVG_BIT,EGL_OPENGL_ES2_BIT and EGL_OPENGL_BIT.
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 4, 4);
+    _asan_js_store_4(((value) >> 2), 4);
     return 1;
 
    case 12354:
     // EGL_CONFORMANT
     // "EGL_CONFORMANT is a mask indicating if a client API context created with respect to the corresponding EGLConfig will pass the required conformance tests for that API."
-    SAFE_HEAP_STORE(((value) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((value) >> 2), 0);
     return 1;
 
    default:
@@ -6333,11 +6568,11 @@ var _eglInitialize = (display, majorVersion, minorVersion) => {
     /* EGL_BAD_DISPLAY */ return 0;
   }
   if (majorVersion) {
-    SAFE_HEAP_STORE(((majorVersion) >> 2) * 4, 1, 4);
+    _asan_js_store_4(((majorVersion) >> 2), 1);
   }
   // Advertise EGL Major version: '1'
   if (minorVersion) {
-    SAFE_HEAP_STORE(((minorVersion) >> 2) * 4, 4, 4);
+    _asan_js_store_4(((minorVersion) >> 2), 4);
   }
   // Advertise EGL Minor version: '4'
   EGL.defaultDisplayInitialized = true;
@@ -6367,14 +6602,7 @@ var _eglMakeCurrent = (display, draw, read, context) => {
   /* EGL_SUCCESS */ return 1;
 };
 
-/* EGL_TRUE */ var stringToNewUTF8 = str => {
-  var size = lengthBytesUTF8(str) + 1;
-  var ret = _malloc(size);
-  if (ret) stringToUTF8(str, ret, size);
-  return ret;
-};
-
-var _eglQueryString = (display, name) => {
+/* EGL_TRUE */ var _eglQueryString = (display, name) => {
   if (display != 62e3) {
     EGL.setErrorCode(12296);
     /* EGL_BAD_DISPLAY */ return 0;
@@ -6473,7 +6701,7 @@ var readEmAsmArgs = (sigPtr, buf) => {
   var ch;
   // Most arguments are i32s, so shift the buffer pointer so it is a plain
   // index into HEAP32.
-  while (ch = SAFE_HEAP_LOAD(sigPtr++, 1, 1)) {
+  while (ch = _asan_js_load_1u(sigPtr++)) {
     var chr = String.fromCharCode(ch);
     var validChars = [ "d", "f", "i", "p" ];
     assert(validChars.includes(chr), `Invalid character ${ch}("${chr}") in readEmAsmArgs! Use only [${validChars}], and do not specify "v" for void return argument.`);
@@ -6483,7 +6711,7 @@ var readEmAsmArgs = (sigPtr, buf) => {
     wide &= (ch != 112);
     buf += wide && (buf % 8) ? 4 : 0;
     readEmAsmArgsArray.push(// Special case for pointers under wasm64 or CAN_ADDRESS_2GB mode.
-    ch == 112 ? SAFE_HEAP_LOAD(((buf) >> 2) * 4, 4, 1) : ch == 105 ? SAFE_HEAP_LOAD(((buf) >> 2) * 4, 4, 0) : SAFE_HEAP_LOAD_D(((buf) >> 3) * 8, 8, 0));
+    ch == 112 ? _asan_js_load_4u(((buf) >> 2)) : ch == 105 ? _asan_js_load_4(((buf) >> 2)) : _asan_js_load_d(((buf) >> 3)));
     buf += wide ? 8 : 4;
   }
   return readEmAsmArgsArray;
@@ -6520,6 +6748,12 @@ var JSEvents = {
       JSEvents._removeHandler(JSEvents.eventHandlers.length - 1);
     }
     JSEvents.deferredCalls = [];
+  },
+  registerRemoveEventListeners() {
+    if (!JSEvents.removeEventListenersRegistered) {
+      __ATEXIT__.push(JSEvents.removeAllEventListeners);
+      JSEvents.removeEventListenersRegistered = true;
+    }
   },
   inEventHandler: 0,
   deferredCalls: [],
@@ -6603,6 +6837,7 @@ var JSEvents = {
       };
       eventHandler.target.addEventListener(eventHandler.eventTypeString, eventHandler.eventListenerFunc, eventHandler.useCapture);
       JSEvents.eventHandlers.push(eventHandler);
+      JSEvents.registerRemoveEventListeners();
     } else {
       for (var i = 0; i < JSEvents.eventHandlers.length; ++i) {
         if (JSEvents.eventHandlers[i].target == eventHandler.target && JSEvents.eventHandlers[i].eventTypeString == eventHandler.eventTypeString) {
@@ -6642,8 +6877,8 @@ var findCanvasEventTarget = findEventTarget;
 var _emscripten_get_canvas_element_size = (target, width, height) => {
   var canvas = findCanvasEventTarget(target);
   if (!canvas) return -4;
-  SAFE_HEAP_STORE(((width) >> 2) * 4, canvas.width, 4);
-  SAFE_HEAP_STORE(((height) >> 2) * 4, canvas.height, 4);
+  _asan_js_store_4(((width) >> 2), canvas.width);
+  _asan_js_store_4(((height) >> 2), canvas.height);
 };
 
 var stackAlloc = sz => __emscripten_stack_alloc(sz);
@@ -6661,7 +6896,7 @@ var getCanvasElementSize = target => {
   var h = w + 4;
   var targetInt = stringToUTF8OnStack(target.id);
   var ret = _emscripten_get_canvas_element_size(targetInt, w, h);
-  var size = [ SAFE_HEAP_LOAD(((w) >> 2) * 4, 4, 0), SAFE_HEAP_LOAD(((h) >> 2) * 4, 4, 0) ];
+  var size = [ _asan_js_load_4(((w) >> 2)), _asan_js_load_4(((h) >> 2)) ];
   stackRestore(sp);
   return size;
 };
@@ -6891,7 +7126,6 @@ var __emscripten_runtime_keepalive_clear = () => {
 };
 
 var _emscripten_force_exit = status => {
-  warnOnce("emscripten_force_exit cannot actually shut down the runtime, as the build does not have EXIT_RUNTIME set");
   __emscripten_runtime_keepalive_clear();
   _exit(status);
 };
@@ -6902,34 +7136,35 @@ var _emscripten_get_element_css_size = (target, width, height) => {
   target = findEventTarget(target);
   if (!target) return -4;
   var rect = getBoundingClientRect(target);
-  SAFE_HEAP_STORE_D(((width) >> 3) * 8, rect.width, 8);
-  SAFE_HEAP_STORE_D(((height) >> 3) * 8, rect.height, 8);
+  _asan_js_store_d(((width) >> 3), rect.width);
+  _asan_js_store_d(((height) >> 3), rect.height);
   return 0;
 };
 
 var fillGamepadEventData = (eventStruct, e) => {
-  SAFE_HEAP_STORE_D(((eventStruct) >> 3) * 8, e.timestamp, 8);
+  _asan_js_store_d(((eventStruct) >> 3), e.timestamp);
   for (var i = 0; i < e.axes.length; ++i) {
-    SAFE_HEAP_STORE_D((((eventStruct + i * 8) + (16)) >> 3) * 8, e.axes[i], 8);
+    _asan_js_store_d((((eventStruct + i * 8) + (16)) >> 3), e.axes[i]);
   }
   for (var i = 0; i < e.buttons.length; ++i) {
     if (typeof e.buttons[i] == "object") {
-      SAFE_HEAP_STORE_D((((eventStruct + i * 8) + (528)) >> 3) * 8, e.buttons[i].value, 8);
+      _asan_js_store_d((((eventStruct + i * 8) + (528)) >> 3), e.buttons[i].value);
     } else {
-      SAFE_HEAP_STORE_D((((eventStruct + i * 8) + (528)) >> 3) * 8, e.buttons[i], 8);
+      _asan_js_store_d((((eventStruct + i * 8) + (528)) >> 3), e.buttons[i]);
     }
   }
   for (var i = 0; i < e.buttons.length; ++i) {
     if (typeof e.buttons[i] == "object") {
-      SAFE_HEAP_STORE((eventStruct + i) + (1040), e.buttons[i].pressed, 1);
+      _asan_js_store_1((eventStruct + i) + (1040), e.buttons[i].pressed);
     } else {
-      SAFE_HEAP_STORE((eventStruct + i) + (1040), e.buttons[i] == 1, 1);
+      // Assigning a boolean to HEAP32, that's ok, but Closure would like to warn about it:
+      /** @suppress {checkTypes} */ _asan_js_store_1((eventStruct + i) + (1040), e.buttons[i] == 1);
     }
   }
-  SAFE_HEAP_STORE((eventStruct) + (1104), e.connected, 1);
-  SAFE_HEAP_STORE((((eventStruct) + (1108)) >> 2) * 4, e.index, 4);
-  SAFE_HEAP_STORE((((eventStruct) + (8)) >> 2) * 4, e.axes.length, 4);
-  SAFE_HEAP_STORE((((eventStruct) + (12)) >> 2) * 4, e.buttons.length, 4);
+  _asan_js_store_1((eventStruct) + (1104), e.connected);
+  _asan_js_store_4((((eventStruct) + (1108)) >> 2), e.index);
+  _asan_js_store_4((((eventStruct) + (8)) >> 2), e.axes.length);
+  _asan_js_store_4((((eventStruct) + (12)) >> 2), e.buttons.length);
   stringToUTF8(e.id, eventStruct + 1112, 64);
   stringToUTF8(e.mapping, eventStruct + 1176, 64);
 };
@@ -6947,6 +7182,10 @@ var _emscripten_get_gamepad_status = (index, gamepadState) => {
   return 0;
 };
 
+var getHeapMax = () => HEAPU8.length;
+
+var _emscripten_get_heap_max = () => getHeapMax();
+
 var _emscripten_get_num_gamepads = () => {
   if (!JSEvents.lastGamepadState) throw "emscripten_get_num_gamepads() can only be called after having first called emscripten_sample_gamepad_data() and that function has returned EMSCRIPTEN_RESULT_SUCCESS!";
   // N.B. Do not call emscripten_get_num_gamepads() unless having first called emscripten_sample_gamepad_data(), and that has returned EMSCRIPTEN_RESULT_SUCCESS.
@@ -6962,8 +7201,8 @@ var getPreloadedImageData = (path, w, h) => {
   var image = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var buf = _malloc(canvas.width * canvas.height * 4);
   HEAPU8.set(image.data, buf);
-  SAFE_HEAP_STORE(((w) >> 2) * 4, canvas.width, 4);
-  SAFE_HEAP_STORE(((h) >> 2) * 4, canvas.height, 4);
+  _asan_js_store_4(((w) >> 2), canvas.width);
+  _asan_js_store_4(((h) >> 2), canvas.height);
   return buf;
 };
 
@@ -6979,8 +7218,8 @@ var _emscripten_get_preloaded_image_data_from_FILE = (file, w, h) => {
 };
 
 var _emscripten_get_screen_size = (width, height) => {
-  SAFE_HEAP_STORE(((width) >> 2) * 4, screen.width, 4);
-  SAFE_HEAP_STORE(((height) >> 2) * 4, screen.height, 4);
+  _asan_js_store_4(((width) >> 2), screen.width);
+  _asan_js_store_4(((height) >> 2), screen.height);
 };
 
 /** @suppress {duplicate } */ var _glActiveTexture = x0 => GLctx.activeTexture(x0);
@@ -7154,7 +7393,7 @@ var _emscripten_glCullFace = _glCullFace;
 
 /** @suppress {duplicate } */ var _glDeleteBuffers = (n, buffers) => {
   for (var i = 0; i < n; i++) {
-    var id = SAFE_HEAP_LOAD((((buffers) + (i * 4)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((buffers) + (i * 4)) >> 2));
     var buffer = GL.buffers[id];
     // From spec: "glDeleteBuffers silently ignores 0's and names that do not
     // correspond to existing buffer objects."
@@ -7169,7 +7408,7 @@ var _emscripten_glDeleteBuffers = _glDeleteBuffers;
 
 /** @suppress {duplicate } */ var _glDeleteFramebuffers = (n, framebuffers) => {
   for (var i = 0; i < n; ++i) {
-    var id = SAFE_HEAP_LOAD((((framebuffers) + (i * 4)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((framebuffers) + (i * 4)) >> 2));
     var framebuffer = GL.framebuffers[id];
     if (!framebuffer) continue;
     // GL spec: "glDeleteFramebuffers silently ignores 0s and names that do not correspond to existing framebuffer objects".
@@ -7199,7 +7438,7 @@ var _emscripten_glDeleteProgram = _glDeleteProgram;
 
 /** @suppress {duplicate } */ var _glDeleteQueriesEXT = (n, ids) => {
   for (var i = 0; i < n; i++) {
-    var id = SAFE_HEAP_LOAD((((ids) + (i * 4)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((ids) + (i * 4)) >> 2));
     var query = GL.queries[id];
     if (!query) continue;
     // GL spec: "unused names in ids are ignored, as is the name zero."
@@ -7212,7 +7451,7 @@ var _emscripten_glDeleteQueriesEXT = _glDeleteQueriesEXT;
 
 /** @suppress {duplicate } */ var _glDeleteRenderbuffers = (n, renderbuffers) => {
   for (var i = 0; i < n; i++) {
-    var id = SAFE_HEAP_LOAD((((renderbuffers) + (i * 4)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((renderbuffers) + (i * 4)) >> 2));
     var renderbuffer = GL.renderbuffers[id];
     if (!renderbuffer) continue;
     // GL spec: "glDeleteRenderbuffers silently ignores 0s and names that do not correspond to existing renderbuffer objects".
@@ -7241,7 +7480,7 @@ var _emscripten_glDeleteShader = _glDeleteShader;
 
 /** @suppress {duplicate } */ var _glDeleteTextures = (n, textures) => {
   for (var i = 0; i < n; i++) {
-    var id = SAFE_HEAP_LOAD((((textures) + (i * 4)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((textures) + (i * 4)) >> 2));
     var texture = GL.textures[id];
     // GL spec: "glDeleteTextures silently ignores 0s and names that do not
     // correspond to existing textures".
@@ -7256,7 +7495,7 @@ var _emscripten_glDeleteTextures = _glDeleteTextures;
 
 /** @suppress {duplicate } */ var _glDeleteVertexArrays = (n, vaos) => {
   for (var i = 0; i < n; i++) {
-    var id = SAFE_HEAP_LOAD((((vaos) + (i * 4)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((vaos) + (i * 4)) >> 2));
     GLctx.deleteVertexArray(GL.vaos[id]);
     GL.vaos[id] = null;
   }
@@ -7315,7 +7554,7 @@ var tempFixedLengthArray = [];
 /** @suppress {duplicate } */ var _glDrawBuffers = (n, bufs) => {
   var bufArray = tempFixedLengthArray[n];
   for (var i = 0; i < n; i++) {
-    bufArray[i] = SAFE_HEAP_LOAD((((bufs) + (i * 4)) >> 2) * 4, 4, 0);
+    bufArray[i] = _asan_js_load_4((((bufs) + (i * 4)) >> 2));
   }
   GLctx.drawBuffers(bufArray);
 };
@@ -7395,13 +7634,13 @@ var _emscripten_glGenFramebuffers = _glGenFramebuffers;
     var query = GLctx.disjointTimerQueryExt["createQueryEXT"]();
     if (!query) {
       GL.recordError(1282);
-      /* GL_INVALID_OPERATION */ while (i < n) SAFE_HEAP_STORE((((ids) + (i++ * 4)) >> 2) * 4, 0, 4);
+      /* GL_INVALID_OPERATION */ while (i < n) _asan_js_store_4((((ids) + (i++ * 4)) >> 2), 0);
       return;
     }
     var id = GL.getNewId(GL.queries);
     query.name = id;
     GL.queries[id] = query;
-    SAFE_HEAP_STORE((((ids) + (i * 4)) >> 2) * 4, id, 4);
+    _asan_js_store_4((((ids) + (i * 4)) >> 2), id);
   }
 };
 
@@ -7437,9 +7676,9 @@ var __glGetActiveAttribOrUniform = (funcName, program, index, bufSize, length, s
   if (info) {
     // If an error occurs, nothing will be written to length, size and type and name.
     var numBytesWrittenExclNull = name && stringToUTF8(info.name, name, bufSize);
-    if (length) SAFE_HEAP_STORE(((length) >> 2) * 4, numBytesWrittenExclNull, 4);
-    if (size) SAFE_HEAP_STORE(((size) >> 2) * 4, info.size, 4);
-    if (type) SAFE_HEAP_STORE(((type) >> 2) * 4, info.type, 4);
+    if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
+    if (size) _asan_js_store_4(((size) >> 2), info.size);
+    if (type) _asan_js_store_4(((type) >> 2), info.type);
   }
 };
 
@@ -7461,10 +7700,10 @@ var _emscripten_glGetActiveUniform = _glGetActiveUniform;
   if (len > maxCount) {
     len = maxCount;
   }
-  SAFE_HEAP_STORE(((count) >> 2) * 4, len, 4);
+  _asan_js_store_4(((count) >> 2), len);
   for (var i = 0; i < len; ++i) {
     var id = GL.shaders.indexOf(result[i]);
-    SAFE_HEAP_STORE((((shaders) + (i * 4)) >> 2) * 4, id, 4);
+    _asan_js_store_4((((shaders) + (i * 4)) >> 2), id);
   }
 };
 
@@ -7474,17 +7713,17 @@ var _emscripten_glGetAttachedShaders = _glGetAttachedShaders;
 
 var _emscripten_glGetAttribLocation = _glGetAttribLocation;
 
-var readI53FromI64 = ptr => SAFE_HEAP_LOAD(((ptr) >> 2) * 4, 4, 1) + SAFE_HEAP_LOAD((((ptr) + (4)) >> 2) * 4, 4, 0) * 4294967296;
+var readI53FromI64 = ptr => _asan_js_load_4u(((ptr) >> 2)) + _asan_js_load_4((((ptr) + (4)) >> 2)) * 4294967296;
 
-var readI53FromU64 = ptr => SAFE_HEAP_LOAD(((ptr) >> 2) * 4, 4, 1) + SAFE_HEAP_LOAD((((ptr) + (4)) >> 2) * 4, 4, 1) * 4294967296;
+var readI53FromU64 = ptr => _asan_js_load_4u(((ptr) >> 2)) + _asan_js_load_4u((((ptr) + (4)) >> 2)) * 4294967296;
 
 var writeI53ToI64 = (ptr, num) => {
-  SAFE_HEAP_STORE(((ptr) >> 2) * 4, num, 4);
-  var lower = SAFE_HEAP_LOAD(((ptr) >> 2) * 4, 4, 1);
-  SAFE_HEAP_STORE((((ptr) + (4)) >> 2) * 4, (num - lower) / 4294967296, 4);
+  _asan_js_store_4u(((ptr) >> 2), num);
+  var lower = _asan_js_load_4u(((ptr) >> 2));
+  _asan_js_store_4u((((ptr) + (4)) >> 2), (num - lower) / 4294967296);
   var deserialized = (num >= 0) ? readI53FromU64(ptr) : readI53FromI64(ptr);
   var offset = ((ptr) >> 2);
-  if (deserialized != num) warnOnce(`writeI53ToI64() out of range: serialized JS Number ${num} to Wasm heap as bytes lo=${ptrToString(SAFE_HEAP_LOAD(offset * 4, 4, 1))}, hi=${ptrToString(SAFE_HEAP_LOAD((offset + 1) * 4, 4, 1))}, which deserializes back to ${deserialized} instead!`);
+  if (deserialized != num) warnOnce(`writeI53ToI64() out of range: serialized JS Number ${num} to Wasm heap as bytes lo=${ptrToString(_asan_js_load_4u(offset))}, hi=${ptrToString(_asan_js_load_4u(offset + 1))}, which deserializes back to ${deserialized} instead!`);
 };
 
 var emscriptenWebGLGet = (name_, p, type) => {
@@ -7583,15 +7822,15 @@ var emscriptenWebGLGet = (name_, p, type) => {
         for (var i = 0; i < result.length; ++i) {
           switch (type) {
            case 0:
-            SAFE_HEAP_STORE((((p) + (i * 4)) >> 2) * 4, result[i], 4);
+            _asan_js_store_4((((p) + (i * 4)) >> 2), result[i]);
             break;
 
            case 2:
-            SAFE_HEAP_STORE_D((((p) + (i * 4)) >> 2) * 4, result[i], 4);
+            _asan_js_store_f((((p) + (i * 4)) >> 2), result[i]);
             break;
 
            case 4:
-            SAFE_HEAP_STORE((p) + (i), result[i] ? 1 : 0, 1);
+            _asan_js_store_1((p) + (i), result[i] ? 1 : 0);
             break;
           }
         }
@@ -7621,15 +7860,15 @@ var emscriptenWebGLGet = (name_, p, type) => {
     break;
 
    case 0:
-    SAFE_HEAP_STORE(((p) >> 2) * 4, ret, 4);
+    _asan_js_store_4(((p) >> 2), ret);
     break;
 
    case 2:
-    SAFE_HEAP_STORE_D(((p) >> 2) * 4, ret, 4);
+    _asan_js_store_f(((p) >> 2), ret);
     break;
 
    case 4:
-    SAFE_HEAP_STORE(p, ret ? 1 : 0, 1);
+    _asan_js_store_1(p, ret ? 1 : 0);
     break;
   }
 };
@@ -7646,7 +7885,7 @@ var _emscripten_glGetBooleanv = _glGetBooleanv;
     GL.recordError(1281);
     /* GL_INVALID_VALUE */ return;
   }
-  SAFE_HEAP_STORE(((data) >> 2) * 4, GLctx.getBufferParameter(target, value), 4);
+  _asan_js_store_4(((data) >> 2), GLctx.getBufferParameter(target, value));
 };
 
 var _emscripten_glGetBufferParameteriv = _glGetBufferParameteriv;
@@ -7668,7 +7907,7 @@ var _emscripten_glGetFloatv = _glGetFloatv;
   if (result instanceof WebGLRenderbuffer || result instanceof WebGLTexture) {
     result = result.name | 0;
   }
-  SAFE_HEAP_STORE(((params) >> 2) * 4, result, 4);
+  _asan_js_store_4(((params) >> 2), result);
 };
 
 var _emscripten_glGetFramebufferAttachmentParameteriv = _glGetFramebufferAttachmentParameteriv;
@@ -7681,7 +7920,7 @@ var _emscripten_glGetIntegerv = _glGetIntegerv;
   var log = GLctx.getProgramInfoLog(GL.programs[program]);
   if (log === null) log = "(unknown error)";
   var numBytesWrittenExclNull = (maxLength > 0 && infoLog) ? stringToUTF8(log, infoLog, maxLength) : 0;
-  if (length) SAFE_HEAP_STORE(((length) >> 2) * 4, numBytesWrittenExclNull, 4);
+  if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
 };
 
 var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
@@ -7703,30 +7942,30 @@ var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
     // GL_INFO_LOG_LENGTH
     var log = GLctx.getProgramInfoLog(program);
     if (log === null) log = "(unknown error)";
-    SAFE_HEAP_STORE(((p) >> 2) * 4, log.length + 1, 4);
+    _asan_js_store_4(((p) >> 2), log.length + 1);
   } else if (pname == 35719) /* GL_ACTIVE_UNIFORM_MAX_LENGTH */ {
     if (!program.maxUniformLength) {
       for (var i = 0; i < GLctx.getProgramParameter(program, 35718); /*GL_ACTIVE_UNIFORMS*/ ++i) {
         program.maxUniformLength = Math.max(program.maxUniformLength, GLctx.getActiveUniform(program, i).name.length + 1);
       }
     }
-    SAFE_HEAP_STORE(((p) >> 2) * 4, program.maxUniformLength, 4);
+    _asan_js_store_4(((p) >> 2), program.maxUniformLength);
   } else if (pname == 35722) /* GL_ACTIVE_ATTRIBUTE_MAX_LENGTH */ {
     if (!program.maxAttributeLength) {
       for (var i = 0; i < GLctx.getProgramParameter(program, 35721); /*GL_ACTIVE_ATTRIBUTES*/ ++i) {
         program.maxAttributeLength = Math.max(program.maxAttributeLength, GLctx.getActiveAttrib(program, i).name.length + 1);
       }
     }
-    SAFE_HEAP_STORE(((p) >> 2) * 4, program.maxAttributeLength, 4);
+    _asan_js_store_4(((p) >> 2), program.maxAttributeLength);
   } else if (pname == 35381) /* GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH */ {
     if (!program.maxUniformBlockNameLength) {
       for (var i = 0; i < GLctx.getProgramParameter(program, 35382); /*GL_ACTIVE_UNIFORM_BLOCKS*/ ++i) {
         program.maxUniformBlockNameLength = Math.max(program.maxUniformBlockNameLength, GLctx.getActiveUniformBlockName(program, i).length + 1);
       }
     }
-    SAFE_HEAP_STORE(((p) >> 2) * 4, program.maxUniformBlockNameLength, 4);
+    _asan_js_store_4(((p) >> 2), program.maxUniformBlockNameLength);
   } else {
-    SAFE_HEAP_STORE(((p) >> 2) * 4, GLctx.getProgramParameter(program, pname), 4);
+    _asan_js_store_4(((p) >> 2), GLctx.getProgramParameter(program, pname));
   }
 };
 
@@ -7770,7 +8009,7 @@ var _emscripten_glGetQueryObjecti64vEXT = _glGetQueryObjecti64vEXT;
   } else {
     ret = param;
   }
-  SAFE_HEAP_STORE(((params) >> 2) * 4, ret, 4);
+  _asan_js_store_4(((params) >> 2), ret);
 };
 
 var _emscripten_glGetQueryObjectivEXT = _glGetQueryObjectivEXT;
@@ -7790,7 +8029,7 @@ var _emscripten_glGetQueryObjectuivEXT = _glGetQueryObjectuivEXT;
     GL.recordError(1281);
     /* GL_INVALID_VALUE */ return;
   }
-  SAFE_HEAP_STORE(((params) >> 2) * 4, GLctx.disjointTimerQueryExt["getQueryEXT"](target, pname), 4);
+  _asan_js_store_4(((params) >> 2), GLctx.disjointTimerQueryExt["getQueryEXT"](target, pname));
 };
 
 var _emscripten_glGetQueryivEXT = _glGetQueryivEXT;
@@ -7802,7 +8041,7 @@ var _emscripten_glGetQueryivEXT = _glGetQueryivEXT;
     GL.recordError(1281);
     /* GL_INVALID_VALUE */ return;
   }
-  SAFE_HEAP_STORE(((params) >> 2) * 4, GLctx.getRenderbufferParameter(target, pname), 4);
+  _asan_js_store_4(((params) >> 2), GLctx.getRenderbufferParameter(target, pname));
 };
 
 var _emscripten_glGetRenderbufferParameteriv = _glGetRenderbufferParameteriv;
@@ -7811,16 +8050,16 @@ var _emscripten_glGetRenderbufferParameteriv = _glGetRenderbufferParameteriv;
   var log = GLctx.getShaderInfoLog(GL.shaders[shader]);
   if (log === null) log = "(unknown error)";
   var numBytesWrittenExclNull = (maxLength > 0 && infoLog) ? stringToUTF8(log, infoLog, maxLength) : 0;
-  if (length) SAFE_HEAP_STORE(((length) >> 2) * 4, numBytesWrittenExclNull, 4);
+  if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
 };
 
 var _emscripten_glGetShaderInfoLog = _glGetShaderInfoLog;
 
 /** @suppress {duplicate } */ var _glGetShaderPrecisionFormat = (shaderType, precisionType, range, precision) => {
   var result = GLctx.getShaderPrecisionFormat(shaderType, precisionType);
-  SAFE_HEAP_STORE(((range) >> 2) * 4, result.rangeMin, 4);
-  SAFE_HEAP_STORE((((range) + (4)) >> 2) * 4, result.rangeMax, 4);
-  SAFE_HEAP_STORE(((precision) >> 2) * 4, result.precision, 4);
+  _asan_js_store_4(((range) >> 2), result.rangeMin);
+  _asan_js_store_4((((range) + (4)) >> 2), result.rangeMax);
+  _asan_js_store_4(((precision) >> 2), result.precision);
 };
 
 var _emscripten_glGetShaderPrecisionFormat = _glGetShaderPrecisionFormat;
@@ -7830,7 +8069,7 @@ var _emscripten_glGetShaderPrecisionFormat = _glGetShaderPrecisionFormat;
   if (!result) return;
   // If an error occurs, nothing will be written to length or source.
   var numBytesWrittenExclNull = (bufSize > 0 && source) ? stringToUTF8(result, source, bufSize) : 0;
-  if (length) SAFE_HEAP_STORE(((length) >> 2) * 4, numBytesWrittenExclNull, 4);
+  if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
 };
 
 var _emscripten_glGetShaderSource = _glGetShaderSource;
@@ -7852,16 +8091,16 @@ var _emscripten_glGetShaderSource = _glGetShaderSource;
     // (An empty string is falsey, so we can just check that instead of
     // looking at log.length.)
     var logLength = log ? log.length + 1 : 0;
-    SAFE_HEAP_STORE(((p) >> 2) * 4, logLength, 4);
+    _asan_js_store_4(((p) >> 2), logLength);
   } else if (pname == 35720) {
     // GL_SHADER_SOURCE_LENGTH
     var source = GLctx.getShaderSource(GL.shaders[shader]);
     // source may be a null, or the empty string, both of which are falsey
     // values that we report a 0 length for.
     var sourceLength = source ? source.length + 1 : 0;
-    SAFE_HEAP_STORE(((p) >> 2) * 4, sourceLength, 4);
+    _asan_js_store_4(((p) >> 2), sourceLength);
   } else {
-    SAFE_HEAP_STORE(((p) >> 2) * 4, GLctx.getShaderParameter(GL.shaders[shader], pname), 4);
+    _asan_js_store_4(((p) >> 2), GLctx.getShaderParameter(GL.shaders[shader], pname));
   }
 };
 
@@ -7931,7 +8170,7 @@ var _emscripten_glGetString = _glGetString;
     GL.recordError(1281);
     /* GL_INVALID_VALUE */ return;
   }
-  SAFE_HEAP_STORE_D(((params) >> 2) * 4, GLctx.getTexParameter(target, pname), 4);
+  _asan_js_store_f(((params) >> 2), GLctx.getTexParameter(target, pname));
 };
 
 var _emscripten_glGetTexParameterfv = _glGetTexParameterfv;
@@ -7944,7 +8183,7 @@ var _emscripten_glGetTexParameterfv = _glGetTexParameterfv;
     GL.recordError(1281);
     /* GL_INVALID_VALUE */ return;
   }
-  SAFE_HEAP_STORE(((params) >> 2) * 4, GLctx.getTexParameter(target, pname), 4);
+  _asan_js_store_4(((params) >> 2), GLctx.getTexParameter(target, pname));
 };
 
 var _emscripten_glGetTexParameteriv = _glGetTexParameteriv;
@@ -8068,22 +8307,22 @@ var webglGetUniformLocation = location => {
   if (typeof data == "number" || typeof data == "boolean") {
     switch (type) {
      case 0:
-      SAFE_HEAP_STORE(((params) >> 2) * 4, data, 4);
+      _asan_js_store_4(((params) >> 2), data);
       break;
 
      case 2:
-      SAFE_HEAP_STORE_D(((params) >> 2) * 4, data, 4);
+      _asan_js_store_f(((params) >> 2), data);
       break;
     }
   } else {
     for (var i = 0; i < data.length; i++) {
       switch (type) {
        case 0:
-        SAFE_HEAP_STORE((((params) + (i * 4)) >> 2) * 4, data[i], 4);
+        _asan_js_store_4((((params) + (i * 4)) >> 2), data[i]);
         break;
 
        case 2:
-        SAFE_HEAP_STORE_D((((params) + (i * 4)) >> 2) * 4, data[i], 4);
+        _asan_js_store_f((((params) + (i * 4)) >> 2), data[i]);
         break;
       }
     }
@@ -8110,7 +8349,7 @@ var _emscripten_glGetUniformiv = _glGetUniformiv;
     GL.recordError(1281);
     /* GL_INVALID_VALUE */ return;
   }
-  SAFE_HEAP_STORE(((pointer) >> 2) * 4, GLctx.getVertexAttribOffset(index, pname), 4);
+  _asan_js_store_4(((pointer) >> 2), GLctx.getVertexAttribOffset(index, pname));
 };
 
 var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
@@ -8125,34 +8364,34 @@ var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
   }
   var data = GLctx.getVertexAttrib(index, pname);
   if (pname == 34975) /*VERTEX_ATTRIB_ARRAY_BUFFER_BINDING*/ {
-    SAFE_HEAP_STORE(((params) >> 2) * 4, data && data["name"], 4);
+    _asan_js_store_4(((params) >> 2), data && data["name"]);
   } else if (typeof data == "number" || typeof data == "boolean") {
     switch (type) {
      case 0:
-      SAFE_HEAP_STORE(((params) >> 2) * 4, data, 4);
+      _asan_js_store_4(((params) >> 2), data);
       break;
 
      case 2:
-      SAFE_HEAP_STORE_D(((params) >> 2) * 4, data, 4);
+      _asan_js_store_f(((params) >> 2), data);
       break;
 
      case 5:
-      SAFE_HEAP_STORE(((params) >> 2) * 4, Math.fround(data), 4);
+      _asan_js_store_4(((params) >> 2), Math.fround(data));
       break;
     }
   } else {
     for (var i = 0; i < data.length; i++) {
       switch (type) {
        case 0:
-        SAFE_HEAP_STORE((((params) + (i * 4)) >> 2) * 4, data[i], 4);
+        _asan_js_store_4((((params) + (i * 4)) >> 2), data[i]);
         break;
 
        case 2:
-        SAFE_HEAP_STORE_D((((params) + (i * 4)) >> 2) * 4, data[i], 4);
+        _asan_js_store_f((((params) + (i * 4)) >> 2), data[i]);
         break;
 
        case 5:
-        SAFE_HEAP_STORE((((params) + (i * 4)) >> 2) * 4, Math.fround(data[i]), 4);
+        _asan_js_store_4((((params) + (i * 4)) >> 2), Math.fround(data[i]));
         break;
       }
     }
@@ -8415,7 +8654,7 @@ var _emscripten_glTexImage2D = _glTexImage2D;
 var _emscripten_glTexParameterf = _glTexParameterf;
 
 /** @suppress {duplicate } */ var _glTexParameterfv = (target, pname, params) => {
-  var param = SAFE_HEAP_LOAD_D(((params) >> 2) * 4, 4, 0);
+  var param = _asan_js_load_f(((params) >> 2));
   GLctx.texParameterf(target, pname, param);
 };
 
@@ -8426,7 +8665,7 @@ var _emscripten_glTexParameterfv = _glTexParameterfv;
 var _emscripten_glTexParameteri = _glTexParameteri;
 
 /** @suppress {duplicate } */ var _glTexParameteriv = (target, pname, params) => {
-  var param = SAFE_HEAP_LOAD(((params) >> 2) * 4, 4, 0);
+  var param = _asan_js_load_4(((params) >> 2));
   GLctx.texParameteri(target, pname, param);
 };
 
@@ -8452,7 +8691,7 @@ var miniTempWebGLFloatBuffers = [];
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLFloatBuffers[count];
     for (var i = 0; i < count; ++i) {
-      view[i] = SAFE_HEAP_LOAD_D((((value) + (4 * i)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_f((((value) + (4 * i)) >> 2));
     }
   } else {
     var view = HEAPF32.subarray((((value) >> 2)), ((value + count * 4) >> 2));
@@ -8475,7 +8714,7 @@ var miniTempWebGLIntBuffers = [];
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLIntBuffers[count];
     for (var i = 0; i < count; ++i) {
-      view[i] = SAFE_HEAP_LOAD((((value) + (4 * i)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_4((((value) + (4 * i)) >> 2));
     }
   } else {
     var view = HEAP32.subarray((((value) >> 2)), ((value + count * 4) >> 2));
@@ -8496,8 +8735,8 @@ var _emscripten_glUniform2f = _glUniform2f;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLFloatBuffers[2 * count];
     for (var i = 0; i < 2 * count; i += 2) {
-      view[i] = SAFE_HEAP_LOAD_D((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_f((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_f((((value) + (4 * i + 4)) >> 2));
     }
   } else {
     var view = HEAPF32.subarray((((value) >> 2)), ((value + count * 8) >> 2));
@@ -8518,8 +8757,8 @@ var _emscripten_glUniform2i = _glUniform2i;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLIntBuffers[2 * count];
     for (var i = 0; i < 2 * count; i += 2) {
-      view[i] = SAFE_HEAP_LOAD((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_4((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_4((((value) + (4 * i + 4)) >> 2));
     }
   } else {
     var view = HEAP32.subarray((((value) >> 2)), ((value + count * 8) >> 2));
@@ -8540,9 +8779,9 @@ var _emscripten_glUniform3f = _glUniform3f;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLFloatBuffers[3 * count];
     for (var i = 0; i < 3 * count; i += 3) {
-      view[i] = SAFE_HEAP_LOAD_D((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
-      view[i + 2] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 8)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_f((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_f((((value) + (4 * i + 4)) >> 2));
+      view[i + 2] = _asan_js_load_f((((value) + (4 * i + 8)) >> 2));
     }
   } else {
     var view = HEAPF32.subarray((((value) >> 2)), ((value + count * 12) >> 2));
@@ -8563,9 +8802,9 @@ var _emscripten_glUniform3i = _glUniform3i;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLIntBuffers[3 * count];
     for (var i = 0; i < 3 * count; i += 3) {
-      view[i] = SAFE_HEAP_LOAD((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
-      view[i + 2] = SAFE_HEAP_LOAD((((value) + (4 * i + 8)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_4((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_4((((value) + (4 * i + 4)) >> 2));
+      view[i + 2] = _asan_js_load_4((((value) + (4 * i + 8)) >> 2));
     }
   } else {
     var view = HEAP32.subarray((((value) >> 2)), ((value + count * 12) >> 2));
@@ -8614,10 +8853,10 @@ var _emscripten_glUniform4i = _glUniform4i;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLIntBuffers[4 * count];
     for (var i = 0; i < 4 * count; i += 4) {
-      view[i] = SAFE_HEAP_LOAD((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
-      view[i + 2] = SAFE_HEAP_LOAD((((value) + (4 * i + 8)) >> 2) * 4, 4, 0);
-      view[i + 3] = SAFE_HEAP_LOAD((((value) + (4 * i + 12)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_4((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_4((((value) + (4 * i + 4)) >> 2));
+      view[i + 2] = _asan_js_load_4((((value) + (4 * i + 8)) >> 2));
+      view[i + 3] = _asan_js_load_4((((value) + (4 * i + 12)) >> 2));
     }
   } else {
     var view = HEAP32.subarray((((value) >> 2)), ((value + count * 16) >> 2));
@@ -8632,10 +8871,10 @@ var _emscripten_glUniform4iv = _glUniform4iv;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLFloatBuffers[4 * count];
     for (var i = 0; i < 4 * count; i += 4) {
-      view[i] = SAFE_HEAP_LOAD_D((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
-      view[i + 2] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 8)) >> 2) * 4, 4, 0);
-      view[i + 3] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 12)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_f((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_f((((value) + (4 * i + 4)) >> 2));
+      view[i + 2] = _asan_js_load_f((((value) + (4 * i + 8)) >> 2));
+      view[i + 3] = _asan_js_load_f((((value) + (4 * i + 12)) >> 2));
     }
   } else {
     var view = HEAPF32.subarray((((value) >> 2)), ((value + count * 16) >> 2));
@@ -8650,15 +8889,15 @@ var _emscripten_glUniformMatrix2fv = _glUniformMatrix2fv;
     // avoid allocation when uploading few enough uniforms
     var view = miniTempWebGLFloatBuffers[9 * count];
     for (var i = 0; i < 9 * count; i += 9) {
-      view[i] = SAFE_HEAP_LOAD_D((((value) + (4 * i)) >> 2) * 4, 4, 0);
-      view[i + 1] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 4)) >> 2) * 4, 4, 0);
-      view[i + 2] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 8)) >> 2) * 4, 4, 0);
-      view[i + 3] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 12)) >> 2) * 4, 4, 0);
-      view[i + 4] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 16)) >> 2) * 4, 4, 0);
-      view[i + 5] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 20)) >> 2) * 4, 4, 0);
-      view[i + 6] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 24)) >> 2) * 4, 4, 0);
-      view[i + 7] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 28)) >> 2) * 4, 4, 0);
-      view[i + 8] = SAFE_HEAP_LOAD_D((((value) + (4 * i + 32)) >> 2) * 4, 4, 0);
+      view[i] = _asan_js_load_f((((value) + (4 * i)) >> 2));
+      view[i + 1] = _asan_js_load_f((((value) + (4 * i + 4)) >> 2));
+      view[i + 2] = _asan_js_load_f((((value) + (4 * i + 8)) >> 2));
+      view[i + 3] = _asan_js_load_f((((value) + (4 * i + 12)) >> 2));
+      view[i + 4] = _asan_js_load_f((((value) + (4 * i + 16)) >> 2));
+      view[i + 5] = _asan_js_load_f((((value) + (4 * i + 20)) >> 2));
+      view[i + 6] = _asan_js_load_f((((value) + (4 * i + 24)) >> 2));
+      view[i + 7] = _asan_js_load_f((((value) + (4 * i + 28)) >> 2));
+      view[i + 8] = _asan_js_load_f((((value) + (4 * i + 32)) >> 2));
     }
   } else {
     var view = HEAPF32.subarray((((value) >> 2)), ((value + count * 36) >> 2));
@@ -8723,7 +8962,7 @@ var _emscripten_glValidateProgram = _glValidateProgram;
 var _emscripten_glVertexAttrib1f = _glVertexAttrib1f;
 
 /** @suppress {duplicate } */ var _glVertexAttrib1fv = (index, v) => {
-  GLctx.vertexAttrib1f(index, SAFE_HEAP_LOAD_D((v >> 2) * 4, 4, 0));
+  GLctx.vertexAttrib1f(index, _asan_js_load_f(v >> 2));
 };
 
 var _emscripten_glVertexAttrib1fv = _glVertexAttrib1fv;
@@ -8733,7 +8972,7 @@ var _emscripten_glVertexAttrib1fv = _glVertexAttrib1fv;
 var _emscripten_glVertexAttrib2f = _glVertexAttrib2f;
 
 /** @suppress {duplicate } */ var _glVertexAttrib2fv = (index, v) => {
-  GLctx.vertexAttrib2f(index, SAFE_HEAP_LOAD_D((v >> 2) * 4, 4, 0), SAFE_HEAP_LOAD_D((v + 4 >> 2) * 4, 4, 0));
+  GLctx.vertexAttrib2f(index, _asan_js_load_f(v >> 2), _asan_js_load_f(v + 4 >> 2));
 };
 
 var _emscripten_glVertexAttrib2fv = _glVertexAttrib2fv;
@@ -8743,7 +8982,7 @@ var _emscripten_glVertexAttrib2fv = _glVertexAttrib2fv;
 var _emscripten_glVertexAttrib3f = _glVertexAttrib3f;
 
 /** @suppress {duplicate } */ var _glVertexAttrib3fv = (index, v) => {
-  GLctx.vertexAttrib3f(index, SAFE_HEAP_LOAD_D((v >> 2) * 4, 4, 0), SAFE_HEAP_LOAD_D((v + 4 >> 2) * 4, 4, 0), SAFE_HEAP_LOAD_D((v + 8 >> 2) * 4, 4, 0));
+  GLctx.vertexAttrib3f(index, _asan_js_load_f(v >> 2), _asan_js_load_f(v + 4 >> 2), _asan_js_load_f(v + 8 >> 2));
 };
 
 var _emscripten_glVertexAttrib3fv = _glVertexAttrib3fv;
@@ -8753,7 +8992,7 @@ var _emscripten_glVertexAttrib3fv = _glVertexAttrib3fv;
 var _emscripten_glVertexAttrib4f = _glVertexAttrib4f;
 
 /** @suppress {duplicate } */ var _glVertexAttrib4fv = (index, v) => {
-  GLctx.vertexAttrib4f(index, SAFE_HEAP_LOAD_D((v >> 2) * 4, 4, 0), SAFE_HEAP_LOAD_D((v + 4 >> 2) * 4, 4, 0), SAFE_HEAP_LOAD_D((v + 8 >> 2) * 4, 4, 0), SAFE_HEAP_LOAD_D((v + 12 >> 2) * 4, 4, 0));
+  GLctx.vertexAttrib4f(index, _asan_js_load_f(v >> 2), _asan_js_load_f(v + 4 >> 2), _asan_js_load_f(v + 8 >> 2), _asan_js_load_f(v + 12 >> 2));
 };
 
 var _emscripten_glVertexAttrib4fv = _glVertexAttrib4fv;
@@ -8778,6 +9017,97 @@ var _emscripten_glViewport = _glViewport;
 
 var _emscripten_has_asyncify = () => 1;
 
+var UNWIND_CACHE = {};
+
+/** @returns {number} */ var convertFrameToPC = frame => {
+  assert(wasmOffsetConverter);
+  var match;
+  if (match = /\bwasm-function\[\d+\]:(0x[0-9a-f]+)/.exec(frame)) {
+    // some engines give the binary offset directly, so we use that as return address
+    return +match[1];
+  } else if (match = /\bwasm-function\[(\d+)\]:(\d+)/.exec(frame)) {
+    // other engines only give function index and offset in the function,
+    // so we try using the offset converter. If that doesn't work,
+    // we pack index and offset into a "return address"
+    return wasmOffsetConverter.convert(+match[1], +match[2]);
+  } else if (match = /:(\d+):\d+(?:\)|$)/.exec(frame)) {
+    // If we are in js, we can use the js line number as the "return address".
+    // This should work for wasm2js.  We tag the high bit to distinguish this
+    // from wasm addresses.
+    return 2147483648 | +match[1];
+  }
+  // return 0 if we can't find any
+  return 0;
+};
+
+var convertPCtoSourceLocation = pc => {
+  if (UNWIND_CACHE.last_get_source_pc == pc) return UNWIND_CACHE.last_source;
+  var match;
+  var source;
+  if (!source) {
+    var frame = UNWIND_CACHE[pc];
+    if (!frame) return null;
+    // Example: at callMain (a.out.js:6335:22)
+    if (match = /\((.*):(\d+):(\d+)\)$/.exec(frame)) {
+      source = {
+        file: match[1],
+        line: match[2],
+        column: match[3]
+      };
+    } else // Example: main@a.out.js:1337:42
+    if (match = /@(.*):(\d+):(\d+)/.exec(frame)) {
+      source = {
+        file: match[1],
+        line: match[2],
+        column: match[3]
+      };
+    }
+  }
+  UNWIND_CACHE.last_get_source_pc = pc;
+  UNWIND_CACHE.last_source = source;
+  return source;
+};
+
+var _emscripten_pc_get_column = pc => {
+  var result = convertPCtoSourceLocation(pc);
+  return result ? result.column || 0 : 0;
+};
+
+var _emscripten_pc_get_file = pc => withBuiltinMalloc(() => {
+  var result = convertPCtoSourceLocation(pc);
+  if (!result) return 0;
+  if (_emscripten_pc_get_file.ret) _free(_emscripten_pc_get_file.ret);
+  _emscripten_pc_get_file.ret = stringToNewUTF8(result.file);
+  return _emscripten_pc_get_file.ret;
+});
+
+var _emscripten_pc_get_function = pc => withBuiltinMalloc(() => {
+  var name;
+  if (pc & 2147483648) {
+    // If this is a JavaScript function, try looking it up in the unwind cache.
+    var frame = UNWIND_CACHE[pc];
+    if (!frame) return 0;
+    var match;
+    if (match = /^\s+at (.*) \(.*\)$/.exec(frame)) {
+      name = match[1];
+    } else if (match = /^(.+?)@/.exec(frame)) {
+      name = match[1];
+    } else {
+      return 0;
+    }
+  } else {
+    name = wasmOffsetConverter.getName(pc);
+  }
+  if (_emscripten_pc_get_function.ret) _free(_emscripten_pc_get_function.ret);
+  _emscripten_pc_get_function.ret = stringToNewUTF8(name);
+  return _emscripten_pc_get_function.ret;
+});
+
+var _emscripten_pc_get_line = pc => {
+  var result = convertPCtoSourceLocation(pc);
+  return result ? result.line : 0;
+};
+
 var doRequestFullscreen = (target, strategy) => {
   if (!JSEvents.fullscreenEnabled()) return -1;
   target = findEventTarget(target);
@@ -8799,12 +9129,12 @@ var doRequestFullscreen = (target, strategy) => {
 
 var _emscripten_request_fullscreen_strategy = (target, deferUntilInEventHandler, fullscreenStrategy) => {
   var strategy = {
-    scaleMode: SAFE_HEAP_LOAD(((fullscreenStrategy) >> 2) * 4, 4, 0),
-    canvasResolutionScaleMode: SAFE_HEAP_LOAD((((fullscreenStrategy) + (4)) >> 2) * 4, 4, 0),
-    filteringMode: SAFE_HEAP_LOAD((((fullscreenStrategy) + (8)) >> 2) * 4, 4, 0),
+    scaleMode: _asan_js_load_4(((fullscreenStrategy) >> 2)),
+    canvasResolutionScaleMode: _asan_js_load_4((((fullscreenStrategy) + (4)) >> 2)),
+    filteringMode: _asan_js_load_4((((fullscreenStrategy) + (8)) >> 2)),
     deferUntilInEventHandler: deferUntilInEventHandler,
-    canvasResizedCallback: SAFE_HEAP_LOAD((((fullscreenStrategy) + (12)) >> 2) * 4, 4, 0),
-    canvasResizedCallbackUserData: SAFE_HEAP_LOAD((((fullscreenStrategy) + (16)) >> 2) * 4, 4, 0)
+    canvasResizedCallback: _asan_js_load_4((((fullscreenStrategy) + (12)) >> 2)),
+    canvasResizedCallbackUserData: _asan_js_load_4((((fullscreenStrategy) + (16)) >> 2))
   };
   return doRequestFullscreen(target, strategy);
 };
@@ -8827,8 +9157,6 @@ var _emscripten_request_pointerlock = (target, deferUntilInEventHandler) => {
   return requestPointerLock(target);
 };
 
-var getHeapMax = () => HEAPU8.length;
-
 var abortOnCannotGrowMemory = requestedSize => {
   abort(`Cannot enlarge memory arrays to size ${requestedSize} bytes (OOM). Either (1) compile with -sINITIAL_MEMORY=X with X higher than the current value ${HEAP8.length}, (2) compile with -sALLOW_MEMORY_GROWTH which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with -sABORTING_MALLOC=0`);
 };
@@ -8838,6 +9166,20 @@ var _emscripten_resize_heap = requestedSize => {
   // With CAN_ADDRESS_2GB or MEMORY64, pointers are already unsigned.
   requestedSize >>>= 0;
   abortOnCannotGrowMemory(requestedSize);
+};
+
+function jsStackTrace() {
+  return (new Error).stack.toString();
+}
+
+var _emscripten_return_address = level => {
+  var callstack = jsStackTrace().split("\n");
+  if (callstack[0] == "Error") {
+    callstack.shift();
+  }
+  // skip this function and the caller to get caller's return address
+  var caller = callstack[level + 3];
+  return convertFrameToPC(caller);
 };
 
 /** @suppress {checkTypes} */ var _emscripten_sample_gamepad_data = () => {
@@ -8917,8 +9259,9 @@ var _emscripten_set_focus_callback_on_thread = (target, userData, useCapture, ca
 var fillFullscreenChangeEventData = eventStruct => {
   var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
   var isFullscreen = !!fullscreenElement;
-  SAFE_HEAP_STORE(eventStruct, isFullscreen, 1);
-  SAFE_HEAP_STORE((eventStruct) + (1), JSEvents.fullscreenEnabled(), 1);
+  // Assigning a boolean to HEAP32 with expected type coercion.
+  /** @suppress{checkTypes} */ _asan_js_store_1(eventStruct, isFullscreen);
+  _asan_js_store_1((eventStruct) + (1), JSEvents.fullscreenEnabled());
   // If transitioning to fullscreen, report info about the element that is now fullscreen.
   // If transitioning to windowed mode, report info about the element that just was fullscreen.
   var reportedElement = isFullscreen ? fullscreenElement : JSEvents.previousFullscreenElement;
@@ -8926,10 +9269,10 @@ var fillFullscreenChangeEventData = eventStruct => {
   var id = reportedElement?.id || "";
   stringToUTF8(nodeName, eventStruct + 2, 128);
   stringToUTF8(id, eventStruct + 130, 128);
-  SAFE_HEAP_STORE((((eventStruct) + (260)) >> 2) * 4, reportedElement ? reportedElement.clientWidth : 0, 4);
-  SAFE_HEAP_STORE((((eventStruct) + (264)) >> 2) * 4, reportedElement ? reportedElement.clientHeight : 0, 4);
-  SAFE_HEAP_STORE((((eventStruct) + (268)) >> 2) * 4, screen.width, 4);
-  SAFE_HEAP_STORE((((eventStruct) + (272)) >> 2) * 4, screen.height, 4);
+  _asan_js_store_4((((eventStruct) + (260)) >> 2), reportedElement ? reportedElement.clientWidth : 0);
+  _asan_js_store_4((((eventStruct) + (264)) >> 2), reportedElement ? reportedElement.clientHeight : 0);
+  _asan_js_store_4((((eventStruct) + (268)) >> 2), screen.width);
+  _asan_js_store_4((((eventStruct) + (272)) >> 2), screen.height);
   if (isFullscreen) {
     JSEvents.previousFullscreenElement = fullscreenElement;
   }
@@ -8995,17 +9338,17 @@ var registerKeyEventCallback = (target, userData, useCapture, callbackfunc, even
   var keyEventHandlerFunc = e => {
     assert(e);
     var keyEventData = JSEvents.keyEvent;
-    SAFE_HEAP_STORE_D(((keyEventData) >> 3) * 8, e.timeStamp, 8);
+    _asan_js_store_d(((keyEventData) >> 3), e.timeStamp);
     var idx = ((keyEventData) >> 2);
-    SAFE_HEAP_STORE((idx + 2) * 4, e.location, 4);
-    SAFE_HEAP_STORE(keyEventData + 12, e.ctrlKey, 1);
-    SAFE_HEAP_STORE(keyEventData + 13, e.shiftKey, 1);
-    SAFE_HEAP_STORE(keyEventData + 14, e.altKey, 1);
-    SAFE_HEAP_STORE(keyEventData + 15, e.metaKey, 1);
-    SAFE_HEAP_STORE(keyEventData + 16, e.repeat, 1);
-    SAFE_HEAP_STORE((idx + 5) * 4, e.charCode, 4);
-    SAFE_HEAP_STORE((idx + 6) * 4, e.keyCode, 4);
-    SAFE_HEAP_STORE((idx + 7) * 4, e.which, 4);
+    _asan_js_store_4(idx + 2, e.location);
+    _asan_js_store_1(keyEventData + 12, e.ctrlKey);
+    _asan_js_store_1(keyEventData + 13, e.shiftKey);
+    _asan_js_store_1(keyEventData + 14, e.altKey);
+    _asan_js_store_1(keyEventData + 15, e.metaKey);
+    _asan_js_store_1(keyEventData + 16, e.repeat);
+    _asan_js_store_4(idx + 5, e.charCode);
+    _asan_js_store_4(idx + 6, e.keyCode);
+    _asan_js_store_4(idx + 7, e.which);
     stringToUTF8(e.key || "", keyEventData + 32, 32);
     stringToUTF8(e.code || "", keyEventData + 64, 32);
     stringToUTF8(e.char || "", keyEventData + 96, 32);
@@ -9028,26 +9371,31 @@ var _emscripten_set_keypress_callback_on_thread = (target, userData, useCapture,
 
 var _emscripten_set_keyup_callback_on_thread = (target, userData, useCapture, callbackfunc, targetThread) => registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
 
+var _emscripten_set_main_loop = (func, fps, simulateInfiniteLoop) => {
+  var browserIterationFunc = (() => dynCall_v(func));
+  setMainLoop(browserIterationFunc, fps, simulateInfiniteLoop);
+};
+
 var fillMouseEventData = (eventStruct, e, target) => {
   assert(eventStruct % 4 == 0);
-  SAFE_HEAP_STORE_D(((eventStruct) >> 3) * 8, e.timeStamp, 8);
+  _asan_js_store_d(((eventStruct) >> 3), e.timeStamp);
   var idx = ((eventStruct) >> 2);
-  SAFE_HEAP_STORE((idx + 2) * 4, e.screenX, 4);
-  SAFE_HEAP_STORE((idx + 3) * 4, e.screenY, 4);
-  SAFE_HEAP_STORE((idx + 4) * 4, e.clientX, 4);
-  SAFE_HEAP_STORE((idx + 5) * 4, e.clientY, 4);
-  SAFE_HEAP_STORE(eventStruct + 24, e.ctrlKey, 1);
-  SAFE_HEAP_STORE(eventStruct + 25, e.shiftKey, 1);
-  SAFE_HEAP_STORE(eventStruct + 26, e.altKey, 1);
-  SAFE_HEAP_STORE(eventStruct + 27, e.metaKey, 1);
-  SAFE_HEAP_STORE((idx * 2 + 14) * 2, e.button, 2);
-  SAFE_HEAP_STORE((idx * 2 + 15) * 2, e.buttons, 2);
-  SAFE_HEAP_STORE((idx + 8) * 4, e["movementX"], 4);
-  SAFE_HEAP_STORE((idx + 9) * 4, e["movementY"], 4);
+  _asan_js_store_4(idx + 2, e.screenX);
+  _asan_js_store_4(idx + 3, e.screenY);
+  _asan_js_store_4(idx + 4, e.clientX);
+  _asan_js_store_4(idx + 5, e.clientY);
+  _asan_js_store_1(eventStruct + 24, e.ctrlKey);
+  _asan_js_store_1(eventStruct + 25, e.shiftKey);
+  _asan_js_store_1(eventStruct + 26, e.altKey);
+  _asan_js_store_1(eventStruct + 27, e.metaKey);
+  _asan_js_store_2(idx * 2 + 14, e.button);
+  _asan_js_store_2(idx * 2 + 15, e.buttons);
+  _asan_js_store_4(idx + 8, e["movementX"]);
+  _asan_js_store_4(idx + 9, e["movementY"]);
   // Note: rect contains doubles (truncated to placate SAFE_HEAP, which is the same behaviour when writing to HEAP32 anyway)
   var rect = getBoundingClientRect(target);
-  SAFE_HEAP_STORE((idx + 10) * 4, e.clientX - (rect.left | 0), 4);
-  SAFE_HEAP_STORE((idx + 11) * 4, e.clientY - (rect.top | 0), 4);
+  _asan_js_store_4(idx + 10, e.clientX - (rect.left | 0));
+  _asan_js_store_4(idx + 11, e.clientY - (rect.top | 0));
 };
 
 var registerMouseEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -9083,7 +9431,8 @@ var _emscripten_set_mouseup_callback_on_thread = (target, userData, useCapture, 
 var fillPointerlockChangeEventData = eventStruct => {
   var pointerLockElement = document.pointerLockElement || document.mozPointerLockElement || document.webkitPointerLockElement || document.msPointerLockElement;
   var isPointerlocked = !!pointerLockElement;
-  SAFE_HEAP_STORE(eventStruct, isPointerlocked, 1);
+  // Assigning a boolean to HEAP32 with expected type coercion.
+  /** @suppress{checkTypes} */ _asan_js_store_1(eventStruct, isPointerlocked);
   var nodeName = JSEvents.getNodeNameForTarget(pointerLockElement);
   var id = pointerLockElement?.id || "";
   stringToUTF8(nodeName, eventStruct + 1, 128);
@@ -9138,17 +9487,17 @@ var registerUiEventCallback = (target, userData, useCapture, callbackfunc, event
       return;
     }
     var uiEvent = JSEvents.uiEvent;
-    SAFE_HEAP_STORE(((uiEvent) >> 2) * 4, 0, 4);
+    _asan_js_store_4(((uiEvent) >> 2), 0);
     // always zero for resize and scroll
-    SAFE_HEAP_STORE((((uiEvent) + (4)) >> 2) * 4, b.clientWidth, 4);
-    SAFE_HEAP_STORE((((uiEvent) + (8)) >> 2) * 4, b.clientHeight, 4);
-    SAFE_HEAP_STORE((((uiEvent) + (12)) >> 2) * 4, innerWidth, 4);
-    SAFE_HEAP_STORE((((uiEvent) + (16)) >> 2) * 4, innerHeight, 4);
-    SAFE_HEAP_STORE((((uiEvent) + (20)) >> 2) * 4, outerWidth, 4);
-    SAFE_HEAP_STORE((((uiEvent) + (24)) >> 2) * 4, outerHeight, 4);
-    SAFE_HEAP_STORE((((uiEvent) + (28)) >> 2) * 4, pageXOffset | 0, 4);
+    _asan_js_store_4((((uiEvent) + (4)) >> 2), b.clientWidth);
+    _asan_js_store_4((((uiEvent) + (8)) >> 2), b.clientHeight);
+    _asan_js_store_4((((uiEvent) + (12)) >> 2), innerWidth);
+    _asan_js_store_4((((uiEvent) + (16)) >> 2), innerHeight);
+    _asan_js_store_4((((uiEvent) + (20)) >> 2), outerWidth);
+    _asan_js_store_4((((uiEvent) + (24)) >> 2), outerHeight);
+    _asan_js_store_4((((uiEvent) + (28)) >> 2), pageXOffset | 0);
     // scroll offsets are float
-    SAFE_HEAP_STORE((((uiEvent) + (32)) >> 2) * 4, pageYOffset | 0, 4);
+    _asan_js_store_4((((uiEvent) + (32)) >> 2), pageYOffset | 0);
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, uiEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -9188,34 +9537,34 @@ var registerTouchEventCallback = (target, userData, useCapture, callbackfunc, ev
       touches[t.identifier].onTarget = 1;
     }
     var touchEvent = JSEvents.touchEvent;
-    SAFE_HEAP_STORE_D(((touchEvent) >> 3) * 8, e.timeStamp, 8);
-    SAFE_HEAP_STORE(touchEvent + 12, e.ctrlKey, 1);
-    SAFE_HEAP_STORE(touchEvent + 13, e.shiftKey, 1);
-    SAFE_HEAP_STORE(touchEvent + 14, e.altKey, 1);
-    SAFE_HEAP_STORE(touchEvent + 15, e.metaKey, 1);
+    _asan_js_store_d(((touchEvent) >> 3), e.timeStamp);
+    _asan_js_store_1(touchEvent + 12, e.ctrlKey);
+    _asan_js_store_1(touchEvent + 13, e.shiftKey);
+    _asan_js_store_1(touchEvent + 14, e.altKey);
+    _asan_js_store_1(touchEvent + 15, e.metaKey);
     var idx = touchEvent + 16;
     var targetRect = getBoundingClientRect(target);
     var numTouches = 0;
     for (let t of Object.values(touches)) {
       var idx32 = ((idx) >> 2);
       // Pre-shift the ptr to index to HEAP32 to save code size
-      SAFE_HEAP_STORE((idx32 + 0) * 4, t.identifier, 4);
-      SAFE_HEAP_STORE((idx32 + 1) * 4, t.screenX, 4);
-      SAFE_HEAP_STORE((idx32 + 2) * 4, t.screenY, 4);
-      SAFE_HEAP_STORE((idx32 + 3) * 4, t.clientX, 4);
-      SAFE_HEAP_STORE((idx32 + 4) * 4, t.clientY, 4);
-      SAFE_HEAP_STORE((idx32 + 5) * 4, t.pageX, 4);
-      SAFE_HEAP_STORE((idx32 + 6) * 4, t.pageY, 4);
-      SAFE_HEAP_STORE(idx + 28, t.isChanged, 1);
-      SAFE_HEAP_STORE(idx + 29, t.onTarget, 1);
-      SAFE_HEAP_STORE((idx32 + 8) * 4, t.clientX - (targetRect.left | 0), 4);
-      SAFE_HEAP_STORE((idx32 + 9) * 4, t.clientY - (targetRect.top | 0), 4);
+      _asan_js_store_4(idx32 + 0, t.identifier);
+      _asan_js_store_4(idx32 + 1, t.screenX);
+      _asan_js_store_4(idx32 + 2, t.screenY);
+      _asan_js_store_4(idx32 + 3, t.clientX);
+      _asan_js_store_4(idx32 + 4, t.clientY);
+      _asan_js_store_4(idx32 + 5, t.pageX);
+      _asan_js_store_4(idx32 + 6, t.pageY);
+      _asan_js_store_1(idx + 28, t.isChanged);
+      _asan_js_store_1(idx + 29, t.onTarget);
+      _asan_js_store_4(idx32 + 8, t.clientX - (targetRect.left | 0));
+      _asan_js_store_4(idx32 + 9, t.clientY - (targetRect.top | 0));
       idx += 48;
       if (++numTouches > 31) {
         break;
       }
     }
-    SAFE_HEAP_STORE((((touchEvent) + (8)) >> 2) * 4, numTouches, 4);
+    _asan_js_store_4((((touchEvent) + (8)) >> 2), numTouches);
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, touchEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -9240,8 +9589,9 @@ var _emscripten_set_touchstart_callback_on_thread = (target, userData, useCaptur
 var fillVisibilityChangeEventData = eventStruct => {
   var visibilityStates = [ "hidden", "visible", "prerender", "unloaded" ];
   var visibilityState = visibilityStates.indexOf(document.visibilityState);
-  SAFE_HEAP_STORE(eventStruct, document.hidden, 1);
-  SAFE_HEAP_STORE((((eventStruct) + (4)) >> 2) * 4, visibilityState, 4);
+  // Assigning a boolean to HEAP32 with expected type coercion.
+  /** @suppress{checkTypes} */ _asan_js_store_1(eventStruct, document.hidden);
+  _asan_js_store_4((((eventStruct) + (4)) >> 2), visibilityState);
 };
 
 var registerVisibilityChangeEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -9274,10 +9624,10 @@ var registerWheelEventCallback = (target, userData, useCapture, callbackfunc, ev
   var wheelHandlerFunc = (e = event) => {
     var wheelEvent = JSEvents.wheelEvent;
     fillMouseEventData(wheelEvent, e, target);
-    SAFE_HEAP_STORE_D((((wheelEvent) + (64)) >> 3) * 8, e["deltaX"], 8);
-    SAFE_HEAP_STORE_D((((wheelEvent) + (72)) >> 3) * 8, e["deltaY"], 8);
-    SAFE_HEAP_STORE_D((((wheelEvent) + (80)) >> 3) * 8, e["deltaZ"], 8);
-    SAFE_HEAP_STORE((((wheelEvent) + (88)) >> 2) * 4, e["deltaMode"], 4);
+    _asan_js_store_d((((wheelEvent) + (64)) >> 3), e["deltaX"]);
+    _asan_js_store_d((((wheelEvent) + (72)) >> 3), e["deltaY"]);
+    _asan_js_store_d((((wheelEvent) + (80)) >> 3), e["deltaZ"]);
+    _asan_js_store_4((((wheelEvent) + (88)) >> 2), e["deltaMode"]);
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, wheelEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -9307,9 +9657,50 @@ var _emscripten_sleep = ms => Asyncify.handleSleep(wakeUp => safeSetTimeout(wake
 
 _emscripten_sleep.isAsync = true;
 
-var ENV = {};
+var saveInUnwindCache = callstack => {
+  callstack.forEach(frame => {
+    var pc = convertFrameToPC(frame);
+    if (pc) {
+      UNWIND_CACHE[pc] = frame;
+    }
+  });
+};
 
-var getExecutableName = () => thisProgram || "./this.program";
+function _emscripten_stack_snapshot() {
+  var callstack = jsStackTrace().split("\n");
+  if (callstack[0] == "Error") {
+    callstack.shift();
+  }
+  saveInUnwindCache(callstack);
+  // Caches the stack snapshot so that emscripten_stack_unwind_buffer() can
+  // unwind from this spot.
+  UNWIND_CACHE.last_addr = convertFrameToPC(callstack[3]);
+  UNWIND_CACHE.last_stack = callstack;
+  return UNWIND_CACHE.last_addr;
+}
+
+var _emscripten_stack_unwind_buffer = (addr, buffer, count) => {
+  var stack;
+  if (UNWIND_CACHE.last_addr == addr) {
+    stack = UNWIND_CACHE.last_stack;
+  } else {
+    stack = jsStackTrace().split("\n");
+    if (stack[0] == "Error") {
+      stack.shift();
+    }
+    saveInUnwindCache(stack);
+  }
+  var offset = 3;
+  while (stack[offset] && convertFrameToPC(stack[offset]) != addr) {
+    ++offset;
+  }
+  for (var i = 0; i < count && stack[i + offset]; ++i) {
+    _asan_js_store_4((((buffer) + (i * 4)) >> 2), convertFrameToPC(stack[i + offset]));
+  }
+  return i;
+};
+
+var ENV = {};
 
 var getEnvStrings = () => {
   if (!getEnvStrings.strings) {
@@ -9344,17 +9735,17 @@ var getEnvStrings = () => {
 var stringToAscii = (str, buffer) => {
   for (var i = 0; i < str.length; ++i) {
     assert(str.charCodeAt(i) === (str.charCodeAt(i) & 255));
-    SAFE_HEAP_STORE(buffer++, str.charCodeAt(i), 1);
+    _asan_js_store_1(buffer++, str.charCodeAt(i));
   }
   // Null-terminate the string
-  SAFE_HEAP_STORE(buffer, 0, 1);
+  _asan_js_store_1(buffer, 0);
 };
 
 var _environ_get = (__environ, environ_buf) => {
   var bufSize = 0;
   getEnvStrings().forEach((string, i) => {
     var ptr = environ_buf + bufSize;
-    SAFE_HEAP_STORE((((__environ) + (i * 4)) >> 2) * 4, ptr, 4);
+    _asan_js_store_4u((((__environ) + (i * 4)) >> 2), ptr);
     stringToAscii(string, ptr);
     bufSize += string.length + 1;
   });
@@ -9363,10 +9754,10 @@ var _environ_get = (__environ, environ_buf) => {
 
 var _environ_sizes_get = (penviron_count, penviron_buf_size) => {
   var strings = getEnvStrings();
-  SAFE_HEAP_STORE(((penviron_count) >> 2) * 4, strings.length, 4);
+  _asan_js_store_4u(((penviron_count) >> 2), strings.length);
   var bufSize = 0;
   strings.forEach(string => bufSize += string.length + 1);
-  SAFE_HEAP_STORE(((penviron_buf_size) >> 2) * 4, bufSize, 4);
+  _asan_js_store_4u(((penviron_buf_size) >> 2), bufSize);
   return 0;
 };
 
@@ -9384,8 +9775,8 @@ function _fd_close(fd) {
 /** @param {number=} offset */ var doReadv = (stream, iov, iovcnt, offset) => {
   var ret = 0;
   for (var i = 0; i < iovcnt; i++) {
-    var ptr = SAFE_HEAP_LOAD(((iov) >> 2) * 4, 4, 1);
-    var len = SAFE_HEAP_LOAD((((iov) + (4)) >> 2) * 4, 4, 1);
+    var ptr = _asan_js_load_4u(((iov) >> 2));
+    var len = _asan_js_load_4u((((iov) + (4)) >> 2));
     iov += 8;
     var curr = FS.read(stream, HEAP8, ptr, len, offset);
     if (curr < 0) return -1;
@@ -9403,21 +9794,13 @@ function _fd_read(fd, iov, iovcnt, pnum) {
   try {
     var stream = SYSCALLS.getStreamFromFD(fd);
     var num = doReadv(stream, iov, iovcnt);
-    SAFE_HEAP_STORE(((pnum) >> 2) * 4, num, 4);
+    _asan_js_store_4u(((pnum) >> 2), num);
     return 0;
   } catch (e) {
     if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
     return e.errno;
   }
 }
-
-var convertI32PairToI53Checked = (lo, hi) => {
-  assert(lo == (lo >>> 0) || lo == (lo | 0));
-  // lo should either be a i32 or a u32
-  assert(hi === (hi | 0));
-  // hi should be a i32
-  return ((hi + 2097152) >>> 0 < 4194305 - !!lo) ? (lo >>> 0) + hi * 4294967296 : NaN;
-};
 
 function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
   var offset = convertI32PairToI53Checked(offset_low, offset_high);
@@ -9426,7 +9809,7 @@ function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
     var stream = SYSCALLS.getStreamFromFD(fd);
     FS.llseek(stream, offset, whence);
     (tempI64 = [ stream.position >>> 0, (tempDouble = stream.position, (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
-    SAFE_HEAP_STORE(((newOffset) >> 2) * 4, tempI64[0], 4), SAFE_HEAP_STORE((((newOffset) + (4)) >> 2) * 4, tempI64[1], 4));
+    _asan_js_store_4(((newOffset) >> 2), tempI64[0]), _asan_js_store_4((((newOffset) + (4)) >> 2), tempI64[1]));
     if (stream.getdents && offset === 0 && whence === 0) stream.getdents = null;
     // reset readdir state
     return 0;
@@ -9439,8 +9822,8 @@ function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
 /** @param {number=} offset */ var doWritev = (stream, iov, iovcnt, offset) => {
   var ret = 0;
   for (var i = 0; i < iovcnt; i++) {
-    var ptr = SAFE_HEAP_LOAD(((iov) >> 2) * 4, 4, 1);
-    var len = SAFE_HEAP_LOAD((((iov) + (4)) >> 2) * 4, 4, 1);
+    var ptr = _asan_js_load_4u(((iov) >> 2));
+    var len = _asan_js_load_4u((((iov) + (4)) >> 2));
     iov += 8;
     var curr = FS.write(stream, HEAP8, ptr, len, offset);
     if (curr < 0) return -1;
@@ -9460,7 +9843,7 @@ function _fd_write(fd, iov, iovcnt, pnum) {
   try {
     var stream = SYSCALLS.getStreamFromFD(fd);
     var num = doWritev(stream, iov, iovcnt);
-    SAFE_HEAP_STORE(((pnum) >> 2) * 4, num, 4);
+    _asan_js_store_4u(((pnum) >> 2), num);
     return 0;
   } catch (e) {
     if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
@@ -9555,15 +9938,6 @@ var sigToWasmTypes = sig => {
   return type;
 };
 
-var runtimeKeepalivePush = () => {
-  runtimeKeepaliveCounter += 1;
-};
-
-var runtimeKeepalivePop = () => {
-  assert(runtimeKeepaliveCounter > 0);
-  runtimeKeepaliveCounter -= 1;
-};
-
 var Asyncify = {
   instrumentWasmImports(imports) {
     var importPattern = /^(invoke_.*|__asyncjs__.*)$/;
@@ -9647,6 +10021,7 @@ var Asyncify = {
       // the dbg() function itself can call back into WebAssembly to get the
       // current pthread_self() pointer).
       Asyncify.state = Asyncify.State.Normal;
+      runtimeKeepalivePush();
       // Keep the runtime alive so that a re-wind can be done later.
       runAndAbortIfError(_asyncify_stop_unwind);
       if (typeof Fibers != "undefined") {
@@ -9678,16 +10053,16 @@ var Asyncify = {
     return ptr;
   },
   setDataHeader(ptr, stack, stackSize) {
-    SAFE_HEAP_STORE(((ptr) >> 2) * 4, stack, 4);
-    SAFE_HEAP_STORE((((ptr) + (4)) >> 2) * 4, stack + stackSize, 4);
+    _asan_js_store_4u(((ptr) >> 2), stack);
+    _asan_js_store_4u((((ptr) + (4)) >> 2), stack + stackSize);
   },
   setDataRewindFunc(ptr) {
     var bottomOfCallStack = Asyncify.exportCallStack[0];
     var rewindId = Asyncify.getCallStackId(bottomOfCallStack);
-    SAFE_HEAP_STORE((((ptr) + (8)) >> 2) * 4, rewindId, 4);
+    _asan_js_store_4((((ptr) + (8)) >> 2), rewindId);
   },
   getDataRewindFuncName(ptr) {
-    var id = SAFE_HEAP_LOAD((((ptr) + (8)) >> 2) * 4, 4, 0);
+    var id = _asan_js_load_4((((ptr) + (8)) >> 2));
     var name = Asyncify.callStackIdToName[id];
     return name;
   },
@@ -9700,6 +10075,7 @@ var Asyncify = {
     var func = Asyncify.getDataRewindFunc(name);
     // Once we have rewound and the stack we no longer need to artificially
     // keep the runtime alive.
+    runtimeKeepalivePop();
     return func();
   },
   handleSleep(startAsync) {
@@ -9870,15 +10246,21 @@ var wasmImports = {
   /** @export */ __assert_fail: ___assert_fail,
   /** @export */ __cxa_throw: ___cxa_throw,
   /** @export */ __syscall__newselect: ___syscall__newselect,
+  /** @export */ __syscall_dup: ___syscall_dup,
   /** @export */ __syscall_fcntl64: ___syscall_fcntl64,
   /** @export */ __syscall_ioctl: ___syscall_ioctl,
+  /** @export */ __syscall_mkdirat: ___syscall_mkdirat,
   /** @export */ __syscall_openat: ___syscall_openat,
+  /** @export */ __syscall_stat64: ___syscall_stat64,
   /** @export */ _abort_js: __abort_js,
   /** @export */ _emscripten_get_now_is_monotonic: __emscripten_get_now_is_monotonic,
-  /** @export */ _emscripten_memcpy_js: __emscripten_memcpy_js,
+  /** @export */ _emscripten_get_progname: __emscripten_get_progname,
+  /** @export */ _emscripten_sanitizer_get_option: __emscripten_sanitizer_get_option,
+  /** @export */ _emscripten_sanitizer_use_colors: __emscripten_sanitizer_use_colors,
   /** @export */ _emscripten_throw_longjmp: __emscripten_throw_longjmp,
+  /** @export */ _mmap_js: __mmap_js,
+  /** @export */ _munmap_js: __munmap_js,
   /** @export */ _tzset_js: __tzset_js,
-  /** @export */ alignfault: alignfault,
   /** @export */ eglBindAPI: _eglBindAPI,
   /** @export */ eglChooseConfig: _eglChooseConfig,
   /** @export */ eglCreateContext: _eglCreateContext,
@@ -9907,6 +10289,7 @@ var wasmImports = {
   /** @export */ emscripten_get_device_pixel_ratio: _emscripten_get_device_pixel_ratio,
   /** @export */ emscripten_get_element_css_size: _emscripten_get_element_css_size,
   /** @export */ emscripten_get_gamepad_status: _emscripten_get_gamepad_status,
+  /** @export */ emscripten_get_heap_max: _emscripten_get_heap_max,
   /** @export */ emscripten_get_now: _emscripten_get_now,
   /** @export */ emscripten_get_num_gamepads: _emscripten_get_num_gamepads,
   /** @export */ emscripten_get_preloaded_image_data: _emscripten_get_preloaded_image_data,
@@ -10074,9 +10457,14 @@ var wasmImports = {
   /** @export */ emscripten_glVertexAttribPointer: _emscripten_glVertexAttribPointer,
   /** @export */ emscripten_glViewport: _emscripten_glViewport,
   /** @export */ emscripten_has_asyncify: _emscripten_has_asyncify,
+  /** @export */ emscripten_pc_get_column: _emscripten_pc_get_column,
+  /** @export */ emscripten_pc_get_file: _emscripten_pc_get_file,
+  /** @export */ emscripten_pc_get_function: _emscripten_pc_get_function,
+  /** @export */ emscripten_pc_get_line: _emscripten_pc_get_line,
   /** @export */ emscripten_request_fullscreen_strategy: _emscripten_request_fullscreen_strategy,
   /** @export */ emscripten_request_pointerlock: _emscripten_request_pointerlock,
   /** @export */ emscripten_resize_heap: _emscripten_resize_heap,
+  /** @export */ emscripten_return_address: _emscripten_return_address,
   /** @export */ emscripten_sample_gamepad_data: _emscripten_sample_gamepad_data,
   /** @export */ emscripten_set_beforeunload_callback_on_thread: _emscripten_set_beforeunload_callback_on_thread,
   /** @export */ emscripten_set_blur_callback_on_thread: _emscripten_set_blur_callback_on_thread,
@@ -10089,6 +10477,7 @@ var wasmImports = {
   /** @export */ emscripten_set_keydown_callback_on_thread: _emscripten_set_keydown_callback_on_thread,
   /** @export */ emscripten_set_keypress_callback_on_thread: _emscripten_set_keypress_callback_on_thread,
   /** @export */ emscripten_set_keyup_callback_on_thread: _emscripten_set_keyup_callback_on_thread,
+  /** @export */ emscripten_set_main_loop: _emscripten_set_main_loop,
   /** @export */ emscripten_set_mousedown_callback_on_thread: _emscripten_set_mousedown_callback_on_thread,
   /** @export */ emscripten_set_mouseenter_callback_on_thread: _emscripten_set_mouseenter_callback_on_thread,
   /** @export */ emscripten_set_mouseleave_callback_on_thread: _emscripten_set_mouseleave_callback_on_thread,
@@ -10104,6 +10493,8 @@ var wasmImports = {
   /** @export */ emscripten_set_wheel_callback_on_thread: _emscripten_set_wheel_callback_on_thread,
   /** @export */ emscripten_set_window_title: _emscripten_set_window_title,
   /** @export */ emscripten_sleep: _emscripten_sleep,
+  /** @export */ emscripten_stack_snapshot: _emscripten_stack_snapshot,
+  /** @export */ emscripten_stack_unwind_buffer: _emscripten_stack_unwind_buffer,
   /** @export */ environ_get: _environ_get,
   /** @export */ environ_sizes_get: _environ_sizes_get,
   /** @export */ fd_close: _fd_close,
@@ -10125,7 +10516,7 @@ var wasmImports = {
   /** @export */ invoke_vii: invoke_vii,
   /** @export */ invoke_viii: invoke_viii,
   /** @export */ invoke_viiii: invoke_viiii,
-  /** @export */ segfault: segfault
+  /** @export */ proc_exit: _proc_exit
 };
 
 var wasmExports = createWasm();
@@ -10142,11 +10533,17 @@ var _strerror = createExportWrapper("strerror", 1);
 
 var _fflush = createExportWrapper("fflush", 1);
 
+var ___funcs_on_exit = createExportWrapper("__funcs_on_exit", 0);
+
 var _fileno = createExportWrapper("fileno", 1);
 
-var _emscripten_get_sbrk_ptr = createExportWrapper("emscripten_get_sbrk_ptr", 0);
+var _emscripten_builtin_malloc = createExportWrapper("emscripten_builtin_malloc", 1);
 
-var _sbrk = createExportWrapper("sbrk", 1);
+var _emscripten_builtin_free = createExportWrapper("emscripten_builtin_free", 1);
+
+var _emscripten_builtin_memalign = createExportWrapper("emscripten_builtin_memalign", 2);
+
+var _memalign = createExportWrapper("memalign", 2);
 
 var _setThrew = createExportWrapper("setThrew", 2);
 
@@ -10166,33 +10563,89 @@ var __emscripten_stack_alloc = a0 => (__emscripten_stack_alloc = wasmExports["_e
 
 var _emscripten_stack_get_current = () => (_emscripten_stack_get_current = wasmExports["emscripten_stack_get_current"])();
 
+var __ZN6__asan9FakeStack17AddrIsInFakeStackEm = Module["__ZN6__asan9FakeStack17AddrIsInFakeStackEm"] = createExportWrapper("_ZN6__asan9FakeStack17AddrIsInFakeStackEm", 2);
+
+var __ZN6__asan9FakeStack8AllocateEmmm = Module["__ZN6__asan9FakeStack8AllocateEmmm"] = createExportWrapper("_ZN6__asan9FakeStack8AllocateEmmm", 4);
+
+var __asan_c_load_1 = a0 => (__asan_c_load_1 = wasmExports["_asan_c_load_1"])(a0);
+
+var __asan_c_load_1u = a0 => (__asan_c_load_1u = wasmExports["_asan_c_load_1u"])(a0);
+
+var __asan_c_load_2 = a0 => (__asan_c_load_2 = wasmExports["_asan_c_load_2"])(a0);
+
+var __asan_c_load_2u = a0 => (__asan_c_load_2u = wasmExports["_asan_c_load_2u"])(a0);
+
+var __asan_c_load_4 = a0 => (__asan_c_load_4 = wasmExports["_asan_c_load_4"])(a0);
+
+var __asan_c_load_4u = a0 => (__asan_c_load_4u = wasmExports["_asan_c_load_4u"])(a0);
+
+var __asan_c_load_f = a0 => (__asan_c_load_f = wasmExports["_asan_c_load_f"])(a0);
+
+var __asan_c_load_d = a0 => (__asan_c_load_d = wasmExports["_asan_c_load_d"])(a0);
+
+var __asan_c_store_1 = (a0, a1) => (__asan_c_store_1 = wasmExports["_asan_c_store_1"])(a0, a1);
+
+var __asan_c_store_1u = (a0, a1) => (__asan_c_store_1u = wasmExports["_asan_c_store_1u"])(a0, a1);
+
+var __asan_c_store_2 = (a0, a1) => (__asan_c_store_2 = wasmExports["_asan_c_store_2"])(a0, a1);
+
+var __asan_c_store_2u = (a0, a1) => (__asan_c_store_2u = wasmExports["_asan_c_store_2u"])(a0, a1);
+
+var __asan_c_store_4 = (a0, a1) => (__asan_c_store_4 = wasmExports["_asan_c_store_4"])(a0, a1);
+
+var __asan_c_store_4u = (a0, a1) => (__asan_c_store_4u = wasmExports["_asan_c_store_4u"])(a0, a1);
+
+var __asan_c_store_f = (a0, a1) => (__asan_c_store_f = wasmExports["_asan_c_store_f"])(a0, a1);
+
+var __asan_c_store_d = (a0, a1) => (__asan_c_store_d = wasmExports["_asan_c_store_d"])(a0, a1);
+
 var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii", 2);
-
-var dynCall_vi = Module["dynCall_vi"] = createExportWrapper("dynCall_vi", 2);
-
-var dynCall_vii = Module["dynCall_vii"] = createExportWrapper("dynCall_vii", 3);
-
-var dynCall_iii = Module["dynCall_iii"] = createExportWrapper("dynCall_iii", 3);
-
-var dynCall_v = Module["dynCall_v"] = createExportWrapper("dynCall_v", 1);
-
-var dynCall_viiiii = Module["dynCall_viiiii"] = createExportWrapper("dynCall_viiiii", 6);
 
 var dynCall_viiii = Module["dynCall_viiii"] = createExportWrapper("dynCall_viiii", 5);
 
+var dynCall_vi = Module["dynCall_vi"] = createExportWrapper("dynCall_vi", 2);
+
+var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii", 4);
+
+var dynCall_iii = Module["dynCall_iii"] = createExportWrapper("dynCall_iii", 3);
+
+var dynCall_viiiiii = Module["dynCall_viiiiii"] = createExportWrapper("dynCall_viiiiii", 7);
+
+var dynCall_j = Module["dynCall_j"] = createExportWrapper("dynCall_j", 1);
+
+var dynCall_ji = Module["dynCall_ji"] = createExportWrapper("dynCall_ji", 2);
+
+var dynCall_vii = Module["dynCall_vii"] = createExportWrapper("dynCall_vii", 3);
+
+var dynCall_iiiiiii = Module["dynCall_iiiiiii"] = createExportWrapper("dynCall_iiiiiii", 7);
+
+var dynCall_jii = Module["dynCall_jii"] = createExportWrapper("dynCall_jii", 3);
+
 var dynCall_viii = Module["dynCall_viii"] = createExportWrapper("dynCall_viii", 4);
 
-var dynCall_viiiiiiiii = Module["dynCall_viiiiiiiii"] = createExportWrapper("dynCall_viiiiiiiii", 10);
+var dynCall_v = Module["dynCall_v"] = createExportWrapper("dynCall_v", 1);
+
+var dynCall_viiiiiii = Module["dynCall_viiiiiii"] = createExportWrapper("dynCall_viiiiiii", 8);
 
 var dynCall_iiiii = Module["dynCall_iiiii"] = createExportWrapper("dynCall_iiiii", 5);
 
-var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii", 4);
+var dynCall_viiiii = Module["dynCall_viiiii"] = createExportWrapper("dynCall_viiiii", 6);
+
+var dynCall_fiff = Module["dynCall_fiff"] = createExportWrapper("dynCall_fiff", 4);
+
+var dynCall_viiiff = Module["dynCall_viiiff"] = createExportWrapper("dynCall_viiiff", 6);
+
+var dynCall_viiff = Module["dynCall_viiff"] = createExportWrapper("dynCall_viiff", 5);
+
+var dynCall_viiif = Module["dynCall_viiif"] = createExportWrapper("dynCall_viiif", 5);
+
+var dynCall_viiffffi = Module["dynCall_viiffffi"] = createExportWrapper("dynCall_viiffffi", 8);
+
+var dynCall_viiiiiiiii = Module["dynCall_viiiiiiiii"] = createExportWrapper("dynCall_viiiiiiiii", 10);
 
 var dynCall_iiiiii = Module["dynCall_iiiiii"] = createExportWrapper("dynCall_iiiiii", 6);
 
 var dynCall_iiiiiiiiii = Module["dynCall_iiiiiiiiii"] = createExportWrapper("dynCall_iiiiiiiiii", 10);
-
-var dynCall_ji = Module["dynCall_ji"] = createExportWrapper("dynCall_ji", 2);
 
 var dynCall_jiji = Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji", 5);
 
@@ -10213,8 +10666,6 @@ var dynCall_iij = Module["dynCall_iij"] = createExportWrapper("dynCall_iij", 4);
 var dynCall_iiiiiiii = Module["dynCall_iiiiiiii"] = createExportWrapper("dynCall_iiiiiiii", 8);
 
 var dynCall_iiiiiiiiiiiiiiff = Module["dynCall_iiiiiiiiiiiiiiff"] = createExportWrapper("dynCall_iiiiiiiiiiiiiiff", 16);
-
-var dynCall_viiiiiii = Module["dynCall_viiiiiii"] = createExportWrapper("dynCall_viiiiiii", 8);
 
 var dynCall_viiiiiiiiiii = Module["dynCall_viiiiiiiiiii"] = createExportWrapper("dynCall_viiiiiiiiiii", 12);
 
@@ -10240,13 +10691,17 @@ var dynCall_vifff = Module["dynCall_vifff"] = createExportWrapper("dynCall_vifff
 
 var dynCall_viffff = Module["dynCall_viffff"] = createExportWrapper("dynCall_viffff", 6);
 
-var dynCall_viiiiii = Module["dynCall_viiiiii"] = createExportWrapper("dynCall_viiiiii", 7);
+var dynCall_idi = Module["dynCall_idi"] = createExportWrapper("dynCall_idi", 3);
+
+var dynCall_dd = Module["dynCall_dd"] = createExportWrapper("dynCall_dd", 2);
+
+var dynCall_ifi = Module["dynCall_ifi"] = createExportWrapper("dynCall_ifi", 3);
+
+var dynCall_ff = Module["dynCall_ff"] = createExportWrapper("dynCall_ff", 2);
 
 var dynCall_iidiiii = Module["dynCall_iidiiii"] = createExportWrapper("dynCall_iidiiii", 7);
 
 var dynCall_viijii = Module["dynCall_viijii"] = createExportWrapper("dynCall_viijii", 7);
-
-var dynCall_iiiiiii = Module["dynCall_iiiiiii"] = createExportWrapper("dynCall_iiiiiii", 7);
 
 var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij", 7);
 
@@ -10436,11 +10891,11 @@ Module["FS_createDataFile"] = FS_createDataFile;
 
 Module["FS_createLazyFile"] = FS_createLazyFile;
 
-var missingLibrarySymbols = [ "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getTempRet0", "setTempRet0", "growMemory", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "emscriptenLog", "getDynCaller", "asmjsMangle", "HandleAllocator", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "getCFunc", "ccall", "cwrap", "uleb128Encode", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "writeArrayToMemory", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "hideEverythingExceptGivenElement", "restoreHiddenElements", "softFullscreenResizeWebGLRenderTarget", "registerPointerlockErrorEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "jsStackTrace", "getCallstack", "convertPCtoSourceLocation", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "findMatchingCatch", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_mkdirTree", "_setNetworkCallback", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "setErrNo", "demangle", "stackTrace" ];
+var missingLibrarySymbols = [ "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getTempRet0", "setTempRet0", "growMemory", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "emscriptenLog", "getDynCaller", "asmjsMangle", "HandleAllocator", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "getCFunc", "ccall", "cwrap", "uleb128Encode", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "unSign", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "writeArrayToMemory", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "hideEverythingExceptGivenElement", "restoreHiddenElements", "softFullscreenResizeWebGLRenderTarget", "registerPointerlockErrorEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "getCallstack", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "findMatchingCatch", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_mkdirTree", "_setNetworkCallback", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "setErrNo", "demangle", "stackTrace" ];
 
 missingLibrarySymbols.forEach(missingLibrarySymbol);
 
-var unexportedSymbols = [ "run", "addOnPreRun", "addOnInit", "addOnPreMain", "addOnExit", "addOnPostRun", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "writeStackCookie", "checkStackCookie", "writeI53ToI64", "readI53FromI64", "readI53FromU64", "convertI32PairToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "zeroMemory", "exitJS", "getHeapMax", "abortOnCannotGrowMemory", "ENV", "ERRNO_CODES", "strError", "DNS", "Protocols", "Sockets", "initRandomFill", "randomFill", "timers", "warnOnce", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "jstoi_q", "jstoi_s", "getExecutableName", "listenOnce", "autoResumeAudioContext", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "asyncLoad", "alignMemory", "mmapAlloc", "wasmTable", "noExitRuntime", "sigToWasmTypes", "freeTableIndexes", "functionsInTableMap", "unSign", "setValue", "getValue", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "UTF8ToString", "stringToUTF8Array", "stringToUTF8", "lengthBytesUTF8", "intArrayFromString", "stringToAscii", "UTF16Decoder", "stringToNewUTF8", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "setLetterbox", "currentFullscreenStrategy", "restoreOldWindowedStyle", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "UNWIND_CACHE", "ExitStatus", "getEnvStrings", "doReadv", "doWritev", "safeSetTimeout", "promiseMap", "uncaughtExceptionCount", "exceptionLast", "exceptionCaught", "ExceptionInfo", "Browser", "setMainLoop", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar_buffer", "FS_stdin_getChar", "FS_readFile", "FS", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "GL", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr" ];
+var unexportedSymbols = [ "run", "addOnPreRun", "addOnInit", "addOnPreMain", "addOnExit", "addOnPostRun", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "WasmOffsetConverter", "writeStackCookie", "checkStackCookie", "writeI53ToI64", "readI53FromI64", "readI53FromU64", "convertI32PairToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "zeroMemory", "exitJS", "getHeapMax", "abortOnCannotGrowMemory", "ENV", "ERRNO_CODES", "strError", "DNS", "Protocols", "Sockets", "initRandomFill", "randomFill", "timers", "warnOnce", "withBuiltinMalloc", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "jstoi_q", "jstoi_s", "getExecutableName", "listenOnce", "autoResumeAudioContext", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "asyncLoad", "alignMemory", "mmapAlloc", "wasmTable", "noExitRuntime", "sigToWasmTypes", "freeTableIndexes", "functionsInTableMap", "setValue", "getValue", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "UTF8ToString", "stringToUTF8Array", "stringToUTF8", "lengthBytesUTF8", "intArrayFromString", "stringToAscii", "UTF16Decoder", "stringToNewUTF8", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "setLetterbox", "currentFullscreenStrategy", "restoreOldWindowedStyle", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "UNWIND_CACHE", "convertPCtoSourceLocation", "ExitStatus", "getEnvStrings", "doReadv", "doWritev", "safeSetTimeout", "promiseMap", "uncaughtExceptionCount", "exceptionLast", "exceptionCaught", "ExceptionInfo", "Browser", "setMainLoop", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar_buffer", "FS_stdin_getChar", "FS_readFile", "FS", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "GL", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr" ];
 
 unexportedSymbols.forEach(unexportedRuntimeSymbol);
 
@@ -10513,46 +10968,6 @@ function run() {
     doRun();
   }
   checkStackCookie();
-}
-
-function checkUnflushedContent() {
-  // Compiler settings do not allow exiting the runtime, so flushing
-  // the streams is not possible. but in ASSERTIONS mode we check
-  // if there was something to flush, and if so tell the user they
-  // should request that the runtime be exitable.
-  // Normally we would not even include flush() at all, but in ASSERTIONS
-  // builds we do so just for this check, and here we see if there is any
-  // content to flush, that is, we check if there would have been
-  // something a non-ASSERTIONS build would have not seen.
-  // How we flush the streams depends on whether we are in SYSCALLS_REQUIRE_FILESYSTEM=0
-  // mode (which has its own special function for this; otherwise, all
-  // the code is inside libc)
-  var oldOut = out;
-  var oldErr = err;
-  var has = false;
-  out = err = x => {
-    has = true;
-  };
-  try {
-    // it doesn't matter if it fails
-    _fflush(0);
-    // also flush in the JS FS layer
-    [ "stdout", "stderr" ].forEach(function(name) {
-      var info = FS.analyzePath("/dev/" + name);
-      if (!info) return;
-      var stream = info.object;
-      var rdev = stream.rdev;
-      var tty = TTY.ttys[rdev];
-      if (tty?.output?.length) {
-        has = true;
-      }
-    });
-  } catch (e) {}
-  out = oldOut;
-  err = oldErr;
-  if (has) {
-    warnOnce("stdio streams had content in them that was not flushed. you should set EXIT_RUNTIME to 1 (see the Emscripten FAQ), or make sure to emit a newline when you printf etc.");
-  }
 }
 
 if (Module["preInit"]) {

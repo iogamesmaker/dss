@@ -28,6 +28,9 @@ ItemManager* IM = nullptr;
 #ifdef WEB
 void gameLoop() {
     game->render();
+    if(!game->running()) {
+        emscripten_cancel_main_loop();
+    }
 }
 #endif
 
@@ -37,8 +40,7 @@ int main()
     game->init("Deep Space Starships 0", 320, 200);
 
 #ifdef WEB
-    emscripten_set_main_loop_timing(EM_TIMING_RAF, 1); // Set requestAnimationFrame for timing
-    emscripten_set_main_loop(gameLoop, 0, 1); // Main loop for Emscripten
+    emscripten_set_main_loop(gameLoop, 60, true); // Main loop for Emscripten
 #else
     while(game->running())
     {

@@ -186,7 +186,7 @@ void Game::switchToMainMenu()
     GUI->addButton(
         TM->returnTexture("assets/sprite/menu/button/new.png"),
         TM->returnTexture("assets/sprite/menu/button/new-selected.png"),
-        0, -20, std::bind(&Game::switchToNewMenu, game), 0
+        0, -20, std::bind(&Game::switchToNewMenu, this), 0
     );
     GUI->addButton(
         TM->returnTexture("assets/sprite/menu/button/load.png"),
@@ -196,7 +196,7 @@ void Game::switchToMainMenu()
     GUI->addButton(
         TM->returnTexture("assets/sprite/menu/button/quit.png"),
         TM->returnTexture("assets/sprite/menu/button/quit-selected.png"),
-        0, 32, std::bind(&Game::stop, game), 2
+        0, 32, std::bind(&Game::stop, this), 2
     );
     // GUI->addText(
     //     "holy shit you can't do anyitnhg 10/10!!",

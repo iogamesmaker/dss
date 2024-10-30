@@ -8,7 +8,7 @@ Game::~Game()
 
 void Game::init(const char* title, int width, int height)
 {
-    std::cout << "I like forest gnomes" << std::endl;
+    std::cout << "I like forest shitgnomes" << std::endl;
     if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {std::cout << "sdl init exploded: " << SDL_GetError() << std::endl;}
 
 #ifdef WEB
@@ -22,16 +22,18 @@ void Game::init(const char* title, int width, int height)
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
     if(!renderer) {std::cout << "renderer didn't initialise: " << SDL_GetError() << std::endl;}
 
+
+    SDL_SetWindowMinimumSize(window, 320, 200);
+#ifdef WEB
+    int width, height;
+    emscripten_get_screen_size(&width, &height);
+
+    SDL_SetWindowMaximumSize(window, width, height);
+    SDL_SetWindowSize(window, width, height);
+#else
     SDL_DisplayMode displayMode;
     if (SDL_GetCurrentDisplayMode(0, &displayMode) != 0) {std::cout << "display mode exploded: " << SDL_GetError() << std::endl;}
 
-    isRunning = true;
-
-    SDL_SetWindowMinimumSize(window, 320, 200);
-    int width, height;
-#ifdef WEB
-    emscripten_get_screen_size(&width, &height);
-#else
     SDL_SetWindowMaximumSize(window, displayMode.w, displayMode.h);
     SDL_SetWindowSize(window, displayMode.w, displayMode.h);
 #endif

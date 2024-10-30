@@ -36,12 +36,15 @@ void gameLoop() {
 
 int main()
 {
+
+#ifdef WEB
+    emscripten_set_main_loop(gameLoop, 60, true); // Main loop for Emscripten, don't believe it's just this easy.
+#endif
+
     game = new Game();
     game->init("Deep Space Starships 0", 320, 200);
 
-#ifdef WEB
-    emscripten_set_main_loop(gameLoop, 60, true); // Main loop for Emscripten
-#else
+#ifndef WEB
     while(game->running())
     {
         game->render();

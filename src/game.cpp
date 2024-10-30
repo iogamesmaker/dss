@@ -8,6 +8,7 @@ Game::~Game()
 
 void Game::init(const char* title, int width, int height)
 {
+    std::cout << "I like forest gnomes" << std::endl;
     if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {std::cout << "sdl init exploded: " << SDL_GetError() << std::endl;}
 
 #ifdef WEB

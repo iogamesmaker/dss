@@ -18,7 +18,7 @@ ItemManager* IM = nullptr;
 
 // half-broken emscripten shit, game doesn't work because browsers don't support all the shit I'm using:
 // No flac audio support
-// No PNG support?!?!??!! what the fuck
+// No PNG support?!?!??!! what the fuck (fixed, needed to preload ass ets)
 
 // probably will try and fix this
 // potential fixes:

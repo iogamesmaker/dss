@@ -25,6 +25,9 @@ ItemManager* IM = nullptr;
 // use mp3
 // i don't think this error is true, because what the fuck
 
+// ok got it to not have those errors yippie
+// but of course, tons of js errors
+
 #ifdef WEB
 void gameLoop() {
     game->render();

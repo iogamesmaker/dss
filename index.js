@@ -35,7 +35,7 @@ if (ENVIRONMENT_IS_NODE) {}
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmphoepxoev.js
+// include: /tmp/tmpu5ikb3uz.js
 if (!Module["expectedDataFileDownloads"]) {
   Module["expectedDataFileDownloads"] = 0;
 }
@@ -396,23 +396,23 @@ Module["expectedDataFileDownloads"]++;
   });
 })();
 
-// end include: /tmp/tmphoepxoev.js
-// include: /tmp/tmp7lbrj8ok.js
+// end include: /tmp/tmpu5ikb3uz.js
+// include: /tmp/tmppuufw80k.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if (Module["$ww"] || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: /tmp/tmp7lbrj8ok.js
-// include: /tmp/tmpi3fnq5ki.js
+// end include: /tmp/tmppuufw80k.js
+// include: /tmp/tmp4pgnifh_.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: /tmp/tmpi3fnq5ki.js
+// end include: /tmp/tmp4pgnifh_.js
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
 // we collect those properties and reapply _after_ we configure
@@ -483,6 +483,7 @@ if (ENVIRONMENT_IS_NODE) {
   }
   quit_ = (status, toThrow) => {
     process.exitCode = status;
+    console.log(toThrow);
     throw toThrow;
   };
 } else if (ENVIRONMENT_IS_SHELL) {
@@ -825,7 +826,9 @@ function writeStackCookie() {
   // We write cookies to the final two words in the stack and detect if they are
   // ever overwritten.
   _asan_js_store_4u(((max) >> 2), 34821223);
+  checkInt32(34821223);
   _asan_js_store_4u((((max) + (4)) >> 2), 2310721022);
+  checkInt32(2310721022);
 }
 
 function checkStackCookie() {
@@ -876,6 +879,7 @@ function initRuntime() {
   assert(!runtimeInitialized);
   runtimeInitialized = true;
   checkStackCookie();
+  setStackLimits();
   if (!Module["noFSInit"] && !FS.initialized) FS.init();
   FS.ignorePermissions = false;
   TTY.init();
@@ -1115,6 +1119,110 @@ function getBinaryPromise(binaryFile) {
   return Promise.resolve().then(() => getBinarySync(binaryFile));
 }
 
+var wasmSourceMap;
+
+// include: source_map_support.js
+/**
+ * @constructor
+ */ function WasmSourceMap(sourceMap) {
+  this.version = sourceMap.version;
+  this.sources = sourceMap.sources;
+  this.names = sourceMap.names;
+  this.mapping = {};
+  this.offsets = [];
+  var vlqMap = {};
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".split("").forEach((c, i) => vlqMap[c] = i);
+  // based on https://github.com/Rich-Harris/vlq/blob/master/src/vlq.ts
+  function decodeVLQ(string) {
+    var result = [];
+    var shift = 0;
+    var value = 0;
+    for (var i = 0; i < string.length; ++i) {
+      var integer = vlqMap[string[i]];
+      if (integer === undefined) {
+        throw new Error("Invalid character (" + string[i] + ")");
+      }
+      value += (integer & 31) << shift;
+      if (integer & 32) {
+        shift += 5;
+      } else {
+        var negate = value & 1;
+        value >>= 1;
+        result.push(negate ? -value : value);
+        value = shift = 0;
+      }
+    }
+    return result;
+  }
+  var offset = 0, src = 0, line = 1, col = 1, name = 0;
+  sourceMap.mappings.split(",").forEach(function(segment, index) {
+    if (!segment) return;
+    var data = decodeVLQ(segment);
+    var info = {};
+    offset += data[0];
+    if (data.length >= 2) info.source = src += data[1];
+    if (data.length >= 3) info.line = line += data[2];
+    if (data.length >= 4) info.column = col += data[3];
+    if (data.length >= 5) info.name = name += data[4];
+    this.mapping[offset] = info;
+    this.offsets.push(offset);
+  }, this);
+  this.offsets.sort((a, b) => a - b);
+}
+
+WasmSourceMap.prototype.lookup = function(offset) {
+  var normalized = this.normalizeOffset(offset);
+  if (!wasmOffsetConverter.isSameFunc(offset, normalized)) {
+    return null;
+  }
+  var info = this.mapping[normalized];
+  if (!info) {
+    return null;
+  }
+  return {
+    file: this.sources[info.source],
+    line: info.line,
+    column: info.column,
+    name: this.names[info.name]
+  };
+};
+
+WasmSourceMap.prototype.normalizeOffset = function(offset) {
+  var lo = 0;
+  var hi = this.offsets.length;
+  var mid;
+  while (lo < hi) {
+    mid = Math.floor((lo + hi) / 2);
+    if (this.offsets[mid] > offset) {
+      hi = mid;
+    } else {
+      lo = mid + 1;
+    }
+  }
+  return this.offsets[lo - 1];
+};
+
+var wasmSourceMapFile = "index.wasm.map";
+
+if (!isDataURI(wasmSourceMapFile)) {
+  wasmSourceMapFile = locateFile(wasmSourceMapFile);
+}
+
+function getSourceMap() {
+  var buf = readBinary(wasmSourceMapFile);
+  return JSON.parse(UTF8ArrayToString(buf, 0, buf.length));
+}
+
+function getSourceMapPromise() {
+  if ((ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) && typeof fetch == "function") {
+    return fetch(wasmSourceMapFile, {
+      credentials: "same-origin"
+    }).then(response => response.json()).catch(getSourceMap);
+  }
+  return Promise.resolve(getSourceMap());
+}
+
+// end include: source_map_support.js
 var wasmOffsetConverter;
 
 // include: wasm_offset_converter.js
@@ -1290,6 +1398,11 @@ WasmOffsetConverter.prototype.getName = function(offset) {
 };
 
 // end include: wasm_offset_converter.js
+function receiveSourceMapJSON(sourceMap) {
+  wasmSourceMap = new WasmSourceMap(sourceMap);
+  removeRunDependency("source-map");
+}
+
 function instantiateArrayBuffer(binaryFile, imports, receiver) {
   var savedBinary;
   return getBinaryPromise(binaryFile).then(binary => {
@@ -1390,6 +1503,7 @@ function createWasm() {
   }
   // wait for the pthread pool (if any)
   addRunDependency("wasm-instantiate");
+  addRunDependency("source-map");
   // Prefer streaming instantiation if available.
   // Async compilation can be confusing when an error on the page overwrites Module
   // (for example, if the order of elements is wrong, and the one defining Module is
@@ -1420,6 +1534,7 @@ function createWasm() {
   }
   if (!wasmBinaryFile) wasmBinaryFile = findWasmBinary();
   instantiateAsync(wasmBinary, wasmBinaryFile, info, receiveInstantiationResult);
+  getSourceMapPromise().then(receiveSourceMapJSON);
   return {};
 }
 
@@ -1521,6 +1636,44 @@ function unexportedRuntimeSymbol(sym) {
   }
 }
 
+var MAX_UINT8 = (2 ** 8) - 1;
+
+var MAX_UINT16 = (2 ** 16) - 1;
+
+var MAX_UINT32 = (2 ** 32) - 1;
+
+var MAX_UINT53 = (2 ** 53) - 1;
+
+var MAX_UINT64 = (2 ** 64) - 1;
+
+var MIN_INT8 = -(2 ** (8 - 1)) + 1;
+
+var MIN_INT16 = -(2 ** (16 - 1)) + 1;
+
+var MIN_INT32 = -(2 ** (32 - 1)) + 1;
+
+var MIN_INT53 = -(2 ** (53 - 1)) + 1;
+
+var MIN_INT64 = -(2 ** (64 - 1)) + 1;
+
+function checkInt(value, bits, min, max) {
+  assert(Number.isInteger(Number(value)), `attempt to write non-integer (${value}) into integer heap`);
+  assert(value <= max, `value (${value}) too large to write as ${bits}-bit value`);
+  assert(value >= min, `value (${value}) too small to write as ${bits}-bit value`);
+}
+
+var checkInt1 = value => checkInt(value, 1, 1);
+
+var checkInt8 = value => checkInt(value, 8, MIN_INT8, MAX_UINT8);
+
+var checkInt16 = value => checkInt(value, 16, MIN_INT16, MAX_UINT16);
+
+var checkInt32 = value => checkInt(value, 32, MIN_INT32, MAX_UINT32);
+
+var checkInt53 = value => checkInt(value, 53, MIN_INT53, MAX_UINT53);
+
+var checkInt64 = value => checkInt(value, 64, MIN_INT64, MAX_UINT64);
+
 // Used by XXXXX_DEBUG settings to output debug messages.
 function dbg(...args) {
   // TODO(sbc): Make this configurable somehow.  Its not always convenient for
@@ -1531,7 +1684,7 @@ function dbg(...args) {
 // end include: runtime_debug.js
 // === Body ===
 var ASM_CONSTS = {
-  84627709: $0 => {
+  84640189: $0 => {
     var str = UTF8ToString($0) + "\n\n" + "Abort/Retry/Ignore/AlwaysIgnore? [ariA] :";
     var reply = window.prompt(str, "i");
     if (reply === null) {
@@ -1539,7 +1692,7 @@ var ASM_CONSTS = {
     }
     return allocate(intArrayFromString(reply), "i8", ALLOC_NORMAL);
   },
-  84627934: () => {
+  84640414: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -1547,7 +1700,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  84628081: () => {
+  84640561: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -1555,7 +1708,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  84628315: $0 => {
+  84640795: $0 => {
     if (typeof (Module["SDL2"]) === "undefined") {
       Module["SDL2"] = {};
     }
@@ -1577,11 +1730,11 @@ var ASM_CONSTS = {
     }
     return SDL2.audioContext === undefined ? -1 : 0;
   },
-  84628808: () => {
+  84641288: () => {
     var SDL2 = Module["SDL2"];
     return SDL2.audioContext.sampleRate;
   },
-  84628876: ($0, $1, $2, $3) => {
+  84641356: ($0, $1, $2, $3) => {
     var SDL2 = Module["SDL2"];
     var have_microphone = function(stream) {
       if (SDL2.capture.silenceTimer !== undefined) {
@@ -1622,7 +1775,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  84630528: ($0, $1, $2, $3) => {
+  84643008: ($0, $1, $2, $3) => {
     var SDL2 = Module["SDL2"];
     SDL2.audio.scriptProcessorNode = SDL2.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL2.audio.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -1634,7 +1787,7 @@ var ASM_CONSTS = {
     };
     SDL2.audio.scriptProcessorNode["connect"](SDL2.audioContext["destination"]);
   },
-  84630938: ($0, $1) => {
+  84643418: ($0, $1) => {
     var SDL2 = Module["SDL2"];
     var numChannels = SDL2.capture.currentCaptureBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -1653,7 +1806,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  84631543: ($0, $1) => {
+  84644023: ($0, $1) => {
     var SDL2 = Module["SDL2"];
     var numChannels = SDL2.audio.currentOutputBuffer["numberOfChannels"];
     for (var c = 0; c < numChannels; ++c) {
@@ -1666,7 +1819,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  84632023: $0 => {
+  84644503: $0 => {
     var SDL2 = Module["SDL2"];
     if ($0) {
       if (SDL2.capture.silenceTimer !== undefined) {
@@ -1704,7 +1857,7 @@ var ASM_CONSTS = {
       SDL2.audioContext = undefined;
     }
   },
-  84633195: ($0, $1, $2) => {
+  84645675: ($0, $1, $2) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -1775,7 +1928,7 @@ var ASM_CONSTS = {
     }
     SDL2.ctx.putImageData(SDL2.image, 0, 0);
   },
-  84634664: ($0, $1, $2, $3, $4) => {
+  84647144: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -1812,18 +1965,18 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  84635653: $0 => {
+  84648133: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  84635736: () => {
+  84648216: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  84635805: () => window.innerWidth,
-  84635835: () => window.innerHeight
+  84648285: () => window.innerWidth,
+  84648315: () => window.innerHeight
 };
 
 // end include: preamble.js
@@ -1897,6 +2050,146 @@ var callRuntimeCallbacks = callbacks => {
   }
 };
 
+var stackSave = () => _emscripten_stack_get_current();
+
+var stackRestore = val => __emscripten_stack_restore(val);
+
+var withStackSave = f => {
+  var stack = stackSave();
+  var ret = f();
+  stackRestore(stack);
+  return ret;
+};
+
+var lengthBytesUTF8 = str => {
+  var len = 0;
+  for (var i = 0; i < str.length; ++i) {
+    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
+    // unit, not a Unicode code point of the character! So decode
+    // UTF16->UTF32->UTF8.
+    // See http://unicode.org/faq/utf_bom.html#utf16-3
+    var c = str.charCodeAt(i);
+    // possibly a lead surrogate
+    if (c <= 127) {
+      len++;
+    } else if (c <= 2047) {
+      len += 2;
+    } else if (c >= 55296 && c <= 57343) {
+      len += 4;
+      ++i;
+    } else {
+      len += 3;
+    }
+  }
+  return len;
+};
+
+var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
+  assert(typeof str === "string", `stringToUTF8Array expects a string (got ${typeof str})`);
+  // Parameter maxBytesToWrite is not optional. Negative values, 0, null,
+  // undefined and false each don't write out any bytes.
+  if (!(maxBytesToWrite > 0)) return 0;
+  var startIdx = outIdx;
+  var endIdx = outIdx + maxBytesToWrite - 1;
+  // -1 for string null terminator.
+  for (var i = 0; i < str.length; ++i) {
+    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
+    // unit, not a Unicode code point of the character! So decode
+    // UTF16->UTF32->UTF8.
+    // See http://unicode.org/faq/utf_bom.html#utf16-3
+    // For UTF8 byte structure, see http://en.wikipedia.org/wiki/UTF-8#Description
+    // and https://www.ietf.org/rfc/rfc2279.txt
+    // and https://tools.ietf.org/html/rfc3629
+    var u = str.charCodeAt(i);
+    // possibly a lead surrogate
+    if (u >= 55296 && u <= 57343) {
+      var u1 = str.charCodeAt(++i);
+      u = 65536 + ((u & 1023) << 10) | (u1 & 1023);
+    }
+    if (u <= 127) {
+      if (outIdx >= endIdx) break;
+      heap[outIdx++] = u;
+    } else if (u <= 2047) {
+      if (outIdx + 1 >= endIdx) break;
+      heap[outIdx++] = 192 | (u >> 6);
+      heap[outIdx++] = 128 | (u & 63);
+    } else if (u <= 65535) {
+      if (outIdx + 2 >= endIdx) break;
+      heap[outIdx++] = 224 | (u >> 12);
+      heap[outIdx++] = 128 | ((u >> 6) & 63);
+      heap[outIdx++] = 128 | (u & 63);
+    } else {
+      if (outIdx + 3 >= endIdx) break;
+      if (u > 1114111) warnOnce("Invalid Unicode code point " + ptrToString(u) + " encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x10FFFF).");
+      heap[outIdx++] = 240 | (u >> 18);
+      heap[outIdx++] = 128 | ((u >> 12) & 63);
+      heap[outIdx++] = 128 | ((u >> 6) & 63);
+      heap[outIdx++] = 128 | (u & 63);
+    }
+  }
+  // Null-terminate the pointer to the buffer.
+  heap[outIdx] = 0;
+  return outIdx - startIdx;
+};
+
+var stringToUTF8 = (str, outPtr, maxBytesToWrite) => {
+  assert(typeof maxBytesToWrite == "number", "stringToUTF8(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!");
+  return stringToUTF8Array(str, HEAPU8, outPtr, maxBytesToWrite);
+};
+
+var stackAlloc = sz => __emscripten_stack_alloc(sz);
+
+var stringToUTF8OnStack = str => {
+  var size = lengthBytesUTF8(str) + 1;
+  var ret = stackAlloc(size);
+  stringToUTF8(str, ret, size);
+  return ret;
+};
+
+/**
+     * Given a pointer 'ptr' to a null-terminated UTF8-encoded string in the
+     * emscripten HEAP, returns a copy of that string as a Javascript String object.
+     *
+     * @param {number} ptr
+     * @param {number=} maxBytesToRead - An optional length that specifies the
+     *   maximum number of bytes to read. You can omit this parameter to scan the
+     *   string until the first 0 byte. If maxBytesToRead is passed, and the string
+     *   at [ptr, ptr+maxBytesToReadr[ contains a null byte in the middle, then the
+     *   string will cut short at that byte index (i.e. maxBytesToRead will not
+     *   produce a string of exact length [ptr, ptr+maxBytesToRead[) N.B. mixing
+     *   frequent uses of UTF8ToString() with and without maxBytesToRead may throw
+     *   JS JIT optimizations off, so it is worth to consider consistently using one
+     * @return {string}
+     */ var UTF8ToString = (ptr, maxBytesToRead) => {
+  assert(typeof ptr == "number", `UTF8ToString expects a number (got ${typeof ptr})`);
+  return ptr ? UTF8ArrayToString(HEAPU8, ptr, maxBytesToRead) : "";
+};
+
+var demangle = func => {
+  // If demangle has failed before, stop demangling any further function names
+  // This avoids an infinite recursion with malloc()->abort()->stackTrace()->demangle()->malloc()->...
+  demangle.recursionGuard = (demangle.recursionGuard | 0) + 1;
+  if (demangle.recursionGuard > 1) return func;
+  return withStackSave(() => {
+    try {
+      var s = func;
+      if (s.startsWith("__Z")) s = s.substr(1);
+      var buf = stringToUTF8OnStack(s);
+      var status = stackAlloc(4);
+      var ret = ___cxa_demangle(buf, 0, 0, status);
+      if (_asan_js_load_4(((status) >> 2)) === 0 && ret) {
+        return UTF8ToString(ret);
+      }
+    } // otherwise, libcxxabi failed
+    catch (e) {} finally {
+      _free(ret);
+      if (demangle.recursionGuard < 2) --demangle.recursionGuard;
+    }
+    // failure when using libcxxabi, don't demangle
+    return func;
+  });
+};
+
 /**
      * @param {number} ptr
      * @param {string} type
@@ -1941,6 +2234,12 @@ var ptrToString = ptr => {
   return "0x" + ptr.toString(16).padStart(8, "0");
 };
 
+var setStackLimits = () => {
+  var stackLow = _emscripten_stack_get_base();
+  var stackHigh = _emscripten_stack_get_end();
+  ___set_stack_limits(stackLow, stackHigh);
+};
+
 /**
      * @param {number} ptr
      * @param {number} value
@@ -1950,18 +2249,22 @@ var ptrToString = ptr => {
   switch (type) {
    case "i1":
     _asan_js_store_1(ptr, value);
+    checkInt8(value);
     break;
 
    case "i8":
     _asan_js_store_1(ptr, value);
+    checkInt8(value);
     break;
 
    case "i16":
     _asan_js_store_2(((ptr) >> 1), value);
+    checkInt16(value);
     break;
 
    case "i32":
     _asan_js_store_4(((ptr) >> 2), value);
+    checkInt32(value);
     break;
 
    case "i64":
@@ -1984,9 +2287,15 @@ var ptrToString = ptr => {
   }
 }
 
-var stackRestore = val => __emscripten_stack_restore(val);
+function jsStackTrace() {
+  return (new Error).stack.toString();
+}
 
-var stackSave = () => _emscripten_stack_get_current();
+function stackTrace() {
+  var js = jsStackTrace();
+  if (Module["extraStackTrace"]) js += "\n" + Module["extraStackTrace"]();
+  return js;
+}
 
 var warnOnce = text => {
   warnOnce.shown ||= {};
@@ -1995,25 +2304,6 @@ var warnOnce = text => {
     if (ENVIRONMENT_IS_NODE) text = "warning: " + text;
     err(text);
   }
-};
-
-/**
-     * Given a pointer 'ptr' to a null-terminated UTF8-encoded string in the
-     * emscripten HEAP, returns a copy of that string as a Javascript String object.
-     *
-     * @param {number} ptr
-     * @param {number=} maxBytesToRead - An optional length that specifies the
-     *   maximum number of bytes to read. You can omit this parameter to scan the
-     *   string until the first 0 byte. If maxBytesToRead is passed, and the string
-     *   at [ptr, ptr+maxBytesToReadr[ contains a null byte in the middle, then the
-     *   string will cut short at that byte index (i.e. maxBytesToRead will not
-     *   produce a string of exact length [ptr, ptr+maxBytesToRead[) N.B. mixing
-     *   frequent uses of UTF8ToString() with and without maxBytesToRead may throw
-     *   JS JIT optimizations off, so it is worth to consider consistently using one
-     * @return {string}
-     */ var UTF8ToString = (ptr, maxBytesToRead) => {
-  assert(typeof ptr == "number", `UTF8ToString expects a number (got ${typeof ptr})`);
-  return ptr ? UTF8ArrayToString(HEAPU8, ptr, maxBytesToRead) : "";
 };
 
 var ___assert_fail = (condition, filename, line, func) => {
@@ -2041,6 +2331,7 @@ class ExceptionInfo {
   set_caught(caught) {
     caught = caught ? 1 : 0;
     _asan_js_store_1((this.ptr) + (12), caught);
+    checkInt8(caught);
   }
   get_caught() {
     return _asan_js_load_1((this.ptr) + (12)) != 0;
@@ -2048,6 +2339,7 @@ class ExceptionInfo {
   set_rethrown(rethrown) {
     rethrown = rethrown ? 1 : 0;
     _asan_js_store_1((this.ptr) + (13), rethrown);
+    checkInt8(rethrown);
   }
   get_rethrown() {
     return _asan_js_load_1((this.ptr) + (13)) != 0;
@@ -2077,6 +2369,12 @@ var ___cxa_throw = (ptr, type, destructor) => {
   exceptionLast = ptr;
   uncaughtExceptionCount++;
   assert(false, "Exception thrown, but exception catching is not enabled. Compile with -sNO_DISABLE_EXCEPTION_CATCHING or -sEXCEPTION_CATCHING_ALLOWED=[..] to catch.");
+};
+
+var ___handle_stack_overflow = requested => {
+  var base = _emscripten_stack_get_base();
+  var end = _emscripten_stack_get_end();
+  abort(`stack overflow (Attempt to set SP to ${ptrToString(requested)}` + `, with stack limits [${ptrToString(end)} - ${ptrToString(base)}` + "]). If you require more stack space build with -sSTACK_SIZE=<bytes>");
 };
 
 var PATH = {
@@ -2225,77 +2523,6 @@ var PATH_FS = {
 };
 
 var FS_stdin_getChar_buffer = [];
-
-var lengthBytesUTF8 = str => {
-  var len = 0;
-  for (var i = 0; i < str.length; ++i) {
-    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
-    // unit, not a Unicode code point of the character! So decode
-    // UTF16->UTF32->UTF8.
-    // See http://unicode.org/faq/utf_bom.html#utf16-3
-    var c = str.charCodeAt(i);
-    // possibly a lead surrogate
-    if (c <= 127) {
-      len++;
-    } else if (c <= 2047) {
-      len += 2;
-    } else if (c >= 55296 && c <= 57343) {
-      len += 4;
-      ++i;
-    } else {
-      len += 3;
-    }
-  }
-  return len;
-};
-
-var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
-  assert(typeof str === "string", `stringToUTF8Array expects a string (got ${typeof str})`);
-  // Parameter maxBytesToWrite is not optional. Negative values, 0, null,
-  // undefined and false each don't write out any bytes.
-  if (!(maxBytesToWrite > 0)) return 0;
-  var startIdx = outIdx;
-  var endIdx = outIdx + maxBytesToWrite - 1;
-  // -1 for string null terminator.
-  for (var i = 0; i < str.length; ++i) {
-    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
-    // unit, not a Unicode code point of the character! So decode
-    // UTF16->UTF32->UTF8.
-    // See http://unicode.org/faq/utf_bom.html#utf16-3
-    // For UTF8 byte structure, see http://en.wikipedia.org/wiki/UTF-8#Description
-    // and https://www.ietf.org/rfc/rfc2279.txt
-    // and https://tools.ietf.org/html/rfc3629
-    var u = str.charCodeAt(i);
-    // possibly a lead surrogate
-    if (u >= 55296 && u <= 57343) {
-      var u1 = str.charCodeAt(++i);
-      u = 65536 + ((u & 1023) << 10) | (u1 & 1023);
-    }
-    if (u <= 127) {
-      if (outIdx >= endIdx) break;
-      heap[outIdx++] = u;
-    } else if (u <= 2047) {
-      if (outIdx + 1 >= endIdx) break;
-      heap[outIdx++] = 192 | (u >> 6);
-      heap[outIdx++] = 128 | (u & 63);
-    } else if (u <= 65535) {
-      if (outIdx + 2 >= endIdx) break;
-      heap[outIdx++] = 224 | (u >> 12);
-      heap[outIdx++] = 128 | ((u >> 6) & 63);
-      heap[outIdx++] = 128 | (u & 63);
-    } else {
-      if (outIdx + 3 >= endIdx) break;
-      if (u > 1114111) warnOnce("Invalid Unicode code point " + ptrToString(u) + " encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x10FFFF).");
-      heap[outIdx++] = 240 | (u >> 18);
-      heap[outIdx++] = 128 | ((u >> 12) & 63);
-      heap[outIdx++] = 128 | ((u >> 6) & 63);
-      heap[outIdx++] = 128 | (u & 63);
-    }
-  }
-  // Null-terminate the pointer to the buffer.
-  heap[outIdx] = 0;
-  return outIdx - startIdx;
-};
 
 /** @type {function(string, boolean=, number=)} */ function intArrayFromString(stringy, dontAddNull, length) {
   var len = length > 0 ? length : lengthBytesUTF8(stringy) + 1;
@@ -4692,32 +4919,48 @@ var SYSCALLS = {
   doStat(func, path, buf) {
     var stat = func(path);
     _asan_js_store_4(((buf) >> 2), stat.dev);
+    checkInt32(stat.dev);
     _asan_js_store_4((((buf) + (4)) >> 2), stat.mode);
+    checkInt32(stat.mode);
     _asan_js_store_4u((((buf) + (8)) >> 2), stat.nlink);
+    checkInt32(stat.nlink);
     _asan_js_store_4((((buf) + (12)) >> 2), stat.uid);
+    checkInt32(stat.uid);
     _asan_js_store_4((((buf) + (16)) >> 2), stat.gid);
+    checkInt32(stat.gid);
     _asan_js_store_4((((buf) + (20)) >> 2), stat.rdev);
+    checkInt32(stat.rdev);
     (tempI64 = [ stat.size >>> 0, (tempDouble = stat.size, (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
     _asan_js_store_4((((buf) + (24)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (28)) >> 2), tempI64[1]));
+    checkInt64(stat.size);
     _asan_js_store_4((((buf) + (32)) >> 2), 4096);
+    checkInt32(4096);
     _asan_js_store_4((((buf) + (36)) >> 2), stat.blocks);
+    checkInt32(stat.blocks);
     var atime = stat.atime.getTime();
     var mtime = stat.mtime.getTime();
     var ctime = stat.ctime.getTime();
     (tempI64 = [ Math.floor(atime / 1e3) >>> 0, (tempDouble = Math.floor(atime / 1e3), 
     (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
     _asan_js_store_4((((buf) + (40)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (44)) >> 2), tempI64[1]));
+    checkInt64(Math.floor(atime / 1e3));
     _asan_js_store_4u((((buf) + (48)) >> 2), (atime % 1e3) * 1e3);
+    checkInt32((atime % 1e3) * 1e3);
     (tempI64 = [ Math.floor(mtime / 1e3) >>> 0, (tempDouble = Math.floor(mtime / 1e3), 
     (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
     _asan_js_store_4((((buf) + (56)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (60)) >> 2), tempI64[1]));
+    checkInt64(Math.floor(mtime / 1e3));
     _asan_js_store_4u((((buf) + (64)) >> 2), (mtime % 1e3) * 1e3);
+    checkInt32((mtime % 1e3) * 1e3);
     (tempI64 = [ Math.floor(ctime / 1e3) >>> 0, (tempDouble = Math.floor(ctime / 1e3), 
     (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
     _asan_js_store_4((((buf) + (72)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (76)) >> 2), tempI64[1]));
+    checkInt64(Math.floor(ctime / 1e3));
     _asan_js_store_4u((((buf) + (80)) >> 2), (ctime % 1e3) * 1e3);
+    checkInt32((ctime % 1e3) * 1e3);
     (tempI64 = [ stat.ino >>> 0, (tempDouble = stat.ino, (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
     _asan_js_store_4((((buf) + (88)) >> 2), tempI64[0]), _asan_js_store_4((((buf) + (92)) >> 2), tempI64[1]));
+    checkInt64(stat.ino);
     return 0;
   },
   doMsync(addr, stream, len, flags, offset) {
@@ -4799,15 +5042,21 @@ function ___syscall__newselect(nfds, readfds, writefds, exceptfds, timeout) {
     }
     if (readfds) {
       _asan_js_store_4(((readfds) >> 2), dstReadLow);
+      checkInt32(dstReadLow);
       _asan_js_store_4((((readfds) + (4)) >> 2), dstReadHigh);
+      checkInt32(dstReadHigh);
     }
     if (writefds) {
       _asan_js_store_4(((writefds) >> 2), dstWriteLow);
+      checkInt32(dstWriteLow);
       _asan_js_store_4((((writefds) + (4)) >> 2), dstWriteHigh);
+      checkInt32(dstWriteHigh);
     }
     if (exceptfds) {
       _asan_js_store_4(((exceptfds) >> 2), dstExceptLow);
+      checkInt32(dstExceptLow);
       _asan_js_store_4((((exceptfds) + (4)) >> 2), dstExceptHigh);
+      checkInt32(dstExceptHigh);
     }
     return total;
   } catch (e) {
@@ -4876,6 +5125,7 @@ function ___syscall_fcntl64(fd, cmd, varargs) {
         var offset = 0;
         // We're always unlocked.
         _asan_js_store_2((((arg) + (offset)) >> 1), 2);
+        checkInt16(2);
         return 0;
       }
 
@@ -4909,11 +5159,16 @@ function ___syscall_ioctl(fd, op, varargs) {
           var termios = stream.tty.ops.ioctl_tcgets(stream);
           var argp = syscallGetVarargP();
           _asan_js_store_4(((argp) >> 2), termios.c_iflag || 0);
+          checkInt32(termios.c_iflag || 0);
           _asan_js_store_4((((argp) + (4)) >> 2), termios.c_oflag || 0);
+          checkInt32(termios.c_oflag || 0);
           _asan_js_store_4((((argp) + (8)) >> 2), termios.c_cflag || 0);
+          checkInt32(termios.c_cflag || 0);
           _asan_js_store_4((((argp) + (12)) >> 2), termios.c_lflag || 0);
+          checkInt32(termios.c_lflag || 0);
           for (var i = 0; i < 32; i++) {
             _asan_js_store_1((argp + i) + (17), termios.c_cc[i] || 0);
+            checkInt8(termios.c_cc[i] || 0);
           }
           return 0;
         }
@@ -4961,6 +5216,7 @@ function ___syscall_ioctl(fd, op, varargs) {
         if (!stream.tty) return -59;
         var argp = syscallGetVarargP();
         _asan_js_store_4(((argp) >> 2), 0);
+        checkInt32(0);
         return 0;
       }
 
@@ -4986,7 +5242,9 @@ function ___syscall_ioctl(fd, op, varargs) {
           var winsize = stream.tty.ops.ioctl_tiocgwinsz(stream.tty);
           var argp = syscallGetVarargP();
           _asan_js_store_2(((argp) >> 1), winsize[0]);
+          checkInt16(winsize[0]);
           _asan_js_store_2((((argp) + (2)) >> 1), winsize[1]);
+          checkInt16(winsize[1]);
         }
         return 0;
       }
@@ -5065,11 +5323,6 @@ var __emscripten_get_now_is_monotonic = () => nowIsMonotonic;
 
 var getExecutableName = () => thisProgram || "./this.program";
 
-var stringToUTF8 = (str, outPtr, maxBytesToWrite) => {
-  assert(typeof maxBytesToWrite == "number", "stringToUTF8(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!");
-  return stringToUTF8Array(str, HEAPU8, outPtr, maxBytesToWrite);
-};
-
 var __emscripten_get_progname = (str, len) => {
   stringToUTF8(getExecutableName(), str, len);
 };
@@ -5127,6 +5380,7 @@ function __mmap_js(len, prot, flags, fd, offset_low, offset_high, allocated, add
     var res = FS.mmap(stream, len, offset, prot, flags);
     var ptr = res.ptr;
     _asan_js_store_4(((allocated) >> 2), res.allocated);
+    checkInt32(res.allocated);
     _asan_js_store_4u(((addr) >> 2), ptr);
     return 0;
   } catch (e) {
@@ -5168,7 +5422,9 @@ var __tzset_js = (timezone, daylight, std_name, dst_name) => {
   // as returned by stdTimezoneOffset.
   // See http://pubs.opengroup.org/onlinepubs/009695399/functions/tzset.html
   _asan_js_store_4u(((timezone) >> 2), stdTimezoneOffset * 60);
+  checkInt32(stdTimezoneOffset * 60);
   _asan_js_store_4(((daylight) >> 2), Number(winterOffset != summerOffset));
+  checkInt32(Number(winterOffset != summerOffset));
   var extractZone = timezoneOffset => {
     // Why inverse sign?
     // Read here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
@@ -5948,6 +6204,7 @@ var Browser = {
       flags = flags | 8388608;
       // set SDL_FULLSCREEN flag
       _asan_js_store_4(((SDL.screen) >> 2), flags);
+      checkInt32(flags);
     }
     Browser.updateCanvasDimensions(Module["canvas"]);
     Browser.updateResizeListeners();
@@ -5959,6 +6216,7 @@ var Browser = {
       flags = flags & ~8388608;
       // clear SDL_FULLSCREEN flag
       _asan_js_store_4(((SDL.screen) >> 2), flags);
+      checkInt32(flags);
     }
     Browser.updateCanvasDimensions(Module["canvas"]);
     Browser.updateResizeListeners();
@@ -6063,6 +6321,7 @@ var EGL = {
     }
     if (numConfigs) {
       _asan_js_store_4(((numConfigs) >> 2), 1);
+      checkInt32(1);
     }
     // Total number of supported configs: 1.
     if (config && config_size > 0) {
@@ -6169,6 +6428,7 @@ var GL = {
         GL.recordError(1282);
       }
       _asan_js_store_4((((buffers) + (i * 4)) >> 2), id);
+      checkInt32(id);
     }
   },
   getSource: (shader, count, string, length) => {
@@ -6391,103 +6651,123 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
    case 12320:
     // EGL_BUFFER_SIZE
     _asan_js_store_4(((value) >> 2), EGL.contextAttributes.alpha ? 32 : 24);
+    checkInt32(EGL.contextAttributes.alpha ? 32 : 24);
     return 1;
 
    case 12321:
     // EGL_ALPHA_SIZE
     _asan_js_store_4(((value) >> 2), EGL.contextAttributes.alpha ? 8 : 0);
+    checkInt32(EGL.contextAttributes.alpha ? 8 : 0);
     return 1;
 
    case 12322:
     // EGL_BLUE_SIZE
     _asan_js_store_4(((value) >> 2), 8);
+    checkInt32(8);
     return 1;
 
    case 12323:
     // EGL_GREEN_SIZE
     _asan_js_store_4(((value) >> 2), 8);
+    checkInt32(8);
     return 1;
 
    case 12324:
     // EGL_RED_SIZE
     _asan_js_store_4(((value) >> 2), 8);
+    checkInt32(8);
     return 1;
 
    case 12325:
     // EGL_DEPTH_SIZE
     _asan_js_store_4(((value) >> 2), EGL.contextAttributes.depth ? 24 : 0);
+    checkInt32(EGL.contextAttributes.depth ? 24 : 0);
     return 1;
 
    case 12326:
     // EGL_STENCIL_SIZE
     _asan_js_store_4(((value) >> 2), EGL.contextAttributes.stencil ? 8 : 0);
+    checkInt32(EGL.contextAttributes.stencil ? 8 : 0);
     return 1;
 
    case 12327:
     // EGL_CONFIG_CAVEAT
     // We can return here one of EGL_NONE (0x3038), EGL_SLOW_CONFIG (0x3050) or EGL_NON_CONFORMANT_CONFIG (0x3051).
     _asan_js_store_4(((value) >> 2), 12344);
+    checkInt32(12344);
     return 1;
 
    case 12328:
     // EGL_CONFIG_ID
     _asan_js_store_4(((value) >> 2), 62002);
+    checkInt32(62002);
     return 1;
 
    case 12329:
     // EGL_LEVEL
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    case 12330:
     // EGL_MAX_PBUFFER_HEIGHT
     _asan_js_store_4(((value) >> 2), 4096);
+    checkInt32(4096);
     return 1;
 
    case 12331:
     // EGL_MAX_PBUFFER_PIXELS
     _asan_js_store_4(((value) >> 2), 16777216);
+    checkInt32(16777216);
     return 1;
 
    case 12332:
     // EGL_MAX_PBUFFER_WIDTH
     _asan_js_store_4(((value) >> 2), 4096);
+    checkInt32(4096);
     return 1;
 
    case 12333:
     // EGL_NATIVE_RENDERABLE
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    case 12334:
     // EGL_NATIVE_VISUAL_ID
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    case 12335:
     // EGL_NATIVE_VISUAL_TYPE
     _asan_js_store_4(((value) >> 2), 12344);
+    checkInt32(12344);
     return 1;
 
    case 12337:
     // EGL_SAMPLES
     _asan_js_store_4(((value) >> 2), EGL.contextAttributes.antialias ? 4 : 0);
+    checkInt32(EGL.contextAttributes.antialias ? 4 : 0);
     return 1;
 
    case 12338:
     // EGL_SAMPLE_BUFFERS
     _asan_js_store_4(((value) >> 2), EGL.contextAttributes.antialias ? 1 : 0);
+    checkInt32(EGL.contextAttributes.antialias ? 1 : 0);
     return 1;
 
    case 12339:
     // EGL_SURFACE_TYPE
     _asan_js_store_4(((value) >> 2), 4);
+    checkInt32(4);
     return 1;
 
    case 12340:
     // EGL_TRANSPARENT_TYPE
     // If this returns EGL_TRANSPARENT_RGB (0x3052), transparency is used through color-keying. No such thing applies to Emscripten canvas.
     _asan_js_store_4(((value) >> 2), 12344);
+    checkInt32(12344);
     return 1;
 
    case 12341:
@@ -6498,6 +6778,7 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
     // EGL_TRANSPARENT_RED_VALUE
     // "If EGL_TRANSPARENT_TYPE is EGL_NONE, then the values for EGL_TRANSPARENT_RED_VALUE, EGL_TRANSPARENT_GREEN_VALUE, and EGL_TRANSPARENT_BLUE_VALUE are undefined."
     _asan_js_store_4(((value) >> 2), -1);
+    checkInt32(-1);
     return 1;
 
    case 12345:
@@ -6505,16 +6786,19 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
     case 12346:
     // EGL_BIND_TO_TEXTURE_RGBA
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    case 12347:
     // EGL_MIN_SWAP_INTERVAL
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    case 12348:
     // EGL_MAX_SWAP_INTERVAL
     _asan_js_store_4(((value) >> 2), 1);
+    checkInt32(1);
     return 1;
 
    case 12349:
@@ -6522,24 +6806,28 @@ var _eglCreateContext = (display, config, hmm, contextAttribs) => {
     case 12350:
     // EGL_ALPHA_MASK_SIZE
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    case 12351:
     // EGL_COLOR_BUFFER_TYPE
     // EGL has two types of buffers: EGL_RGB_BUFFER and EGL_LUMINANCE_BUFFER.
     _asan_js_store_4(((value) >> 2), 12430);
+    checkInt32(12430);
     return 1;
 
    case 12352:
     // EGL_RENDERABLE_TYPE
     // A bit combination of EGL_OPENGL_ES_BIT,EGL_OPENVG_BIT,EGL_OPENGL_ES2_BIT and EGL_OPENGL_BIT.
     _asan_js_store_4(((value) >> 2), 4);
+    checkInt32(4);
     return 1;
 
    case 12354:
     // EGL_CONFORMANT
     // "EGL_CONFORMANT is a mask indicating if a client API context created with respect to the corresponding EGLConfig will pass the required conformance tests for that API."
     _asan_js_store_4(((value) >> 2), 0);
+    checkInt32(0);
     return 1;
 
    default:
@@ -6569,10 +6857,12 @@ var _eglInitialize = (display, majorVersion, minorVersion) => {
   }
   if (majorVersion) {
     _asan_js_store_4(((majorVersion) >> 2), 1);
+    checkInt32(1);
   }
   // Advertise EGL Major version: '1'
   if (minorVersion) {
     _asan_js_store_4(((minorVersion) >> 2), 4);
+    checkInt32(4);
   }
   // Advertise EGL Minor version: '4'
   EGL.defaultDisplayInitialized = true;
@@ -6878,16 +7168,9 @@ var _emscripten_get_canvas_element_size = (target, width, height) => {
   var canvas = findCanvasEventTarget(target);
   if (!canvas) return -4;
   _asan_js_store_4(((width) >> 2), canvas.width);
+  checkInt32(canvas.width);
   _asan_js_store_4(((height) >> 2), canvas.height);
-};
-
-var stackAlloc = sz => __emscripten_stack_alloc(sz);
-
-var stringToUTF8OnStack = str => {
-  var size = lengthBytesUTF8(str) + 1;
-  var ret = stackAlloc(size);
-  stringToUTF8(str, ret, size);
-  return ret;
+  checkInt32(canvas.height);
 };
 
 var getCanvasElementSize = target => {
@@ -7156,15 +7439,21 @@ var fillGamepadEventData = (eventStruct, e) => {
   for (var i = 0; i < e.buttons.length; ++i) {
     if (typeof e.buttons[i] == "object") {
       _asan_js_store_1((eventStruct + i) + (1040), e.buttons[i].pressed);
+      checkInt8(e.buttons[i].pressed);
     } else {
       // Assigning a boolean to HEAP32, that's ok, but Closure would like to warn about it:
       /** @suppress {checkTypes} */ _asan_js_store_1((eventStruct + i) + (1040), e.buttons[i] == 1);
+      checkInt8(e.buttons[i] == 1);
     }
   }
   _asan_js_store_1((eventStruct) + (1104), e.connected);
+  checkInt8(e.connected);
   _asan_js_store_4((((eventStruct) + (1108)) >> 2), e.index);
+  checkInt32(e.index);
   _asan_js_store_4((((eventStruct) + (8)) >> 2), e.axes.length);
+  checkInt32(e.axes.length);
   _asan_js_store_4((((eventStruct) + (12)) >> 2), e.buttons.length);
+  checkInt32(e.buttons.length);
   stringToUTF8(e.id, eventStruct + 1112, 64);
   stringToUTF8(e.mapping, eventStruct + 1176, 64);
 };
@@ -7202,7 +7491,9 @@ var getPreloadedImageData = (path, w, h) => {
   var buf = _malloc(canvas.width * canvas.height * 4);
   HEAPU8.set(image.data, buf);
   _asan_js_store_4(((w) >> 2), canvas.width);
+  checkInt32(canvas.width);
   _asan_js_store_4(((h) >> 2), canvas.height);
+  checkInt32(canvas.height);
   return buf;
 };
 
@@ -7219,7 +7510,9 @@ var _emscripten_get_preloaded_image_data_from_FILE = (file, w, h) => {
 
 var _emscripten_get_screen_size = (width, height) => {
   _asan_js_store_4(((width) >> 2), screen.width);
+  checkInt32(screen.width);
   _asan_js_store_4(((height) >> 2), screen.height);
+  checkInt32(screen.height);
 };
 
 /** @suppress {duplicate } */ var _glActiveTexture = x0 => GLctx.activeTexture(x0);
@@ -7635,12 +7928,14 @@ var _emscripten_glGenFramebuffers = _glGenFramebuffers;
     if (!query) {
       GL.recordError(1282);
       /* GL_INVALID_OPERATION */ while (i < n) _asan_js_store_4((((ids) + (i++ * 4)) >> 2), 0);
+      checkInt32(0);
       return;
     }
     var id = GL.getNewId(GL.queries);
     query.name = id;
     GL.queries[id] = query;
     _asan_js_store_4((((ids) + (i * 4)) >> 2), id);
+    checkInt32(id);
   }
 };
 
@@ -7677,8 +7972,11 @@ var __glGetActiveAttribOrUniform = (funcName, program, index, bufSize, length, s
     // If an error occurs, nothing will be written to length, size and type and name.
     var numBytesWrittenExclNull = name && stringToUTF8(info.name, name, bufSize);
     if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
+    checkInt32(numBytesWrittenExclNull);
     if (size) _asan_js_store_4(((size) >> 2), info.size);
+    checkInt32(info.size);
     if (type) _asan_js_store_4(((type) >> 2), info.type);
+    checkInt32(info.type);
   }
 };
 
@@ -7701,9 +7999,11 @@ var _emscripten_glGetActiveUniform = _glGetActiveUniform;
     len = maxCount;
   }
   _asan_js_store_4(((count) >> 2), len);
+  checkInt32(len);
   for (var i = 0; i < len; ++i) {
     var id = GL.shaders.indexOf(result[i]);
     _asan_js_store_4((((shaders) + (i * 4)) >> 2), id);
+    checkInt32(id);
   }
 };
 
@@ -7719,8 +8019,10 @@ var readI53FromU64 = ptr => _asan_js_load_4u(((ptr) >> 2)) + _asan_js_load_4u(((
 
 var writeI53ToI64 = (ptr, num) => {
   _asan_js_store_4u(((ptr) >> 2), num);
+  checkInt32(num);
   var lower = _asan_js_load_4u(((ptr) >> 2));
   _asan_js_store_4u((((ptr) + (4)) >> 2), (num - lower) / 4294967296);
+  checkInt32((num - lower) / 4294967296);
   var deserialized = (num >= 0) ? readI53FromU64(ptr) : readI53FromI64(ptr);
   var offset = ((ptr) >> 2);
   if (deserialized != num) warnOnce(`writeI53ToI64() out of range: serialized JS Number ${num} to Wasm heap as bytes lo=${ptrToString(_asan_js_load_4u(offset))}, hi=${ptrToString(_asan_js_load_4u(offset + 1))}, which deserializes back to ${deserialized} instead!`);
@@ -7823,6 +8125,7 @@ var emscriptenWebGLGet = (name_, p, type) => {
           switch (type) {
            case 0:
             _asan_js_store_4((((p) + (i * 4)) >> 2), result[i]);
+            checkInt32(result[i]);
             break;
 
            case 2:
@@ -7831,6 +8134,7 @@ var emscriptenWebGLGet = (name_, p, type) => {
 
            case 4:
             _asan_js_store_1((p) + (i), result[i] ? 1 : 0);
+            checkInt8(result[i] ? 1 : 0);
             break;
           }
         }
@@ -7861,6 +8165,7 @@ var emscriptenWebGLGet = (name_, p, type) => {
 
    case 0:
     _asan_js_store_4(((p) >> 2), ret);
+    checkInt32(ret);
     break;
 
    case 2:
@@ -7869,6 +8174,7 @@ var emscriptenWebGLGet = (name_, p, type) => {
 
    case 4:
     _asan_js_store_1(p, ret ? 1 : 0);
+    checkInt8(ret ? 1 : 0);
     break;
   }
 };
@@ -7886,6 +8192,7 @@ var _emscripten_glGetBooleanv = _glGetBooleanv;
     /* GL_INVALID_VALUE */ return;
   }
   _asan_js_store_4(((data) >> 2), GLctx.getBufferParameter(target, value));
+  checkInt32(GLctx.getBufferParameter(target, value));
 };
 
 var _emscripten_glGetBufferParameteriv = _glGetBufferParameteriv;
@@ -7908,6 +8215,7 @@ var _emscripten_glGetFloatv = _glGetFloatv;
     result = result.name | 0;
   }
   _asan_js_store_4(((params) >> 2), result);
+  checkInt32(result);
 };
 
 var _emscripten_glGetFramebufferAttachmentParameteriv = _glGetFramebufferAttachmentParameteriv;
@@ -7921,6 +8229,7 @@ var _emscripten_glGetIntegerv = _glGetIntegerv;
   if (log === null) log = "(unknown error)";
   var numBytesWrittenExclNull = (maxLength > 0 && infoLog) ? stringToUTF8(log, infoLog, maxLength) : 0;
   if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
+  checkInt32(numBytesWrittenExclNull);
 };
 
 var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
@@ -7943,6 +8252,7 @@ var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
     var log = GLctx.getProgramInfoLog(program);
     if (log === null) log = "(unknown error)";
     _asan_js_store_4(((p) >> 2), log.length + 1);
+    checkInt32(log.length + 1);
   } else if (pname == 35719) /* GL_ACTIVE_UNIFORM_MAX_LENGTH */ {
     if (!program.maxUniformLength) {
       for (var i = 0; i < GLctx.getProgramParameter(program, 35718); /*GL_ACTIVE_UNIFORMS*/ ++i) {
@@ -7950,6 +8260,7 @@ var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
       }
     }
     _asan_js_store_4(((p) >> 2), program.maxUniformLength);
+    checkInt32(program.maxUniformLength);
   } else if (pname == 35722) /* GL_ACTIVE_ATTRIBUTE_MAX_LENGTH */ {
     if (!program.maxAttributeLength) {
       for (var i = 0; i < GLctx.getProgramParameter(program, 35721); /*GL_ACTIVE_ATTRIBUTES*/ ++i) {
@@ -7957,6 +8268,7 @@ var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
       }
     }
     _asan_js_store_4(((p) >> 2), program.maxAttributeLength);
+    checkInt32(program.maxAttributeLength);
   } else if (pname == 35381) /* GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH */ {
     if (!program.maxUniformBlockNameLength) {
       for (var i = 0; i < GLctx.getProgramParameter(program, 35382); /*GL_ACTIVE_UNIFORM_BLOCKS*/ ++i) {
@@ -7964,8 +8276,10 @@ var _emscripten_glGetProgramInfoLog = _glGetProgramInfoLog;
       }
     }
     _asan_js_store_4(((p) >> 2), program.maxUniformBlockNameLength);
+    checkInt32(program.maxUniformBlockNameLength);
   } else {
     _asan_js_store_4(((p) >> 2), GLctx.getProgramParameter(program, pname));
+    checkInt32(GLctx.getProgramParameter(program, pname));
   }
 };
 
@@ -8010,6 +8324,7 @@ var _emscripten_glGetQueryObjecti64vEXT = _glGetQueryObjecti64vEXT;
     ret = param;
   }
   _asan_js_store_4(((params) >> 2), ret);
+  checkInt32(ret);
 };
 
 var _emscripten_glGetQueryObjectivEXT = _glGetQueryObjectivEXT;
@@ -8030,6 +8345,7 @@ var _emscripten_glGetQueryObjectuivEXT = _glGetQueryObjectuivEXT;
     /* GL_INVALID_VALUE */ return;
   }
   _asan_js_store_4(((params) >> 2), GLctx.disjointTimerQueryExt["getQueryEXT"](target, pname));
+  checkInt32(GLctx.disjointTimerQueryExt["getQueryEXT"](target, pname));
 };
 
 var _emscripten_glGetQueryivEXT = _glGetQueryivEXT;
@@ -8042,6 +8358,7 @@ var _emscripten_glGetQueryivEXT = _glGetQueryivEXT;
     /* GL_INVALID_VALUE */ return;
   }
   _asan_js_store_4(((params) >> 2), GLctx.getRenderbufferParameter(target, pname));
+  checkInt32(GLctx.getRenderbufferParameter(target, pname));
 };
 
 var _emscripten_glGetRenderbufferParameteriv = _glGetRenderbufferParameteriv;
@@ -8051,6 +8368,7 @@ var _emscripten_glGetRenderbufferParameteriv = _glGetRenderbufferParameteriv;
   if (log === null) log = "(unknown error)";
   var numBytesWrittenExclNull = (maxLength > 0 && infoLog) ? stringToUTF8(log, infoLog, maxLength) : 0;
   if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
+  checkInt32(numBytesWrittenExclNull);
 };
 
 var _emscripten_glGetShaderInfoLog = _glGetShaderInfoLog;
@@ -8058,8 +8376,11 @@ var _emscripten_glGetShaderInfoLog = _glGetShaderInfoLog;
 /** @suppress {duplicate } */ var _glGetShaderPrecisionFormat = (shaderType, precisionType, range, precision) => {
   var result = GLctx.getShaderPrecisionFormat(shaderType, precisionType);
   _asan_js_store_4(((range) >> 2), result.rangeMin);
+  checkInt32(result.rangeMin);
   _asan_js_store_4((((range) + (4)) >> 2), result.rangeMax);
+  checkInt32(result.rangeMax);
   _asan_js_store_4(((precision) >> 2), result.precision);
+  checkInt32(result.precision);
 };
 
 var _emscripten_glGetShaderPrecisionFormat = _glGetShaderPrecisionFormat;
@@ -8070,6 +8391,7 @@ var _emscripten_glGetShaderPrecisionFormat = _glGetShaderPrecisionFormat;
   // If an error occurs, nothing will be written to length or source.
   var numBytesWrittenExclNull = (bufSize > 0 && source) ? stringToUTF8(result, source, bufSize) : 0;
   if (length) _asan_js_store_4(((length) >> 2), numBytesWrittenExclNull);
+  checkInt32(numBytesWrittenExclNull);
 };
 
 var _emscripten_glGetShaderSource = _glGetShaderSource;
@@ -8092,6 +8414,7 @@ var _emscripten_glGetShaderSource = _glGetShaderSource;
     // looking at log.length.)
     var logLength = log ? log.length + 1 : 0;
     _asan_js_store_4(((p) >> 2), logLength);
+    checkInt32(logLength);
   } else if (pname == 35720) {
     // GL_SHADER_SOURCE_LENGTH
     var source = GLctx.getShaderSource(GL.shaders[shader]);
@@ -8099,8 +8422,10 @@ var _emscripten_glGetShaderSource = _glGetShaderSource;
     // values that we report a 0 length for.
     var sourceLength = source ? source.length + 1 : 0;
     _asan_js_store_4(((p) >> 2), sourceLength);
+    checkInt32(sourceLength);
   } else {
     _asan_js_store_4(((p) >> 2), GLctx.getShaderParameter(GL.shaders[shader], pname));
+    checkInt32(GLctx.getShaderParameter(GL.shaders[shader], pname));
   }
 };
 
@@ -8184,6 +8509,7 @@ var _emscripten_glGetTexParameterfv = _glGetTexParameterfv;
     /* GL_INVALID_VALUE */ return;
   }
   _asan_js_store_4(((params) >> 2), GLctx.getTexParameter(target, pname));
+  checkInt32(GLctx.getTexParameter(target, pname));
 };
 
 var _emscripten_glGetTexParameteriv = _glGetTexParameteriv;
@@ -8308,6 +8634,7 @@ var webglGetUniformLocation = location => {
     switch (type) {
      case 0:
       _asan_js_store_4(((params) >> 2), data);
+      checkInt32(data);
       break;
 
      case 2:
@@ -8319,6 +8646,7 @@ var webglGetUniformLocation = location => {
       switch (type) {
        case 0:
         _asan_js_store_4((((params) + (i * 4)) >> 2), data[i]);
+        checkInt32(data[i]);
         break;
 
        case 2:
@@ -8350,6 +8678,7 @@ var _emscripten_glGetUniformiv = _glGetUniformiv;
     /* GL_INVALID_VALUE */ return;
   }
   _asan_js_store_4(((pointer) >> 2), GLctx.getVertexAttribOffset(index, pname));
+  checkInt32(GLctx.getVertexAttribOffset(index, pname));
 };
 
 var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
@@ -8365,10 +8694,12 @@ var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
   var data = GLctx.getVertexAttrib(index, pname);
   if (pname == 34975) /*VERTEX_ATTRIB_ARRAY_BUFFER_BINDING*/ {
     _asan_js_store_4(((params) >> 2), data && data["name"]);
+    checkInt32(data && data["name"]);
   } else if (typeof data == "number" || typeof data == "boolean") {
     switch (type) {
      case 0:
       _asan_js_store_4(((params) >> 2), data);
+      checkInt32(data);
       break;
 
      case 2:
@@ -8377,6 +8708,7 @@ var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
 
      case 5:
       _asan_js_store_4(((params) >> 2), Math.fround(data));
+      checkInt32(Math.fround(data));
       break;
     }
   } else {
@@ -8384,6 +8716,7 @@ var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
       switch (type) {
        case 0:
         _asan_js_store_4((((params) + (i * 4)) >> 2), data[i]);
+        checkInt32(data[i]);
         break;
 
        case 2:
@@ -8392,6 +8725,7 @@ var _emscripten_glGetVertexAttribPointerv = _glGetVertexAttribPointerv;
 
        case 5:
         _asan_js_store_4((((params) + (i * 4)) >> 2), Math.fround(data[i]));
+        checkInt32(Math.fround(data[i]));
         break;
       }
     }
@@ -9044,6 +9378,9 @@ var convertPCtoSourceLocation = pc => {
   if (UNWIND_CACHE.last_get_source_pc == pc) return UNWIND_CACHE.last_source;
   var match;
   var source;
+  if (wasmSourceMap) {
+    source = wasmSourceMap.lookup(pc);
+  }
   if (!source) {
     var frame = UNWIND_CACHE[pc];
     if (!frame) return null;
@@ -9168,10 +9505,6 @@ var _emscripten_resize_heap = requestedSize => {
   abortOnCannotGrowMemory(requestedSize);
 };
 
-function jsStackTrace() {
-  return (new Error).stack.toString();
-}
-
 var _emscripten_return_address = level => {
   var callstack = jsStackTrace().split("\n");
   if (callstack[0] == "Error") {
@@ -9261,7 +9594,9 @@ var fillFullscreenChangeEventData = eventStruct => {
   var isFullscreen = !!fullscreenElement;
   // Assigning a boolean to HEAP32 with expected type coercion.
   /** @suppress{checkTypes} */ _asan_js_store_1(eventStruct, isFullscreen);
+  checkInt8(isFullscreen);
   _asan_js_store_1((eventStruct) + (1), JSEvents.fullscreenEnabled());
+  checkInt8(JSEvents.fullscreenEnabled());
   // If transitioning to fullscreen, report info about the element that is now fullscreen.
   // If transitioning to windowed mode, report info about the element that just was fullscreen.
   var reportedElement = isFullscreen ? fullscreenElement : JSEvents.previousFullscreenElement;
@@ -9270,9 +9605,13 @@ var fillFullscreenChangeEventData = eventStruct => {
   stringToUTF8(nodeName, eventStruct + 2, 128);
   stringToUTF8(id, eventStruct + 130, 128);
   _asan_js_store_4((((eventStruct) + (260)) >> 2), reportedElement ? reportedElement.clientWidth : 0);
+  checkInt32(reportedElement ? reportedElement.clientWidth : 0);
   _asan_js_store_4((((eventStruct) + (264)) >> 2), reportedElement ? reportedElement.clientHeight : 0);
+  checkInt32(reportedElement ? reportedElement.clientHeight : 0);
   _asan_js_store_4((((eventStruct) + (268)) >> 2), screen.width);
+  checkInt32(screen.width);
   _asan_js_store_4((((eventStruct) + (272)) >> 2), screen.height);
+  checkInt32(screen.height);
   if (isFullscreen) {
     JSEvents.previousFullscreenElement = fullscreenElement;
   }
@@ -9433,6 +9772,7 @@ var fillPointerlockChangeEventData = eventStruct => {
   var isPointerlocked = !!pointerLockElement;
   // Assigning a boolean to HEAP32 with expected type coercion.
   /** @suppress{checkTypes} */ _asan_js_store_1(eventStruct, isPointerlocked);
+  checkInt8(isPointerlocked);
   var nodeName = JSEvents.getNodeNameForTarget(pointerLockElement);
   var id = pointerLockElement?.id || "";
   stringToUTF8(nodeName, eventStruct + 1, 128);
@@ -9488,16 +9828,25 @@ var registerUiEventCallback = (target, userData, useCapture, callbackfunc, event
     }
     var uiEvent = JSEvents.uiEvent;
     _asan_js_store_4(((uiEvent) >> 2), 0);
+    checkInt32(0);
     // always zero for resize and scroll
     _asan_js_store_4((((uiEvent) + (4)) >> 2), b.clientWidth);
+    checkInt32(b.clientWidth);
     _asan_js_store_4((((uiEvent) + (8)) >> 2), b.clientHeight);
+    checkInt32(b.clientHeight);
     _asan_js_store_4((((uiEvent) + (12)) >> 2), innerWidth);
+    checkInt32(innerWidth);
     _asan_js_store_4((((uiEvent) + (16)) >> 2), innerHeight);
+    checkInt32(innerHeight);
     _asan_js_store_4((((uiEvent) + (20)) >> 2), outerWidth);
+    checkInt32(outerWidth);
     _asan_js_store_4((((uiEvent) + (24)) >> 2), outerHeight);
+    checkInt32(outerHeight);
     _asan_js_store_4((((uiEvent) + (28)) >> 2), pageXOffset | 0);
+    checkInt32(pageXOffset | 0);
     // scroll offsets are float
     _asan_js_store_4((((uiEvent) + (32)) >> 2), pageYOffset | 0);
+    checkInt32(pageYOffset | 0);
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, uiEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -9565,6 +9914,7 @@ var registerTouchEventCallback = (target, userData, useCapture, callbackfunc, ev
       }
     }
     _asan_js_store_4((((touchEvent) + (8)) >> 2), numTouches);
+    checkInt32(numTouches);
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, touchEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -9591,7 +9941,9 @@ var fillVisibilityChangeEventData = eventStruct => {
   var visibilityState = visibilityStates.indexOf(document.visibilityState);
   // Assigning a boolean to HEAP32 with expected type coercion.
   /** @suppress{checkTypes} */ _asan_js_store_1(eventStruct, document.hidden);
+  checkInt8(document.hidden);
   _asan_js_store_4((((eventStruct) + (4)) >> 2), visibilityState);
+  checkInt32(visibilityState);
 };
 
 var registerVisibilityChangeEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -9628,6 +9980,7 @@ var registerWheelEventCallback = (target, userData, useCapture, callbackfunc, ev
     _asan_js_store_d((((wheelEvent) + (72)) >> 3), e["deltaY"]);
     _asan_js_store_d((((wheelEvent) + (80)) >> 3), e["deltaZ"]);
     _asan_js_store_4((((wheelEvent) + (88)) >> 2), e["deltaMode"]);
+    checkInt32(e["deltaMode"]);
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, wheelEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -9696,6 +10049,7 @@ var _emscripten_stack_unwind_buffer = (addr, buffer, count) => {
   }
   for (var i = 0; i < count && stack[i + offset]; ++i) {
     _asan_js_store_4((((buffer) + (i * 4)) >> 2), convertFrameToPC(stack[i + offset]));
+    checkInt32(convertFrameToPC(stack[i + offset]));
   }
   return i;
 };
@@ -9736,9 +10090,11 @@ var stringToAscii = (str, buffer) => {
   for (var i = 0; i < str.length; ++i) {
     assert(str.charCodeAt(i) === (str.charCodeAt(i) & 255));
     _asan_js_store_1(buffer++, str.charCodeAt(i));
+    checkInt8(str.charCodeAt(i));
   }
   // Null-terminate the string
   _asan_js_store_1(buffer, 0);
+  checkInt8(0);
 };
 
 var _environ_get = (__environ, environ_buf) => {
@@ -9746,6 +10102,7 @@ var _environ_get = (__environ, environ_buf) => {
   getEnvStrings().forEach((string, i) => {
     var ptr = environ_buf + bufSize;
     _asan_js_store_4u((((__environ) + (i * 4)) >> 2), ptr);
+    checkInt32(ptr);
     stringToAscii(string, ptr);
     bufSize += string.length + 1;
   });
@@ -9755,9 +10112,11 @@ var _environ_get = (__environ, environ_buf) => {
 var _environ_sizes_get = (penviron_count, penviron_buf_size) => {
   var strings = getEnvStrings();
   _asan_js_store_4u(((penviron_count) >> 2), strings.length);
+  checkInt32(strings.length);
   var bufSize = 0;
   strings.forEach(string => bufSize += string.length + 1);
   _asan_js_store_4u(((penviron_buf_size) >> 2), bufSize);
+  checkInt32(bufSize);
   return 0;
 };
 
@@ -9795,6 +10154,7 @@ function _fd_read(fd, iov, iovcnt, pnum) {
     var stream = SYSCALLS.getStreamFromFD(fd);
     var num = doReadv(stream, iov, iovcnt);
     _asan_js_store_4u(((pnum) >> 2), num);
+    checkInt32(num);
     return 0;
   } catch (e) {
     if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
@@ -9810,6 +10170,7 @@ function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
     FS.llseek(stream, offset, whence);
     (tempI64 = [ stream.position >>> 0, (tempDouble = stream.position, (+(Math.abs(tempDouble))) >= 1 ? (tempDouble > 0 ? (+(Math.floor((tempDouble) / 4294967296))) >>> 0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble))) >>> 0)) / 4294967296))))) >>> 0) : 0) ], 
     _asan_js_store_4(((newOffset) >> 2), tempI64[0]), _asan_js_store_4((((newOffset) + (4)) >> 2), tempI64[1]));
+    checkInt64(stream.position);
     if (stream.getdents && offset === 0 && whence === 0) stream.getdents = null;
     // reset readdir state
     return 0;
@@ -9844,6 +10205,7 @@ function _fd_write(fd, iov, iovcnt, pnum) {
     var stream = SYSCALLS.getStreamFromFD(fd);
     var num = doWritev(stream, iov, iovcnt);
     _asan_js_store_4u(((pnum) >> 2), num);
+    checkInt32(num);
     return 0;
   } catch (e) {
     if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
@@ -10060,6 +10422,7 @@ var Asyncify = {
     var bottomOfCallStack = Asyncify.exportCallStack[0];
     var rewindId = Asyncify.getCallStackId(bottomOfCallStack);
     _asan_js_store_4((((ptr) + (8)) >> 2), rewindId);
+    checkInt32(rewindId);
   },
   getDataRewindFuncName(ptr) {
     var id = _asan_js_load_4((((ptr) + (8)) >> 2));
@@ -10245,6 +10608,7 @@ function checkIncomingModuleAPI() {
 var wasmImports = {
   /** @export */ __assert_fail: ___assert_fail,
   /** @export */ __cxa_throw: ___cxa_throw,
+  /** @export */ __handle_stack_overflow: ___handle_stack_overflow,
   /** @export */ __syscall__newselect: ___syscall__newselect,
   /** @export */ __syscall_dup: ___syscall_dup,
   /** @export */ __syscall_fcntl64: ___syscall_fcntl64,
@@ -10563,6 +10927,8 @@ var __emscripten_stack_alloc = a0 => (__emscripten_stack_alloc = wasmExports["_e
 
 var _emscripten_stack_get_current = () => (_emscripten_stack_get_current = wasmExports["emscripten_stack_get_current"])();
 
+var ___cxa_demangle = createExportWrapper("__cxa_demangle", 4);
+
 var __ZN6__asan9FakeStack17AddrIsInFakeStackEm = Module["__ZN6__asan9FakeStack17AddrIsInFakeStackEm"] = createExportWrapper("_ZN6__asan9FakeStack17AddrIsInFakeStackEm", 2);
 
 var __ZN6__asan9FakeStack8AllocateEmmm = Module["__ZN6__asan9FakeStack8AllocateEmmm"] = createExportWrapper("_ZN6__asan9FakeStack8AllocateEmmm", 4);
@@ -10598,6 +10964,8 @@ var __asan_c_store_4u = (a0, a1) => (__asan_c_store_4u = wasmExports["_asan_c_st
 var __asan_c_store_f = (a0, a1) => (__asan_c_store_f = wasmExports["_asan_c_store_f"])(a0, a1);
 
 var __asan_c_store_d = (a0, a1) => (__asan_c_store_d = wasmExports["_asan_c_store_d"])(a0, a1);
+
+var ___set_stack_limits = Module["___set_stack_limits"] = createExportWrapper("__set_stack_limits", 2);
 
 var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii", 2);
 
@@ -10891,11 +11259,11 @@ Module["FS_createDataFile"] = FS_createDataFile;
 
 Module["FS_createLazyFile"] = FS_createLazyFile;
 
-var missingLibrarySymbols = [ "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getTempRet0", "setTempRet0", "growMemory", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "emscriptenLog", "getDynCaller", "asmjsMangle", "HandleAllocator", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "getCFunc", "ccall", "cwrap", "uleb128Encode", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "unSign", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "writeArrayToMemory", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "hideEverythingExceptGivenElement", "restoreHiddenElements", "softFullscreenResizeWebGLRenderTarget", "registerPointerlockErrorEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "getCallstack", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "findMatchingCatch", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_mkdirTree", "_setNetworkCallback", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "setErrNo", "demangle", "stackTrace" ];
+var missingLibrarySymbols = [ "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getTempRet0", "setTempRet0", "growMemory", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "emscriptenLog", "getDynCaller", "asmjsMangle", "HandleAllocator", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "getCFunc", "ccall", "cwrap", "uleb128Encode", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "unSign", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "writeArrayToMemory", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "hideEverythingExceptGivenElement", "restoreHiddenElements", "softFullscreenResizeWebGLRenderTarget", "registerPointerlockErrorEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "getCallstack", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "findMatchingCatch", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_mkdirTree", "_setNetworkCallback", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "setErrNo" ];
 
 missingLibrarySymbols.forEach(missingLibrarySymbol);
 
-var unexportedSymbols = [ "run", "addOnPreRun", "addOnInit", "addOnPreMain", "addOnExit", "addOnPostRun", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "WasmOffsetConverter", "writeStackCookie", "checkStackCookie", "writeI53ToI64", "readI53FromI64", "readI53FromU64", "convertI32PairToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "zeroMemory", "exitJS", "getHeapMax", "abortOnCannotGrowMemory", "ENV", "ERRNO_CODES", "strError", "DNS", "Protocols", "Sockets", "initRandomFill", "randomFill", "timers", "warnOnce", "withBuiltinMalloc", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "jstoi_q", "jstoi_s", "getExecutableName", "listenOnce", "autoResumeAudioContext", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "asyncLoad", "alignMemory", "mmapAlloc", "wasmTable", "noExitRuntime", "sigToWasmTypes", "freeTableIndexes", "functionsInTableMap", "setValue", "getValue", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "UTF8ToString", "stringToUTF8Array", "stringToUTF8", "lengthBytesUTF8", "intArrayFromString", "stringToAscii", "UTF16Decoder", "stringToNewUTF8", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "setLetterbox", "currentFullscreenStrategy", "restoreOldWindowedStyle", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "UNWIND_CACHE", "convertPCtoSourceLocation", "ExitStatus", "getEnvStrings", "doReadv", "doWritev", "safeSetTimeout", "promiseMap", "uncaughtExceptionCount", "exceptionLast", "exceptionCaught", "ExceptionInfo", "Browser", "setMainLoop", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar_buffer", "FS_stdin_getChar", "FS_readFile", "FS", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "GL", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr" ];
+var unexportedSymbols = [ "run", "addOnPreRun", "addOnInit", "addOnPreMain", "addOnExit", "addOnPostRun", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "WasmOffsetConverter", "WasmSourceMap", "writeStackCookie", "checkStackCookie", "writeI53ToI64", "readI53FromI64", "readI53FromU64", "convertI32PairToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "zeroMemory", "exitJS", "getHeapMax", "abortOnCannotGrowMemory", "ENV", "setStackLimits", "ERRNO_CODES", "strError", "DNS", "Protocols", "Sockets", "initRandomFill", "randomFill", "timers", "warnOnce", "withBuiltinMalloc", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "jstoi_q", "jstoi_s", "getExecutableName", "listenOnce", "autoResumeAudioContext", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "asyncLoad", "alignMemory", "mmapAlloc", "wasmTable", "noExitRuntime", "sigToWasmTypes", "freeTableIndexes", "functionsInTableMap", "setValue", "getValue", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "UTF8ToString", "stringToUTF8Array", "stringToUTF8", "lengthBytesUTF8", "intArrayFromString", "stringToAscii", "UTF16Decoder", "stringToNewUTF8", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "setLetterbox", "currentFullscreenStrategy", "restoreOldWindowedStyle", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "UNWIND_CACHE", "convertPCtoSourceLocation", "ExitStatus", "getEnvStrings", "doReadv", "doWritev", "safeSetTimeout", "promiseMap", "uncaughtExceptionCount", "exceptionLast", "exceptionCaught", "ExceptionInfo", "Browser", "setMainLoop", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar_buffer", "FS_stdin_getChar", "FS_readFile", "FS", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "GL", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "allocateUTF8", "allocateUTF8OnStack", "demangle", "stackTrace", "print", "printErr" ];
 
 unexportedSymbols.forEach(unexportedRuntimeSymbol);
 

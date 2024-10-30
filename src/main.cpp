@@ -37,14 +37,13 @@ int main()
     game->init("Deep Space Starships 0", 320, 200);
 
 #ifdef WEB
-    emscripten_set_main_loop(gameLoop, 0, 1); // more emscripten shit
+    emscripten_set_main_loop_timing(EM_TIMING_RAF, 1); // Set requestAnimationFrame for timing
+    emscripten_set_main_loop(gameLoop, 0, 1); // Main loop for Emscripten
 #else
-
     while(game->running())
     {
-        game->render(); // main thread is only the render function because multithreading is cool
+        game->render();
     }
-
 #endif
 
     game->clean();

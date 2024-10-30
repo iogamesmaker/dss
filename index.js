@@ -39,7 +39,7 @@ if (ENVIRONMENT_IS_NODE) {
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpmj92kepb.js
+// include: /tmp/tmp_xj1zf1g.js
 
   if (!Module['expectedDataFileDownloads']) {
     Module['expectedDataFileDownloads'] = 0;
@@ -230,21 +230,21 @@ Module['FS_createPath']("/assets/sprite", "stars", true, true);
 
   })();
 
-// end include: /tmp/tmpmj92kepb.js
-// include: /tmp/tmpl7lpetpu.js
+// end include: /tmp/tmp_xj1zf1g.js
+// include: /tmp/tmpr6ggwzck.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if (Module['$ww'] || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpl7lpetpu.js
-// include: /tmp/tmpg37flkul.js
+  // end include: /tmp/tmpr6ggwzck.js
+// include: /tmp/tmptirs6ljq.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpg37flkul.js
+  // end include: /tmp/tmptirs6ljq.js
 
 
 // Sometimes an existing Module object exists with properties
@@ -8669,6 +8669,7 @@ var ASM_CONSTS = {
       setMainLoop(browserIterationFunc, fps, simulateInfiniteLoop);
     };
 
+
   
   
   
@@ -9727,6 +9728,8 @@ var wasmImports = {
   emscripten_set_keyup_callback_on_thread: _emscripten_set_keyup_callback_on_thread,
   /** @export */
   emscripten_set_main_loop: _emscripten_set_main_loop,
+  /** @export */
+  emscripten_set_main_loop_timing: _emscripten_set_main_loop_timing,
   /** @export */
   emscripten_set_mousedown_callback_on_thread: _emscripten_set_mousedown_callback_on_thread,
   /** @export */

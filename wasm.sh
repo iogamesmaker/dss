@@ -6,5 +6,6 @@ em++ ./src/*.cpp \
     -s USE_SDL_MIXER=2 \
     -s SDL2_MIXER_FORMATS='["wav", "mp3"]' \
     -s NO_EMSCRIPTEN_TRACING=1 \
+    -s ASYNCIFY  \
     --preload-file assets \
     -o index.html

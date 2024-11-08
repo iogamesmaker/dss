@@ -35,7 +35,7 @@ if (ENVIRONMENT_IS_NODE) {}
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpevne7ywl.js
+// include: /tmp/tmpbz8vob8v.js
 if (!Module["expectedDataFileDownloads"]) {
   Module["expectedDataFileDownloads"] = 0;
 }
@@ -396,23 +396,23 @@ Module["expectedDataFileDownloads"]++;
   });
 })();
 
-// end include: /tmp/tmpevne7ywl.js
-// include: /tmp/tmpdyqel5mg.js
+// end include: /tmp/tmpbz8vob8v.js
+// include: /tmp/tmp4xsthr18.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if (Module["$ww"] || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: /tmp/tmpdyqel5mg.js
-// include: /tmp/tmppwgiw44a.js
+// end include: /tmp/tmp4xsthr18.js
+// include: /tmp/tmpz600u846.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: /tmp/tmppwgiw44a.js
+// end include: /tmp/tmpz600u846.js
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
 // we collect those properties and reapply _after_ we configure
@@ -892,8 +892,6 @@ function preMain() {
 
 function exitRuntime() {
   assert(!runtimeExited);
-  // ASYNCIFY cannot be used once the runtime starts shutting down.
-  Asyncify.state = Asyncify.State.Disabled;
   checkStackCookie();
   ___funcs_on_exit();
   // Native atexit() functions
@@ -1034,9 +1032,6 @@ function removeRunDependency(id) {
   err(what);
   ABORT = true;
   EXITSTATUS = 1;
-  if (what.indexOf("RuntimeError: unreachable") >= 0) {
-    what += '. "unreachable" may be due to ASYNCIFY_STACK_SIZE not being large enough (try increasing it)';
-  }
   // Use a wasm runtime error, because a JS error might be seen as a foreign
   // exception, which means we'd run destructors on it. We need the error to
   // simply make the program stop.
@@ -1470,10 +1465,6 @@ function instantiateAsync(binary, binaryFile, imports, callback) {
 }
 
 function getWasmImports() {
-  // instrumenting imports is used in asyncify in two ways: to add assertions
-  // that check for proper import use, and for ASYNCIFY=2 we use them to set up
-  // the Promise API on the import side.
-  Asyncify.instrumentWasmImports(wasmImports);
   // prepare imports
   return {
     "env": wasmImports,
@@ -1490,7 +1481,6 @@ function createWasm() {
   // performing other necessary setup
   /** @param {WebAssembly.Module=} module*/ function receiveInstance(instance, module) {
     wasmExports = instance.exports;
-    wasmExports = Asyncify.instrumentWasmExports(wasmExports);
     wasmMemory = wasmExports["memory"];
     assert(wasmMemory, "memory not found in wasm exports");
     updateMemoryViews();
@@ -1683,7 +1673,7 @@ function dbg(...args) {
 // end include: runtime_debug.js
 // === Body ===
 var ASM_CONSTS = {
-  84639229: $0 => {
+  46292477: $0 => {
     var str = UTF8ToString($0) + "\n\n" + "Abort/Retry/Ignore/AlwaysIgnore? [ariA] :";
     var reply = window.prompt(str, "i");
     if (reply === null) {
@@ -1691,7 +1681,7 @@ var ASM_CONSTS = {
     }
     return allocate(intArrayFromString(reply), "i8", ALLOC_NORMAL);
   },
-  84639454: () => {
+  46292702: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -1699,7 +1689,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  84639601: () => {
+  46292849: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -1707,7 +1697,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  84639835: $0 => {
+  46293083: $0 => {
     if (typeof (Module["SDL2"]) === "undefined") {
       Module["SDL2"] = {};
     }
@@ -1729,11 +1719,11 @@ var ASM_CONSTS = {
     }
     return SDL2.audioContext === undefined ? -1 : 0;
   },
-  84640328: () => {
+  46293576: () => {
     var SDL2 = Module["SDL2"];
     return SDL2.audioContext.sampleRate;
   },
-  84640396: ($0, $1, $2, $3) => {
+  46293644: ($0, $1, $2, $3) => {
     var SDL2 = Module["SDL2"];
     var have_microphone = function(stream) {
       if (SDL2.capture.silenceTimer !== undefined) {
@@ -1774,7 +1764,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  84642048: ($0, $1, $2, $3) => {
+  46295296: ($0, $1, $2, $3) => {
     var SDL2 = Module["SDL2"];
     SDL2.audio.scriptProcessorNode = SDL2.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL2.audio.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -1786,7 +1776,7 @@ var ASM_CONSTS = {
     };
     SDL2.audio.scriptProcessorNode["connect"](SDL2.audioContext["destination"]);
   },
-  84642458: ($0, $1) => {
+  46295706: ($0, $1) => {
     var SDL2 = Module["SDL2"];
     var numChannels = SDL2.capture.currentCaptureBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -1805,7 +1795,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  84643063: ($0, $1) => {
+  46296311: ($0, $1) => {
     var SDL2 = Module["SDL2"];
     var numChannels = SDL2.audio.currentOutputBuffer["numberOfChannels"];
     for (var c = 0; c < numChannels; ++c) {
@@ -1818,7 +1808,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  84643543: $0 => {
+  46296791: $0 => {
     var SDL2 = Module["SDL2"];
     if ($0) {
       if (SDL2.capture.silenceTimer !== undefined) {
@@ -1856,7 +1846,7 @@ var ASM_CONSTS = {
       SDL2.audioContext = undefined;
     }
   },
-  84644715: ($0, $1, $2) => {
+  46297963: ($0, $1, $2) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -1927,7 +1917,7 @@ var ASM_CONSTS = {
     }
     SDL2.ctx.putImageData(SDL2.image, 0, 0);
   },
-  84646184: ($0, $1, $2, $3, $4) => {
+  46299432: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -1964,18 +1954,18 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  84647173: $0 => {
+  46300421: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  84647256: () => {
+  46300504: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  84647325: () => window.innerWidth,
-  84647355: () => window.innerHeight
+  46300573: () => window.innerWidth,
+  46300603: () => window.innerHeight
 };
 
 // end include: preamble.js
@@ -7205,6 +7195,20 @@ var setCanvasElementSize = (target, width, height) => {
   }
 };
 
+var wasmTableMirror = [];
+
+/** @type {WebAssembly.Table} */ var wasmTable;
+
+var getWasmTableEntry = funcPtr => {
+  var func = wasmTableMirror[funcPtr];
+  if (!func) {
+    if (funcPtr >= wasmTableMirror.length) wasmTableMirror.length = funcPtr + 1;
+    wasmTableMirror[funcPtr] = func = wasmTable.get(funcPtr);
+  }
+  assert(wasmTable.get(funcPtr) == func, "JavaScript-side Wasm function table mirror is out of date!");
+  return func;
+};
+
 var registerRestoreOldStyle = canvas => {
   var canvasSize = getCanvasElementSize(canvas);
   var oldWidth = canvasSize[0];
@@ -7268,7 +7272,7 @@ var registerRestoreOldStyle = canvas => {
       canvas.style.imageRendering = oldImageRendering;
       if (canvas.GLctxObject) canvas.GLctxObject.GLctx.viewport(0, 0, oldWidth, oldHeight);
       if (currentFullscreenStrategy.canvasResizedCallback) {
-        ((a1, a2, a3) => dynCall_iiii(currentFullscreenStrategy.canvasResizedCallback, a1, a2, a3))(37, 0, currentFullscreenStrategy.canvasResizedCallbackUserData);
+        getWasmTableEntry(currentFullscreenStrategy.canvasResizedCallback)(37, 0, currentFullscreenStrategy.canvasResizedCallbackUserData);
       }
     }
   }
@@ -7357,7 +7361,7 @@ var JSEvents_requestFullscreen = (target, strategy) => {
   }
   currentFullscreenStrategy = strategy;
   if (strategy.canvasResizedCallback) {
-    ((a1, a2, a3) => dynCall_iiii(strategy.canvasResizedCallback, a1, a2, a3))(37, 0, strategy.canvasResizedCallbackUserData);
+    getWasmTableEntry(strategy.canvasResizedCallback)(37, 0, strategy.canvasResizedCallbackUserData);
   }
   return 0;
 };
@@ -9348,7 +9352,7 @@ var _emscripten_glVertexAttribPointer = _glVertexAttribPointer;
 
 var _emscripten_glViewport = _glViewport;
 
-var _emscripten_has_asyncify = () => 1;
+var _emscripten_has_asyncify = () => 0;
 
 var UNWIND_CACHE = {};
 
@@ -9528,7 +9532,7 @@ var _emscripten_return_address = level => {
 var registerBeforeUnloadEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString) => {
   var beforeUnloadEventHandlerFunc = (e = event) => {
     // Note: This is always called on the main browser thread, since it needs synchronously return a value!
-    var confirmationMessage = ((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, 0, userData);
+    var confirmationMessage = getWasmTableEntry(callbackfunc)(eventTypeId, 0, userData);
     if (confirmationMessage) {
       confirmationMessage = UTF8ToString(confirmationMessage);
     }
@@ -9564,7 +9568,7 @@ var registerFocusEventCallback = (target, userData, useCapture, callbackfunc, ev
     var focusEvent = JSEvents.focusEvent;
     stringToUTF8(nodeName, focusEvent + 0, 128);
     stringToUTF8(id, focusEvent + 128, 128);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, focusEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, focusEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: findEventTarget(target),
@@ -9621,7 +9625,7 @@ var registerFullscreenChangeEventCallback = (target, userData, useCapture, callb
   var fullscreenChangeEventhandlerFunc = (e = event) => {
     var fullscreenChangeEvent = JSEvents.fullscreenChangeEvent;
     fillFullscreenChangeEventData(fullscreenChangeEvent);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, fullscreenChangeEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, fullscreenChangeEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -9648,7 +9652,7 @@ var registerGamepadEventCallback = (target, userData, useCapture, callbackfunc, 
   var gamepadEventHandlerFunc = (e = event) => {
     var gamepadEvent = JSEvents.gamepadEvent;
     fillGamepadEventData(gamepadEvent, e["gamepad"]);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, gamepadEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, gamepadEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: findEventTarget(target),
@@ -9691,7 +9695,7 @@ var registerKeyEventCallback = (target, userData, useCapture, callbackfunc, even
     stringToUTF8(e.code || "", keyEventData + 64, 32);
     stringToUTF8(e.char || "", keyEventData + 96, 32);
     stringToUTF8(e.locale || "", keyEventData + 128, 32);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, keyEventData, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, keyEventData, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: findEventTarget(target),
@@ -9710,7 +9714,7 @@ var _emscripten_set_keypress_callback_on_thread = (target, userData, useCapture,
 var _emscripten_set_keyup_callback_on_thread = (target, userData, useCapture, callbackfunc, targetThread) => registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
 
 var _emscripten_set_main_loop = (func, fps, simulateInfiniteLoop) => {
-  var browserIterationFunc = (() => dynCall_v(func));
+  var browserIterationFunc = getWasmTableEntry(func);
   setMainLoop(browserIterationFunc, fps, simulateInfiniteLoop);
 };
 
@@ -9742,7 +9746,7 @@ var registerMouseEventCallback = (target, userData, useCapture, callbackfunc, ev
   var mouseEventHandlerFunc = (e = event) => {
     // TODO: Make this access thread safe, or this could update live while app is reading it.
     fillMouseEventData(JSEvents.mouseEvent, e, target);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, JSEvents.mouseEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, JSEvents.mouseEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -9783,7 +9787,7 @@ var registerPointerlockChangeEventCallback = (target, userData, useCapture, call
   var pointerlockChangeEventHandlerFunc = (e = event) => {
     var pointerlockChangeEvent = JSEvents.pointerlockChangeEvent;
     fillPointerlockChangeEventData(pointerlockChangeEvent);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, pointerlockChangeEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, pointerlockChangeEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -9846,7 +9850,7 @@ var registerUiEventCallback = (target, userData, useCapture, callbackfunc, event
     // scroll offsets are float
     _asan_js_store_4((((uiEvent) + (32)) >> 2), pageYOffset | 0);
     checkInt32(pageYOffset | 0);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, uiEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, uiEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -9914,7 +9918,7 @@ var registerTouchEventCallback = (target, userData, useCapture, callbackfunc, ev
     }
     _asan_js_store_4((((touchEvent) + (8)) >> 2), numTouches);
     checkInt32(numTouches);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, touchEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, touchEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -9950,7 +9954,7 @@ var registerVisibilityChangeEventCallback = (target, userData, useCapture, callb
   var visibilityChangeEventHandlerFunc = (e = event) => {
     var visibilityChangeEvent = JSEvents.visibilityChangeEvent;
     fillVisibilityChangeEventData(visibilityChangeEvent);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, visibilityChangeEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, visibilityChangeEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -9980,7 +9984,7 @@ var registerWheelEventCallback = (target, userData, useCapture, callbackfunc, ev
     _asan_js_store_d((((wheelEvent) + (80)) >> 3), e["deltaZ"]);
     _asan_js_store_4((((wheelEvent) + (88)) >> 2), e["deltaMode"]);
     checkInt32(e["deltaMode"]);
-    if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, wheelEvent, userData)) e.preventDefault();
+    if (getWasmTableEntry(callbackfunc)(eventTypeId, wheelEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
     target: target,
@@ -10005,9 +10009,9 @@ var _emscripten_set_wheel_callback_on_thread = (target, userData, useCapture, ca
 
 var _emscripten_set_window_title = title => document.title = UTF8ToString(title);
 
-var _emscripten_sleep = ms => Asyncify.handleSleep(wakeUp => safeSetTimeout(wakeUp, ms));
-
-_emscripten_sleep.isAsync = true;
+var _emscripten_sleep = () => {
+  throw "Please compile your program with async support in order to use asynchronous operations like emscripten_sleep";
+};
 
 var saveInUnwindCache = callstack => {
   callstack.forEach(frame => {
@@ -10251,291 +10255,16 @@ var dynCallLegacy = (sig, ptr, args) => {
   return f(ptr, ...args);
 };
 
-var wasmTableMirror = [];
-
-/** @type {WebAssembly.Table} */ var wasmTable;
-
-var getWasmTableEntry = funcPtr => {
-  var func = wasmTableMirror[funcPtr];
-  if (!func) {
-    if (funcPtr >= wasmTableMirror.length) wasmTableMirror.length = funcPtr + 1;
-    wasmTableMirror[funcPtr] = func = wasmTable.get(funcPtr);
-  }
-  assert(wasmTable.get(funcPtr) == func, "JavaScript-side Wasm function table mirror is out of date!");
-  return func;
-};
-
 var dynCall = (sig, ptr, args = []) => {
-  var rtn = dynCallLegacy(sig, ptr, args);
+  // Without WASM_BIGINT support we cannot directly call function with i64 as
+  // part of their signature, so we rely on the dynCall functions generated by
+  // wasm-emscripten-finalize
+  if (sig.includes("j")) {
+    return dynCallLegacy(sig, ptr, args);
+  }
+  assert(getWasmTableEntry(ptr), `missing table entry in dynCall: ${ptr}`);
+  var rtn = getWasmTableEntry(ptr)(...args);
   return rtn;
-};
-
-var runAndAbortIfError = func => {
-  try {
-    return func();
-  } catch (e) {
-    abort(e);
-  }
-};
-
-var sigToWasmTypes = sig => {
-  assert(!sig.includes("j"), "i64 not permitted in function signatures when WASM_BIGINT is disabled");
-  var typeNames = {
-    "i": "i32",
-    "j": "i64",
-    "f": "f32",
-    "d": "f64",
-    "e": "externref",
-    "p": "i32"
-  };
-  var type = {
-    parameters: [],
-    results: sig[0] == "v" ? [] : [ typeNames[sig[0]] ]
-  };
-  for (var i = 1; i < sig.length; ++i) {
-    assert(sig[i] in typeNames, "invalid signature char: " + sig[i]);
-    type.parameters.push(typeNames[sig[i]]);
-  }
-  return type;
-};
-
-var Asyncify = {
-  instrumentWasmImports(imports) {
-    var importPattern = /^(invoke_.*|__asyncjs__.*)$/;
-    for (let [x, original] of Object.entries(imports)) {
-      if (typeof original == "function") {
-        let isAsyncifyImport = original.isAsync || importPattern.test(x);
-        imports[x] = (...args) => {
-          var originalAsyncifyState = Asyncify.state;
-          try {
-            return original(...args);
-          } finally {
-            // Only asyncify-declared imports are allowed to change the
-            // state.
-            // Changing the state from normal to disabled is allowed (in any
-            // function) as that is what shutdown does (and we don't have an
-            // explicit list of shutdown imports).
-            var changedToDisabled = originalAsyncifyState === Asyncify.State.Normal && Asyncify.state === Asyncify.State.Disabled;
-            // invoke_* functions are allowed to change the state if we do
-            // not ignore indirect calls.
-            var ignoredInvoke = x.startsWith("invoke_") && true;
-            if (Asyncify.state !== originalAsyncifyState && !isAsyncifyImport && !changedToDisabled && !ignoredInvoke) {
-              throw new Error(`import ${x} was not in ASYNCIFY_IMPORTS, but changed the state`);
-            }
-          }
-        };
-      }
-    }
-  },
-  instrumentWasmExports(exports) {
-    var ret = {};
-    for (let [x, original] of Object.entries(exports)) {
-      if (typeof original == "function") {
-        ret[x] = (...args) => {
-          Asyncify.exportCallStack.push(x);
-          try {
-            return original(...args);
-          } finally {
-            if (!ABORT) {
-              var y = Asyncify.exportCallStack.pop();
-              assert(y === x);
-              Asyncify.maybeStopUnwind();
-            }
-          }
-        };
-      } else {
-        ret[x] = original;
-      }
-    }
-    return ret;
-  },
-  State: {
-    Normal: 0,
-    Unwinding: 1,
-    Rewinding: 2,
-    Disabled: 3
-  },
-  state: 0,
-  StackSize: 4096,
-  currData: null,
-  handleSleepReturnValue: 0,
-  exportCallStack: [],
-  callStackNameToId: {},
-  callStackIdToName: {},
-  callStackId: 0,
-  asyncPromiseHandlers: null,
-  sleepCallbacks: [],
-  getCallStackId(funcName) {
-    var id = Asyncify.callStackNameToId[funcName];
-    if (id === undefined) {
-      id = Asyncify.callStackId++;
-      Asyncify.callStackNameToId[funcName] = id;
-      Asyncify.callStackIdToName[id] = funcName;
-    }
-    return id;
-  },
-  maybeStopUnwind() {
-    if (Asyncify.currData && Asyncify.state === Asyncify.State.Unwinding && Asyncify.exportCallStack.length === 0) {
-      // We just finished unwinding.
-      // Be sure to set the state before calling any other functions to avoid
-      // possible infinite recursion here (For example in debug pthread builds
-      // the dbg() function itself can call back into WebAssembly to get the
-      // current pthread_self() pointer).
-      Asyncify.state = Asyncify.State.Normal;
-      runtimeKeepalivePush();
-      // Keep the runtime alive so that a re-wind can be done later.
-      runAndAbortIfError(_asyncify_stop_unwind);
-      if (typeof Fibers != "undefined") {
-        Fibers.trampoline();
-      }
-    }
-  },
-  whenDone() {
-    assert(Asyncify.currData, "Tried to wait for an async operation when none is in progress.");
-    assert(!Asyncify.asyncPromiseHandlers, "Cannot have multiple async operations in flight at once");
-    return new Promise((resolve, reject) => {
-      Asyncify.asyncPromiseHandlers = {
-        resolve: resolve,
-        reject: reject
-      };
-    });
-  },
-  allocateData() {
-    // An asyncify data structure has three fields:
-    //  0  current stack pos
-    //  4  max stack pos
-    //  8  id of function at bottom of the call stack (callStackIdToName[id] == name of js function)
-    // The Asyncify ABI only interprets the first two fields, the rest is for the runtime.
-    // We also embed a stack in the same memory region here, right next to the structure.
-    // This struct is also defined as asyncify_data_t in emscripten/fiber.h
-    var ptr = _malloc(12 + Asyncify.StackSize);
-    Asyncify.setDataHeader(ptr, ptr + 12, Asyncify.StackSize);
-    Asyncify.setDataRewindFunc(ptr);
-    return ptr;
-  },
-  setDataHeader(ptr, stack, stackSize) {
-    _asan_js_store_4u(((ptr) >> 2), stack);
-    _asan_js_store_4u((((ptr) + (4)) >> 2), stack + stackSize);
-  },
-  setDataRewindFunc(ptr) {
-    var bottomOfCallStack = Asyncify.exportCallStack[0];
-    var rewindId = Asyncify.getCallStackId(bottomOfCallStack);
-    _asan_js_store_4((((ptr) + (8)) >> 2), rewindId);
-    checkInt32(rewindId);
-  },
-  getDataRewindFuncName(ptr) {
-    var id = _asan_js_load_4((((ptr) + (8)) >> 2));
-    var name = Asyncify.callStackIdToName[id];
-    return name;
-  },
-  getDataRewindFunc(name) {
-    var func = wasmExports[name];
-    return func;
-  },
-  doRewind(ptr) {
-    var name = Asyncify.getDataRewindFuncName(ptr);
-    var func = Asyncify.getDataRewindFunc(name);
-    // Once we have rewound and the stack we no longer need to artificially
-    // keep the runtime alive.
-    runtimeKeepalivePop();
-    return func();
-  },
-  handleSleep(startAsync) {
-    assert(Asyncify.state !== Asyncify.State.Disabled, "Asyncify cannot be done during or after the runtime exits");
-    if (ABORT) return;
-    if (Asyncify.state === Asyncify.State.Normal) {
-      // Prepare to sleep. Call startAsync, and see what happens:
-      // if the code decided to call our callback synchronously,
-      // then no async operation was in fact begun, and we don't
-      // need to do anything.
-      var reachedCallback = false;
-      var reachedAfterCallback = false;
-      startAsync((handleSleepReturnValue = 0) => {
-        assert(!handleSleepReturnValue || typeof handleSleepReturnValue == "number" || typeof handleSleepReturnValue == "boolean");
-        // old emterpretify API supported other stuff
-        if (ABORT) return;
-        Asyncify.handleSleepReturnValue = handleSleepReturnValue;
-        reachedCallback = true;
-        if (!reachedAfterCallback) {
-          // We are happening synchronously, so no need for async.
-          return;
-        }
-        // This async operation did not happen synchronously, so we did
-        // unwind. In that case there can be no compiled code on the stack,
-        // as it might break later operations (we can rewind ok now, but if
-        // we unwind again, we would unwind through the extra compiled code
-        // too).
-        assert(!Asyncify.exportCallStack.length, "Waking up (starting to rewind) must be done from JS, without compiled code on the stack.");
-        Asyncify.state = Asyncify.State.Rewinding;
-        runAndAbortIfError(() => _asyncify_start_rewind(Asyncify.currData));
-        if (typeof Browser != "undefined" && Browser.mainLoop.func) {
-          Browser.mainLoop.resume();
-        }
-        var asyncWasmReturnValue, isError = false;
-        try {
-          asyncWasmReturnValue = Asyncify.doRewind(Asyncify.currData);
-        } catch (err) {
-          asyncWasmReturnValue = err;
-          isError = true;
-        }
-        // Track whether the return value was handled by any promise handlers.
-        var handled = false;
-        if (!Asyncify.currData) {
-          // All asynchronous execution has finished.
-          // `asyncWasmReturnValue` now contains the final
-          // return value of the exported async WASM function.
-          // Note: `asyncWasmReturnValue` is distinct from
-          // `Asyncify.handleSleepReturnValue`.
-          // `Asyncify.handleSleepReturnValue` contains the return
-          // value of the last C function to have executed
-          // `Asyncify.handleSleep()`, where as `asyncWasmReturnValue`
-          // contains the return value of the exported WASM function
-          // that may have called C functions that
-          // call `Asyncify.handleSleep()`.
-          var asyncPromiseHandlers = Asyncify.asyncPromiseHandlers;
-          if (asyncPromiseHandlers) {
-            Asyncify.asyncPromiseHandlers = null;
-            (isError ? asyncPromiseHandlers.reject : asyncPromiseHandlers.resolve)(asyncWasmReturnValue);
-            handled = true;
-          }
-        }
-        if (isError && !handled) {
-          // If there was an error and it was not handled by now, we have no choice but to
-          // rethrow that error into the global scope where it can be caught only by
-          // `onerror` or `onunhandledpromiserejection`.
-          throw asyncWasmReturnValue;
-        }
-      });
-      reachedAfterCallback = true;
-      if (!reachedCallback) {
-        // A true async operation was begun; start a sleep.
-        Asyncify.state = Asyncify.State.Unwinding;
-        // TODO: reuse, don't alloc/free every sleep
-        Asyncify.currData = Asyncify.allocateData();
-        if (typeof Browser != "undefined" && Browser.mainLoop.func) {
-          Browser.mainLoop.pause();
-        }
-        runAndAbortIfError(() => _asyncify_start_unwind(Asyncify.currData));
-      }
-    } else if (Asyncify.state === Asyncify.State.Rewinding) {
-      // Stop a resume.
-      Asyncify.state = Asyncify.State.Normal;
-      runAndAbortIfError(_asyncify_stop_rewind);
-      _free(Asyncify.currData);
-      Asyncify.currData = null;
-      // Call all sleep callbacks now that the sleep-resume is all done.
-      Asyncify.sleepCallbacks.forEach(callUserCallback);
-    } else {
-      abort(`invalid state: ${Asyncify.state}`);
-    }
-    return Asyncify.handleSleepReturnValue;
-  },
-  handleAsync(startAsync) {
-    return Asyncify.handleSleep(wakeUp => {
-      // TODO: add error handling as a second param when handleSleep implements it.
-      startAsync().then(wakeUp);
-    });
-  }
 };
 
 var FS_createPath = FS.createPath;
@@ -10966,130 +10695,30 @@ var __asan_c_store_d = (a0, a1) => (__asan_c_store_d = wasmExports["_asan_c_stor
 
 var ___set_stack_limits = Module["___set_stack_limits"] = createExportWrapper("__set_stack_limits", 2);
 
-var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii", 2);
-
-var dynCall_viiii = Module["dynCall_viiii"] = createExportWrapper("dynCall_viiii", 5);
-
-var dynCall_vi = Module["dynCall_vi"] = createExportWrapper("dynCall_vi", 2);
-
-var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii", 4);
-
-var dynCall_iii = Module["dynCall_iii"] = createExportWrapper("dynCall_iii", 3);
-
-var dynCall_viiiiii = Module["dynCall_viiiiii"] = createExportWrapper("dynCall_viiiiii", 7);
-
 var dynCall_j = Module["dynCall_j"] = createExportWrapper("dynCall_j", 1);
 
 var dynCall_ji = Module["dynCall_ji"] = createExportWrapper("dynCall_ji", 2);
 
-var dynCall_vii = Module["dynCall_vii"] = createExportWrapper("dynCall_vii", 3);
-
-var dynCall_iiiiiii = Module["dynCall_iiiiiii"] = createExportWrapper("dynCall_iiiiiii", 7);
-
 var dynCall_jii = Module["dynCall_jii"] = createExportWrapper("dynCall_jii", 3);
 
-var dynCall_viii = Module["dynCall_viii"] = createExportWrapper("dynCall_viii", 4);
-
-var dynCall_v = Module["dynCall_v"] = createExportWrapper("dynCall_v", 1);
-
-var dynCall_viiiiiii = Module["dynCall_viiiiiii"] = createExportWrapper("dynCall_viiiiiii", 8);
-
-var dynCall_iiiii = Module["dynCall_iiiii"] = createExportWrapper("dynCall_iiiii", 5);
-
-var dynCall_viiiii = Module["dynCall_viiiii"] = createExportWrapper("dynCall_viiiii", 6);
-
-var dynCall_fiff = Module["dynCall_fiff"] = createExportWrapper("dynCall_fiff", 4);
-
-var dynCall_viiiff = Module["dynCall_viiiff"] = createExportWrapper("dynCall_viiiff", 6);
-
-var dynCall_viiff = Module["dynCall_viiff"] = createExportWrapper("dynCall_viiff", 5);
-
-var dynCall_viiif = Module["dynCall_viiif"] = createExportWrapper("dynCall_viiif", 5);
-
-var dynCall_viiffffi = Module["dynCall_viiffffi"] = createExportWrapper("dynCall_viiffffi", 8);
-
-var dynCall_viiiiiiiii = Module["dynCall_viiiiiiiii"] = createExportWrapper("dynCall_viiiiiiiii", 10);
-
-var dynCall_iiiiii = Module["dynCall_iiiiii"] = createExportWrapper("dynCall_iiiiii", 6);
-
-var dynCall_iiiiiiiiii = Module["dynCall_iiiiiiiiii"] = createExportWrapper("dynCall_iiiiiiiiii", 10);
-
 var dynCall_jiji = Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji", 5);
-
-var dynCall_iiiiiiiii = Module["dynCall_iiiiiiiii"] = createExportWrapper("dynCall_iiiiiiiii", 9);
-
-var dynCall_i = Module["dynCall_i"] = createExportWrapper("dynCall_i", 1);
-
-var dynCall_iid = Module["dynCall_iid"] = createExportWrapper("dynCall_iid", 3);
-
-var dynCall_di = Module["dynCall_di"] = createExportWrapper("dynCall_di", 2);
-
-var dynCall_fii = Module["dynCall_fii"] = createExportWrapper("dynCall_fii", 3);
 
 var dynCall_jij = Module["dynCall_jij"] = createExportWrapper("dynCall_jij", 4);
 
 var dynCall_iij = Module["dynCall_iij"] = createExportWrapper("dynCall_iij", 4);
 
-var dynCall_iiiiiiii = Module["dynCall_iiiiiiii"] = createExportWrapper("dynCall_iiiiiiii", 8);
-
-var dynCall_iiiiiiiiiiiiiiff = Module["dynCall_iiiiiiiiiiiiiiff"] = createExportWrapper("dynCall_iiiiiiiiiiiiiiff", 16);
-
-var dynCall_viiiiiiiiiii = Module["dynCall_viiiiiiiiiii"] = createExportWrapper("dynCall_viiiiiiiiiii", 12);
-
-var dynCall_iiiiiidiiff = Module["dynCall_iiiiiidiiff"] = createExportWrapper("dynCall_iiiiiidiiff", 11);
-
-var dynCall_vffff = Module["dynCall_vffff"] = createExportWrapper("dynCall_vffff", 5);
-
-var dynCall_vf = Module["dynCall_vf"] = createExportWrapper("dynCall_vf", 2);
-
-var dynCall_viiiiiiii = Module["dynCall_viiiiiiii"] = createExportWrapper("dynCall_viiiiiiii", 9);
-
-var dynCall_vff = Module["dynCall_vff"] = createExportWrapper("dynCall_vff", 3);
-
-var dynCall_vfi = Module["dynCall_vfi"] = createExportWrapper("dynCall_vfi", 3);
-
-var dynCall_viif = Module["dynCall_viif"] = createExportWrapper("dynCall_viif", 4);
-
-var dynCall_vif = Module["dynCall_vif"] = createExportWrapper("dynCall_vif", 3);
-
-var dynCall_viff = Module["dynCall_viff"] = createExportWrapper("dynCall_viff", 4);
-
-var dynCall_vifff = Module["dynCall_vifff"] = createExportWrapper("dynCall_vifff", 5);
-
-var dynCall_viffff = Module["dynCall_viffff"] = createExportWrapper("dynCall_viffff", 6);
-
-var dynCall_idi = Module["dynCall_idi"] = createExportWrapper("dynCall_idi", 3);
-
-var dynCall_dd = Module["dynCall_dd"] = createExportWrapper("dynCall_dd", 2);
-
-var dynCall_ifi = Module["dynCall_ifi"] = createExportWrapper("dynCall_ifi", 3);
-
-var dynCall_ff = Module["dynCall_ff"] = createExportWrapper("dynCall_ff", 2);
-
-var dynCall_iidiiii = Module["dynCall_iidiiii"] = createExportWrapper("dynCall_iidiiii", 7);
-
 var dynCall_viijii = Module["dynCall_viijii"] = createExportWrapper("dynCall_viijii", 7);
 
 var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij", 7);
-
-var dynCall_iiiiid = Module["dynCall_iiiiid"] = createExportWrapper("dynCall_iiiiid", 6);
 
 var dynCall_iiiiijj = Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj", 9);
 
 var dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj", 10);
 
-var _asyncify_start_unwind = createExportWrapper("asyncify_start_unwind", 1);
-
-var _asyncify_stop_unwind = createExportWrapper("asyncify_stop_unwind", 0);
-
-var _asyncify_start_rewind = createExportWrapper("asyncify_start_rewind", 1);
-
-var _asyncify_stop_rewind = createExportWrapper("asyncify_stop_rewind", 0);
-
 function invoke_ii(index, a1) {
   var sp = stackSave();
   try {
-    return dynCall_ii(index, a1);
+    return getWasmTableEntry(index)(a1);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11100,7 +10729,7 @@ function invoke_ii(index, a1) {
 function invoke_iiiii(index, a1, a2, a3, a4) {
   var sp = stackSave();
   try {
-    return dynCall_iiiii(index, a1, a2, a3, a4);
+    return getWasmTableEntry(index)(a1, a2, a3, a4);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11111,7 +10740,7 @@ function invoke_iiiii(index, a1, a2, a3, a4) {
 function invoke_iiii(index, a1, a2, a3) {
   var sp = stackSave();
   try {
-    return dynCall_iiii(index, a1, a2, a3);
+    return getWasmTableEntry(index)(a1, a2, a3);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11122,7 +10751,7 @@ function invoke_iiii(index, a1, a2, a3) {
 function invoke_vi(index, a1) {
   var sp = stackSave();
   try {
-    dynCall_vi(index, a1);
+    getWasmTableEntry(index)(a1);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11133,7 +10762,7 @@ function invoke_vi(index, a1) {
 function invoke_iii(index, a1, a2) {
   var sp = stackSave();
   try {
-    return dynCall_iii(index, a1, a2);
+    return getWasmTableEntry(index)(a1, a2);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11144,7 +10773,7 @@ function invoke_iii(index, a1, a2) {
 function invoke_viii(index, a1, a2, a3) {
   var sp = stackSave();
   try {
-    dynCall_viii(index, a1, a2, a3);
+    getWasmTableEntry(index)(a1, a2, a3);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11155,7 +10784,7 @@ function invoke_viii(index, a1, a2, a3) {
 function invoke_vii(index, a1, a2) {
   var sp = stackSave();
   try {
-    dynCall_vii(index, a1, a2);
+    getWasmTableEntry(index)(a1, a2);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11166,7 +10795,7 @@ function invoke_vii(index, a1, a2) {
 function invoke_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
   var sp = stackSave();
   try {
-    return dynCall_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9);
+    return getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7, a8, a9);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11177,7 +10806,7 @@ function invoke_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
 function invoke_iiiiii(index, a1, a2, a3, a4, a5) {
   var sp = stackSave();
   try {
-    return dynCall_iiiiii(index, a1, a2, a3, a4, a5);
+    return getWasmTableEntry(index)(a1, a2, a3, a4, a5);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11188,7 +10817,7 @@ function invoke_iiiiii(index, a1, a2, a3, a4, a5) {
 function invoke_iiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8) {
   var sp = stackSave();
   try {
-    return dynCall_iiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8);
+    return getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7, a8);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11199,7 +10828,7 @@ function invoke_iiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8) {
 function invoke_i(index) {
   var sp = stackSave();
   try {
-    return dynCall_i(index);
+    return getWasmTableEntry(index)();
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11210,7 +10839,7 @@ function invoke_i(index) {
 function invoke_viiii(index, a1, a2, a3, a4) {
   var sp = stackSave();
   try {
-    dynCall_viiii(index, a1, a2, a3, a4);
+    getWasmTableEntry(index)(a1, a2, a3, a4);
   } catch (e) {
     stackRestore(sp);
     if (e !== e + 0) throw e;
@@ -11258,11 +10887,11 @@ Module["FS_createDataFile"] = FS_createDataFile;
 
 Module["FS_createLazyFile"] = FS_createLazyFile;
 
-var missingLibrarySymbols = [ "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getTempRet0", "setTempRet0", "growMemory", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "emscriptenLog", "getDynCaller", "asmjsMangle", "HandleAllocator", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "getCFunc", "ccall", "cwrap", "uleb128Encode", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "unSign", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "writeArrayToMemory", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "hideEverythingExceptGivenElement", "restoreHiddenElements", "softFullscreenResizeWebGLRenderTarget", "registerPointerlockErrorEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "getCallstack", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "findMatchingCatch", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_mkdirTree", "_setNetworkCallback", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "setErrNo" ];
+var missingLibrarySymbols = [ "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getTempRet0", "setTempRet0", "growMemory", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "emscriptenLog", "getDynCaller", "asmjsMangle", "HandleAllocator", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "getCFunc", "ccall", "cwrap", "uleb128Encode", "sigToWasmTypes", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "unSign", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "writeArrayToMemory", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "hideEverythingExceptGivenElement", "restoreHiddenElements", "softFullscreenResizeWebGLRenderTarget", "registerPointerlockErrorEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "getCallstack", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "findMatchingCatch", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_mkdirTree", "_setNetworkCallback", "writeGLArray", "registerWebGlEventCallback", "runAndAbortIfError", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "setErrNo" ];
 
 missingLibrarySymbols.forEach(missingLibrarySymbol);
 
-var unexportedSymbols = [ "run", "addOnPreRun", "addOnInit", "addOnPreMain", "addOnExit", "addOnPostRun", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "WasmOffsetConverter", "WasmSourceMap", "writeStackCookie", "checkStackCookie", "writeI53ToI64", "readI53FromI64", "readI53FromU64", "convertI32PairToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "zeroMemory", "exitJS", "getHeapMax", "abortOnCannotGrowMemory", "ENV", "setStackLimits", "ERRNO_CODES", "strError", "DNS", "Protocols", "Sockets", "initRandomFill", "randomFill", "timers", "warnOnce", "withBuiltinMalloc", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "jstoi_q", "jstoi_s", "getExecutableName", "listenOnce", "autoResumeAudioContext", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "asyncLoad", "alignMemory", "mmapAlloc", "wasmTable", "noExitRuntime", "sigToWasmTypes", "freeTableIndexes", "functionsInTableMap", "setValue", "getValue", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "UTF8ToString", "stringToUTF8Array", "stringToUTF8", "lengthBytesUTF8", "intArrayFromString", "stringToAscii", "UTF16Decoder", "stringToNewUTF8", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "setLetterbox", "currentFullscreenStrategy", "restoreOldWindowedStyle", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "UNWIND_CACHE", "convertPCtoSourceLocation", "ExitStatus", "getEnvStrings", "doReadv", "doWritev", "safeSetTimeout", "promiseMap", "uncaughtExceptionCount", "exceptionLast", "exceptionCaught", "ExceptionInfo", "Browser", "setMainLoop", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar_buffer", "FS_stdin_getChar", "FS_readFile", "FS", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "GL", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "allocateUTF8", "allocateUTF8OnStack", "demangle", "stackTrace", "print", "printErr" ];
+var unexportedSymbols = [ "run", "addOnPreRun", "addOnInit", "addOnPreMain", "addOnExit", "addOnPostRun", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "WasmOffsetConverter", "WasmSourceMap", "writeStackCookie", "checkStackCookie", "writeI53ToI64", "readI53FromI64", "readI53FromU64", "convertI32PairToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "zeroMemory", "exitJS", "getHeapMax", "abortOnCannotGrowMemory", "ENV", "setStackLimits", "ERRNO_CODES", "strError", "DNS", "Protocols", "Sockets", "initRandomFill", "randomFill", "timers", "warnOnce", "withBuiltinMalloc", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "jstoi_q", "jstoi_s", "getExecutableName", "listenOnce", "autoResumeAudioContext", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "asyncLoad", "alignMemory", "mmapAlloc", "wasmTable", "noExitRuntime", "freeTableIndexes", "functionsInTableMap", "setValue", "getValue", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "UTF8ToString", "stringToUTF8Array", "stringToUTF8", "lengthBytesUTF8", "intArrayFromString", "stringToAscii", "UTF16Decoder", "stringToNewUTF8", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "setLetterbox", "currentFullscreenStrategy", "restoreOldWindowedStyle", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "UNWIND_CACHE", "convertPCtoSourceLocation", "ExitStatus", "getEnvStrings", "doReadv", "doWritev", "safeSetTimeout", "promiseMap", "uncaughtExceptionCount", "exceptionLast", "exceptionCaught", "ExceptionInfo", "Browser", "setMainLoop", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar_buffer", "FS_stdin_getChar", "FS_readFile", "FS", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "GL", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "allocateUTF8", "allocateUTF8OnStack", "demangle", "stackTrace", "print", "printErr" ];
 
 unexportedSymbols.forEach(unexportedRuntimeSymbol);
 

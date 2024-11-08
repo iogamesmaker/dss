@@ -247,8 +247,9 @@ void Game::switchToGame() {
 
 void Game::render()
 {
-    SDL_RenderClear(renderer);
-
+    if(renderer != nullptr) {
+        SDL_RenderClear(renderer);
+    }
     float ticks = SDL_GetTicks64();
     int starOffset = ticks / 10;
 
@@ -283,7 +284,9 @@ void Game::render()
 
     TM->renderCustom(cursor, {0, 0, 8, 8}, rect);
 
-    SDL_RenderPresent(renderer);
+    if(renderer != nullptr) {
+        SDL_RenderPresent(renderer);
+    }
 }
 
 void Game::clean()
